@@ -4,34 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>subscriptionBoxTemplate</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/Pretty-Product-List.css">
     <link rel="stylesheet" href="assets/css/Product-Details.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
     <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color:#212529;">
-            <div class="container"><a class="navbar-brand" href="#" style="color:rgb(240,249,255);">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" style="color:rgb(240,249,255);"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color:rgb(255,240,247);"></span></button>
-                <div
-                    class="collapse navbar-collapse" id="navcol-1" style="color:rgb(240,249,255);">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
                     <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color:rgb(240,249,255);">Home</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(240,249,255);">About</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(240,249,255);">Services</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(240,249,255);">Contact</a></li>
-                    </ul><span class="navbar-text actions"> <a href="#" class="login" style="color:rgb(240,249,255);">Log In</a><a class="btn btn-light action-button" role="button" href="#" style="background-color:rgb(180,129,70);">Sign Up</a></span></div>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">First Item</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        </li>
+                    </ul><span class="navbar-text actions"> <a href="logIn.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span></div>
+            </div>
+        </nav>
     </div>
-    </nav>
-    </div>
-    <h1 class="text-center">Product List</h1>
     <div class="row product-list">
         <div class="col-sm-6 col-md-4 product-item">
             <div class="product-container">
@@ -40,13 +41,16 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <h2><a href="productDetails.html">iPhone 6s</a></h2>
+                        <h2><a href="#">iPhone 6s</a></h2>
                     </div>
+                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
                 </div>
+                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
                 <div class="row">
                     <div class="col-12">
                         <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
                         <div class="row">
+                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
                             <div class="col-6">
                                 <p class="product-price">$599.00 </p>
                             </div>
@@ -62,13 +66,16 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <h2><a href="productDetails.html">iPhone 6s</a></h2>
+                        <h2><a href="#">iPhone 6s</a></h2>
                     </div>
+                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
                 </div>
+                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
                 <div class="row">
                     <div class="col-12">
                         <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
                         <div class="row">
+                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
                             <div class="col-6">
                                 <p class="product-price">$599.00 </p>
                             </div>
@@ -84,13 +91,16 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <h2><a href="productDetails.html">iPhone 6s</a></h2>
+                        <h2><a href="#">iPhone 6s</a></h2>
                     </div>
+                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
                 </div>
+                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
                 <div class="row">
                     <div class="col-12">
                         <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
                         <div class="row">
+                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
                             <div class="col-6">
                                 <p class="product-price">$599.00 </p>
                             </div>
