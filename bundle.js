@@ -2553,7 +2553,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 }));
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":67,"fs":66,"querystring":71,"superagent":2}],10:[function(require,module,exports){
+},{"buffer":70,"fs":69,"querystring":74,"superagent":2}],10:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -2942,7 +2942,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./ServiceInstance":33}],14:[function(require,module,exports){
+},{"../ApiClient":9,"./ServiceInstance":34}],14:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -3069,18 +3069,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/ChargingLog'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/ChargingLog', 'com.kodfarki.subscreasy.client.model/Subsription'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ChargingLog'));
+    module.exports = factory(require('../ApiClient'), require('./ChargingLog'), require('./Subsription'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.ChargingLog = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog);
+    root.ApiDocumentation.ChargingLog = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Subsription);
   }
-}(this, function(ApiClient, ChargingLog) {
+}(this, function(ApiClient, ChargingLog, Subsription) {
   'use strict';
 
 
@@ -3099,6 +3099,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -3187,8 +3188,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('subscriberSecureId')) {
         obj['subscriberSecureId'] = ApiClient.convertToType(data['subscriberSecureId'], 'String');
       }
-      if (data.hasOwnProperty('subscriptionId')) {
-        obj['subscriptionId'] = ApiClient.convertToType(data['subscriptionId'], 'Number');
+      if (data.hasOwnProperty('subscription')) {
+        obj['subscription'] = Subsription.constructFromObject(data['subscription']);
+      }
+      if (data.hasOwnProperty('subscriptionId2')) {
+        obj['subscriptionId2'] = ApiClient.convertToType(data['subscriptionId2'], 'Number');
       }
       if (data.hasOwnProperty('transactionId')) {
         obj['transactionId'] = ApiClient.convertToType(data['transactionId'], 'String');
@@ -3270,9 +3274,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['subscriberSecureId'] = undefined;
   /**
-   * @member {Number} subscriptionId
+   * @member {module:com.kodfarki.subscreasy.client.model/Subsription} subscription
    */
-  exports.prototype['subscriptionId'] = undefined;
+  exports.prototype['subscription'] = undefined;
+  /**
+   * @member {Number} subscriptionId2
+   */
+  exports.prototype['subscriptionId2'] = undefined;
   /**
    * @member {String} transactionId
    */
@@ -3361,7 +3369,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./ChargingLog":15}],16:[function(require,module,exports){
+},{"../ApiClient":9,"./ChargingLog":15,"./Subsription":41}],16:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -4410,6 +4418,107 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.ApiDocumentation) {
+      root.ApiDocumentation = {};
+    }
+    root.ApiDocumentation.LoginVM = factory(root.ApiDocumentation.ApiClient);
+  }
+}(this, function(ApiClient) {
+  'use strict';
+
+
+
+
+  /**
+   * The LoginVM model module.
+   * @module com.kodfarki.subscreasy.client.model/LoginVM
+   * @version 1.0
+   */
+
+  /**
+   * Constructs a new <code>LoginVM</code>.
+   * @alias module:com.kodfarki.subscreasy.client.model/LoginVM
+   * @class
+   * @param password {String} 
+   * @param username {String} 
+   */
+  var exports = function(password, username) {
+    var _this = this;
+
+    _this['password'] = password;
+
+    _this['username'] = username;
+  };
+
+  /**
+   * Constructs a <code>LoginVM</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:com.kodfarki.subscreasy.client.model/LoginVM} obj Optional instance to populate.
+   * @return {module:com.kodfarki.subscreasy.client.model/LoginVM} The populated <code>LoginVM</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('password')) {
+        obj['password'] = ApiClient.convertToType(data['password'], 'String');
+      }
+      if (data.hasOwnProperty('rememberMe')) {
+        obj['rememberMe'] = ApiClient.convertToType(data['rememberMe'], 'Boolean');
+      }
+      if (data.hasOwnProperty('username')) {
+        obj['username'] = ApiClient.convertToType(data['username'], 'String');
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * @member {String} password
+   */
+  exports.prototype['password'] = undefined;
+  /**
+   * @member {Boolean} rememberMe
+   */
+  exports.prototype['rememberMe'] = undefined;
+  /**
+   * @member {String} username
+   */
+  exports.prototype['username'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":9}],25:[function(require,module,exports){
+/**
+ * Api Documentation
+ * Api Documentation
+ *
+ * OpenAPI spec version: 1.0
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
     define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Company'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
@@ -4595,7 +4704,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16}],25:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16}],26:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -4779,7 +4888,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16}],26:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16}],27:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -4931,7 +5040,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16,"./RecurrencePeriod":29}],27:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16,"./RecurrencePeriod":30}],28:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -5086,7 +5195,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],28:[function(require,module,exports){
+},{"../ApiClient":9}],29:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -5177,7 +5286,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],29:[function(require,module,exports){
+},{"../ApiClient":9}],30:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -5320,7 +5429,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],30:[function(require,module,exports){
+},{"../ApiClient":9}],31:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -5746,7 +5855,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],31:[function(require,module,exports){
+},{"../ApiClient":9}],32:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -5901,7 +6010,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],32:[function(require,module,exports){
+},{"../ApiClient":9}],33:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6033,7 +6142,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16}],33:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16}],34:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6345,7 +6454,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Offer":26,"./ServiceOffering":35,"./Subsription":41}],34:[function(require,module,exports){
+},{"../ApiClient":9,"./Offer":27,"./ServiceOffering":36,"./Subsription":41}],35:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6476,7 +6585,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],35:[function(require,module,exports){
+},{"../ApiClient":9}],36:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6633,7 +6742,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16,"./Offer":26,"./Service":32}],36:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16,"./Offer":27,"./Service":33}],37:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6764,7 +6873,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],37:[function(require,module,exports){
+},{"../ApiClient":9}],38:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -6783,18 +6892,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/PaymentCard', 'com.kodfarki.subscreasy.client.model/Subscriber', 'com.kodfarki.subscreasy.client.model/SubscriptionPlan'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Offer', 'com.kodfarki.subscreasy.client.model/PaymentCard', 'com.kodfarki.subscreasy.client.model/Subscriber'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./PaymentCard'), require('./Subscriber'), require('./SubscriptionPlan'));
+    module.exports = factory(require('../ApiClient'), require('./Offer'), require('./PaymentCard'), require('./Subscriber'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.StartSubscriptionRequest = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.PaymentCard, root.ApiDocumentation.Subscriber, root.ApiDocumentation.SubscriptionPlan);
+    root.ApiDocumentation.StartSubscriptionRequest = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer, root.ApiDocumentation.PaymentCard, root.ApiDocumentation.Subscriber);
   }
-}(this, function(ApiClient, PaymentCard, Subscriber, SubscriptionPlan) {
+}(this, function(ApiClient, Offer, PaymentCard, Subscriber) {
   'use strict';
 
 
@@ -6813,6 +6922,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -6843,10 +6953,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
         obj['couponCode'] = ApiClient.convertToType(data['couponCode'], 'String');
       }
       if (data.hasOwnProperty('offer')) {
-        obj['offer'] = SubscriptionPlan.constructFromObject(data['offer']);
+        obj['offer'] = Offer.constructFromObject(data['offer']);
       }
       if (data.hasOwnProperty('paymentCard')) {
         obj['paymentCard'] = PaymentCard.constructFromObject(data['paymentCard']);
+      }
+      if (data.hasOwnProperty('price')) {
+        obj['price'] = ApiClient.convertToType(data['price'], 'Number');
       }
       if (data.hasOwnProperty('subscriber')) {
         obj['subscriber'] = Subscriber.constructFromObject(data['subscriber']);
@@ -6868,13 +6981,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['couponCode'] = undefined;
   /**
-   * @member {module:com.kodfarki.subscreasy.client.model/SubscriptionPlan} offer
+   * @member {module:com.kodfarki.subscreasy.client.model/Offer} offer
    */
   exports.prototype['offer'] = undefined;
   /**
    * @member {module:com.kodfarki.subscreasy.client.model/PaymentCard} paymentCard
    */
   exports.prototype['paymentCard'] = undefined;
+  /**
+   * @member {Number} price
+   */
+  exports.prototype['price'] = undefined;
   /**
    * @member {module:com.kodfarki.subscreasy.client.model/Subscriber} subscriber
    */
@@ -6887,234 +7004,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./PaymentCard":27,"./Subscriber":38,"./SubscriptionPlan":40}],38:[function(require,module,exports){
-/**
- * Api Documentation
- * Api Documentation
- *
- * OpenAPI spec version: 1.0
- *
- * NOTE: This class is auto generated by the swagger code generator program.
- * https://github.com/swagger-api/swagger-codegen.git
- *
- * Swagger Codegen version: 2.3.1
- *
- * Do not edit the class manually.
- *
- */
-
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
-    }
-    root.ApiDocumentation.Subscriber = factory(root.ApiDocumentation.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
-
-
-
-
-  /**
-   * The Subscriber model module.
-   * @module com.kodfarki.subscreasy.client.model/Subscriber
-   * @version 1.0
-   */
-
-  /**
-   * Constructs a new <code>Subscriber</code>.
-   * @alias module:com.kodfarki.subscreasy.client.model/Subscriber
-   * @class
-   */
-  var exports = function() {
-    var _this = this;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  };
-
-  /**
-   * Constructs a <code>Subscriber</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:com.kodfarki.subscreasy.client.model/Subscriber} obj Optional instance to populate.
-   * @return {module:com.kodfarki.subscreasy.client.model/Subscriber} The populated <code>Subscriber</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('address')) {
-        obj['address'] = ApiClient.convertToType(data['address'], 'String');
-      }
-      if (data.hasOwnProperty('city')) {
-        obj['city'] = ApiClient.convertToType(data['city'], 'String');
-      }
-      if (data.hasOwnProperty('country')) {
-        obj['country'] = ApiClient.convertToType(data['country'], 'String');
-      }
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
-      }
-      if (data.hasOwnProperty('gsmNumber')) {
-        obj['gsmNumber'] = ApiClient.convertToType(data['gsmNumber'], 'String');
-      }
-      if (data.hasOwnProperty('identityNumber')) {
-        obj['identityNumber'] = ApiClient.convertToType(data['identityNumber'], 'String');
-      }
-      if (data.hasOwnProperty('ip')) {
-        obj['ip'] = ApiClient.convertToType(data['ip'], 'String');
-      }
-      if (data.hasOwnProperty('lastLoginDate')) {
-        obj['lastLoginDate'] = ApiClient.convertToType(data['lastLoginDate'], 'String');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('registrationDate')) {
-        obj['registrationDate'] = ApiClient.convertToType(data['registrationDate'], 'String');
-      }
-      if (data.hasOwnProperty('secureId')) {
-        obj['secureId'] = ApiClient.convertToType(data['secureId'], 'String');
-      }
-      if (data.hasOwnProperty('shippingAddress')) {
-        obj['shippingAddress'] = ApiClient.convertToType(data['shippingAddress'], 'String');
-      }
-      if (data.hasOwnProperty('shippingCity')) {
-        obj['shippingCity'] = ApiClient.convertToType(data['shippingCity'], 'String');
-      }
-      if (data.hasOwnProperty('shippingCountry')) {
-        obj['shippingCountry'] = ApiClient.convertToType(data['shippingCountry'], 'String');
-      }
-      if (data.hasOwnProperty('shippingName')) {
-        obj['shippingName'] = ApiClient.convertToType(data['shippingName'], 'String');
-      }
-      if (data.hasOwnProperty('shippingZipCode')) {
-        obj['shippingZipCode'] = ApiClient.convertToType(data['shippingZipCode'], 'String');
-      }
-      if (data.hasOwnProperty('surname')) {
-        obj['surname'] = ApiClient.convertToType(data['surname'], 'String');
-      }
-      if (data.hasOwnProperty('useBillingAddressForShipping')) {
-        obj['useBillingAddressForShipping'] = ApiClient.convertToType(data['useBillingAddressForShipping'], 'Boolean');
-      }
-      if (data.hasOwnProperty('zipCode')) {
-        obj['zipCode'] = ApiClient.convertToType(data['zipCode'], 'String');
-      }
-    }
-    return obj;
-  }
-
-  /**
-   * @member {String} address
-   */
-  exports.prototype['address'] = undefined;
-  /**
-   * @member {String} city
-   */
-  exports.prototype['city'] = undefined;
-  /**
-   * @member {String} country
-   */
-  exports.prototype['country'] = undefined;
-  /**
-   * @member {String} email
-   */
-  exports.prototype['email'] = undefined;
-  /**
-   * @member {String} gsmNumber
-   */
-  exports.prototype['gsmNumber'] = undefined;
-  /**
-   * @member {String} identityNumber
-   */
-  exports.prototype['identityNumber'] = undefined;
-  /**
-   * @member {String} ip
-   */
-  exports.prototype['ip'] = undefined;
-  /**
-   * @member {String} lastLoginDate
-   */
-  exports.prototype['lastLoginDate'] = undefined;
-  /**
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} registrationDate
-   */
-  exports.prototype['registrationDate'] = undefined;
-  /**
-   * @member {String} secureId
-   */
-  exports.prototype['secureId'] = undefined;
-  /**
-   * @member {String} shippingAddress
-   */
-  exports.prototype['shippingAddress'] = undefined;
-  /**
-   * @member {String} shippingCity
-   */
-  exports.prototype['shippingCity'] = undefined;
-  /**
-   * @member {String} shippingCountry
-   */
-  exports.prototype['shippingCountry'] = undefined;
-  /**
-   * @member {String} shippingName
-   */
-  exports.prototype['shippingName'] = undefined;
-  /**
-   * @member {String} shippingZipCode
-   */
-  exports.prototype['shippingZipCode'] = undefined;
-  /**
-   * @member {String} surname
-   */
-  exports.prototype['surname'] = undefined;
-  /**
-   * @member {Boolean} useBillingAddressForShipping
-   */
-  exports.prototype['useBillingAddressForShipping'] = undefined;
-  /**
-   * @member {String} zipCode
-   */
-  exports.prototype['zipCode'] = undefined;
-
-
-
-  return exports;
-}));
-
-
-
-},{"../ApiClient":9}],39:[function(require,module,exports){
+},{"../ApiClient":9,"./Offer":27,"./PaymentCard":28,"./Subscriber":40}],39:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -7142,7 +7032,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.SubscriptionCreateResult = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Subsription);
+    root.ApiDocumentation.StartSubscriptionResult = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Subsription);
   }
 }(this, function(ApiClient, ChargingLog, Subsription) {
   'use strict';
@@ -7151,14 +7041,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
   /**
-   * The SubscriptionCreateResult model module.
-   * @module com.kodfarki.subscreasy.client.model/SubscriptionCreateResult
+   * The StartSubscriptionResult model module.
+   * @module com.kodfarki.subscreasy.client.model/StartSubscriptionResult
    * @version 1.0
    */
 
   /**
-   * Constructs a new <code>SubscriptionCreateResult</code>.
-   * @alias module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult
+   * Constructs a new <code>StartSubscriptionResult</code>.
+   * @alias module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult
    * @class
    */
   var exports = function() {
@@ -7169,11 +7059,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
   };
 
   /**
-   * Constructs a <code>SubscriptionCreateResult</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>StartSubscriptionResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult} obj Optional instance to populate.
-   * @return {module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult} The populated <code>SubscriptionCreateResult</code> instance.
+   * @param {module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult} obj Optional instance to populate.
+   * @return {module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult} The populated <code>StartSubscriptionResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -7224,32 +7114,32 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Address', 'com.kodfarki.subscreasy.client.model/Company'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Company'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.SubscriptionPlan = factory(root.ApiDocumentation.ApiClient);
+    root.ApiDocumentation.Subscriber = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address, root.ApiDocumentation.Company);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Address, Company) {
   'use strict';
 
 
 
 
   /**
-   * The SubscriptionPlan model module.
-   * @module com.kodfarki.subscreasy.client.model/SubscriptionPlan
+   * The Subscriber model module.
+   * @module com.kodfarki.subscreasy.client.model/Subscriber
    * @version 1.0
    */
 
   /**
-   * Constructs a new <code>SubscriptionPlan</code>.
-   * @alias module:com.kodfarki.subscreasy.client.model/SubscriptionPlan
+   * Constructs a new <code>Subscriber</code>.
+   * @alias module:com.kodfarki.subscreasy.client.model/Subscriber
    * @class
    */
   var exports = function() {
@@ -7257,37 +7147,229 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   /**
-   * Constructs a <code>SubscriptionPlan</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Subscriber</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:com.kodfarki.subscreasy.client.model/SubscriptionPlan} obj Optional instance to populate.
-   * @return {module:com.kodfarki.subscreasy.client.model/SubscriptionPlan} The populated <code>SubscriptionPlan</code> instance.
+   * @param {module:com.kodfarki.subscreasy.client.model/Subscriber} obj Optional instance to populate.
+   * @return {module:com.kodfarki.subscreasy.client.model/Subscriber} The populated <code>Subscriber</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('activated')) {
+        obj['activated'] = ApiClient.convertToType(data['activated'], 'Boolean');
+      }
+      if (data.hasOwnProperty('activationKey')) {
+        obj['activationKey'] = ApiClient.convertToType(data['activationKey'], 'String');
+      }
+      if (data.hasOwnProperty('address')) {
+        obj['address'] = ApiClient.convertToType(data['address'], 'String');
+      }
+      if (data.hasOwnProperty('billingAddress')) {
+        obj['billingAddress'] = Address.constructFromObject(data['billingAddress']);
+      }
+      if (data.hasOwnProperty('city')) {
+        obj['city'] = ApiClient.convertToType(data['city'], 'String');
+      }
+      if (data.hasOwnProperty('company')) {
+        obj['company'] = Company.constructFromObject(data['company']);
+      }
+      if (data.hasOwnProperty('country')) {
+        obj['country'] = ApiClient.convertToType(data['country'], 'String');
+      }
+      if (data.hasOwnProperty('createDate')) {
+        obj['createDate'] = ApiClient.convertToType(data['createDate'], 'Date');
+      }
+      if (data.hasOwnProperty('email')) {
+        obj['email'] = ApiClient.convertToType(data['email'], 'String');
+      }
+      if (data.hasOwnProperty('gsmNumber')) {
+        obj['gsmNumber'] = ApiClient.convertToType(data['gsmNumber'], 'String');
+      }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
+      if (data.hasOwnProperty('identityNumber')) {
+        obj['identityNumber'] = ApiClient.convertToType(data['identityNumber'], 'String');
+      }
+      if (data.hasOwnProperty('ip')) {
+        obj['ip'] = ApiClient.convertToType(data['ip'], 'String');
+      }
+      if (data.hasOwnProperty('lastLoginDate')) {
+        obj['lastLoginDate'] = ApiClient.convertToType(data['lastLoginDate'], 'String');
+      }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('passwordHash')) {
+        obj['passwordHash'] = ApiClient.convertToType(data['passwordHash'], 'String');
+      }
+      if (data.hasOwnProperty('registrationDate')) {
+        obj['registrationDate'] = ApiClient.convertToType(data['registrationDate'], 'String');
+      }
       if (data.hasOwnProperty('secureId')) {
         obj['secureId'] = ApiClient.convertToType(data['secureId'], 'String');
+      }
+      if (data.hasOwnProperty('shippingAddress')) {
+        obj['shippingAddress'] = Address.constructFromObject(data['shippingAddress']);
+      }
+      if (data.hasOwnProperty('shippingCity')) {
+        obj['shippingCity'] = ApiClient.convertToType(data['shippingCity'], 'String');
+      }
+      if (data.hasOwnProperty('shippingCountry')) {
+        obj['shippingCountry'] = ApiClient.convertToType(data['shippingCountry'], 'String');
+      }
+      if (data.hasOwnProperty('shippingName')) {
+        obj['shippingName'] = ApiClient.convertToType(data['shippingName'], 'String');
+      }
+      if (data.hasOwnProperty('shippingZipCode')) {
+        obj['shippingZipCode'] = ApiClient.convertToType(data['shippingZipCode'], 'String');
+      }
+      if (data.hasOwnProperty('surname')) {
+        obj['surname'] = ApiClient.convertToType(data['surname'], 'String');
+      }
+      if (data.hasOwnProperty('useBillingAddressForShipping')) {
+        obj['useBillingAddressForShipping'] = ApiClient.convertToType(data['useBillingAddressForShipping'], 'Boolean');
+      }
+      if (data.hasOwnProperty('zipCode')) {
+        obj['zipCode'] = ApiClient.convertToType(data['zipCode'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * @member {Boolean} activated
+   */
+  exports.prototype['activated'] = undefined;
+  /**
+   * @member {String} activationKey
+   */
+  exports.prototype['activationKey'] = undefined;
+  /**
+   * @member {String} address
+   */
+  exports.prototype['address'] = undefined;
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Address} billingAddress
+   */
+  exports.prototype['billingAddress'] = undefined;
+  /**
+   * @member {String} city
+   */
+  exports.prototype['city'] = undefined;
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Company} company
+   */
+  exports.prototype['company'] = undefined;
+  /**
+   * @member {String} country
+   */
+  exports.prototype['country'] = undefined;
+  /**
+   * @member {Date} createDate
+   */
+  exports.prototype['createDate'] = undefined;
+  /**
+   * @member {String} email
+   */
+  exports.prototype['email'] = undefined;
+  /**
+   * @member {String} gsmNumber
+   */
+  exports.prototype['gsmNumber'] = undefined;
+  /**
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
+   * @member {String} identityNumber
+   */
+  exports.prototype['identityNumber'] = undefined;
+  /**
+   * @member {String} ip
+   */
+  exports.prototype['ip'] = undefined;
+  /**
+   * @member {String} lastLoginDate
+   */
+  exports.prototype['lastLoginDate'] = undefined;
+  /**
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * @member {String} passwordHash
+   */
+  exports.prototype['passwordHash'] = undefined;
+  /**
+   * @member {String} registrationDate
+   */
+  exports.prototype['registrationDate'] = undefined;
+  /**
    * @member {String} secureId
    */
   exports.prototype['secureId'] = undefined;
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Address} shippingAddress
+   */
+  exports.prototype['shippingAddress'] = undefined;
+  /**
+   * @member {String} shippingCity
+   */
+  exports.prototype['shippingCity'] = undefined;
+  /**
+   * @member {String} shippingCountry
+   */
+  exports.prototype['shippingCountry'] = undefined;
+  /**
+   * @member {String} shippingName
+   */
+  exports.prototype['shippingName'] = undefined;
+  /**
+   * @member {String} shippingZipCode
+   */
+  exports.prototype['shippingZipCode'] = undefined;
+  /**
+   * @member {String} surname
+   */
+  exports.prototype['surname'] = undefined;
+  /**
+   * @member {Boolean} useBillingAddressForShipping
+   */
+  exports.prototype['useBillingAddressForShipping'] = undefined;
+  /**
+   * @member {String} zipCode
+   */
+  exports.prototype['zipCode'] = undefined;
 
 
 
@@ -7296,7 +7378,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9}],41:[function(require,module,exports){
+},{"../ApiClient":9,"./Address":10,"./Company":16}],41:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -7315,18 +7397,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Company', 'com.kodfarki.subscreasy.client.model/Coupon', 'com.kodfarki.subscreasy.client.model/Offer', 'com.kodfarki.subscreasy.client.model/SavedCard', 'com.kodfarki.subscreasy.client.model/ServiceInstance'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Company', 'com.kodfarki.subscreasy.client.model/Coupon', 'com.kodfarki.subscreasy.client.model/Offer', 'com.kodfarki.subscreasy.client.model/SavedCard', 'com.kodfarki.subscreasy.client.model/ServiceInstance', 'com.kodfarki.subscreasy.client.model/Subscriber'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Company'), require('./Coupon'), require('./Offer'), require('./SavedCard'), require('./ServiceInstance'));
+    module.exports = factory(require('../ApiClient'), require('./Company'), require('./Coupon'), require('./Offer'), require('./SavedCard'), require('./ServiceInstance'), require('./Subscriber'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.Subsription = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Coupon, root.ApiDocumentation.Offer, root.ApiDocumentation.SavedCard, root.ApiDocumentation.ServiceInstance);
+    root.ApiDocumentation.Subsription = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Coupon, root.ApiDocumentation.Offer, root.ApiDocumentation.SavedCard, root.ApiDocumentation.ServiceInstance, root.ApiDocumentation.Subscriber);
   }
-}(this, function(ApiClient, Company, Coupon, Offer, SavedCard, ServiceInstance) {
+}(this, function(ApiClient, Company, Coupon, Offer, SavedCard, ServiceInstance, Subscriber) {
   'use strict';
 
 
@@ -7356,6 +7438,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
     _this['offer'] = offer;
+
 
 
 
@@ -7407,8 +7490,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('status')) {
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
-      if (data.hasOwnProperty('subscriberId')) {
-        obj['subscriberId'] = ApiClient.convertToType(data['subscriberId'], 'String');
+      if (data.hasOwnProperty('subscriber')) {
+        obj['subscriber'] = Subscriber.constructFromObject(data['subscriber']);
+      }
+      if (data.hasOwnProperty('subscriberSecureId')) {
+        obj['subscriberSecureId'] = ApiClient.convertToType(data['subscriberSecureId'], 'String');
       }
       if (data.hasOwnProperty('version')) {
         obj['version'] = ApiClient.convertToType(data['version'], 'Number');
@@ -7462,9 +7548,13 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['status'] = undefined;
   /**
-   * @member {String} subscriberId
+   * @member {module:com.kodfarki.subscreasy.client.model/Subscriber} subscriber
    */
-  exports.prototype['subscriberId'] = undefined;
+  exports.prototype['subscriber'] = undefined;
+  /**
+   * @member {String} subscriberSecureId
+   */
+  exports.prototype['subscriberSecureId'] = undefined;
   /**
    * @member {Number} version
    */
@@ -7509,7 +7599,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Company":16,"./Coupon":18,"./Offer":26,"./SavedCard":31,"./ServiceInstance":33}],42:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16,"./Coupon":18,"./Offer":27,"./SavedCard":32,"./ServiceInstance":34,"./Subscriber":40}],42:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -7792,6 +7882,350 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Company'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('./Company'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.ApiDocumentation) {
+      root.ApiDocumentation = {};
+    }
+    root.ApiDocumentation.UserDTO = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+  }
+}(this, function(ApiClient, Company) {
+  'use strict';
+
+
+
+
+  /**
+   * The UserDTO model module.
+   * @module com.kodfarki.subscreasy.client.model/UserDTO
+   * @version 1.0
+   */
+
+  /**
+   * Constructs a new <code>UserDTO</code>.
+   * @alias module:com.kodfarki.subscreasy.client.model/UserDTO
+   * @class
+   * @param login {String} 
+   */
+  var exports = function(login) {
+    var _this = this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    _this['login'] = login;
+
+
+  };
+
+  /**
+   * Constructs a <code>UserDTO</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:com.kodfarki.subscreasy.client.model/UserDTO} obj Optional instance to populate.
+   * @return {module:com.kodfarki.subscreasy.client.model/UserDTO} The populated <code>UserDTO</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('activated')) {
+        obj['activated'] = ApiClient.convertToType(data['activated'], 'Boolean');
+      }
+      if (data.hasOwnProperty('authorities')) {
+        obj['authorities'] = ApiClient.convertToType(data['authorities'], ['String']);
+      }
+      if (data.hasOwnProperty('company')) {
+        obj['company'] = Company.constructFromObject(data['company']);
+      }
+      if (data.hasOwnProperty('createdBy')) {
+        obj['createdBy'] = ApiClient.convertToType(data['createdBy'], 'String');
+      }
+      if (data.hasOwnProperty('createdDate')) {
+        obj['createdDate'] = ApiClient.convertToType(data['createdDate'], 'Date');
+      }
+      if (data.hasOwnProperty('email')) {
+        obj['email'] = ApiClient.convertToType(data['email'], 'String');
+      }
+      if (data.hasOwnProperty('firstName')) {
+        obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
+      }
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('imageUrl')) {
+        obj['imageUrl'] = ApiClient.convertToType(data['imageUrl'], 'String');
+      }
+      if (data.hasOwnProperty('langKey')) {
+        obj['langKey'] = ApiClient.convertToType(data['langKey'], 'String');
+      }
+      if (data.hasOwnProperty('lastModifiedBy')) {
+        obj['lastModifiedBy'] = ApiClient.convertToType(data['lastModifiedBy'], 'String');
+      }
+      if (data.hasOwnProperty('lastModifiedDate')) {
+        obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
+      }
+      if (data.hasOwnProperty('lastName')) {
+        obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
+      }
+      if (data.hasOwnProperty('login')) {
+        obj['login'] = ApiClient.convertToType(data['login'], 'String');
+      }
+      if (data.hasOwnProperty('password')) {
+        obj['password'] = ApiClient.convertToType(data['password'], 'String');
+      }
+      if (data.hasOwnProperty('resetDate')) {
+        obj['resetDate'] = ApiClient.convertToType(data['resetDate'], 'String');
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * @member {Boolean} activated
+   */
+  exports.prototype['activated'] = undefined;
+  /**
+   * @member {Array.<String>} authorities
+   */
+  exports.prototype['authorities'] = undefined;
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Company} company
+   */
+  exports.prototype['company'] = undefined;
+  /**
+   * @member {String} createdBy
+   */
+  exports.prototype['createdBy'] = undefined;
+  /**
+   * @member {Date} createdDate
+   */
+  exports.prototype['createdDate'] = undefined;
+  /**
+   * @member {String} email
+   */
+  exports.prototype['email'] = undefined;
+  /**
+   * @member {String} firstName
+   */
+  exports.prototype['firstName'] = undefined;
+  /**
+   * @member {Number} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * @member {String} imageUrl
+   */
+  exports.prototype['imageUrl'] = undefined;
+  /**
+   * @member {String} langKey
+   */
+  exports.prototype['langKey'] = undefined;
+  /**
+   * @member {String} lastModifiedBy
+   */
+  exports.prototype['lastModifiedBy'] = undefined;
+  /**
+   * @member {Date} lastModifiedDate
+   */
+  exports.prototype['lastModifiedDate'] = undefined;
+  /**
+   * @member {String} lastName
+   */
+  exports.prototype['lastName'] = undefined;
+  /**
+   * @member {String} login
+   */
+  exports.prototype['login'] = undefined;
+  /**
+   * @member {String} password
+   */
+  exports.prototype['password'] = undefined;
+  /**
+   * @member {String} resetDate
+   */
+  exports.prototype['resetDate'] = undefined;
+
+
+
+  return exports;
+}));
+
+
+
+},{"../ApiClient":9,"./Company":16}],45:[function(require,module,exports){
+/**
+ * Api Documentation
+ * Api Documentation
+ *
+ * OpenAPI spec version: 1.0
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/ResponseEntity', 'com.kodfarki.subscreasy.client.model/UserDTO'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ResponseEntity'), require('../com.kodfarki.subscreasy.client.model/UserDTO'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.ApiDocumentation) {
+      root.ApiDocumentation = {};
+    }
+    root.ApiDocumentation.AccountResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ResponseEntity, root.ApiDocumentation.UserDTO);
+  }
+}(this, function(ApiClient, ResponseEntity, UserDTO) {
+  'use strict';
+
+  /**
+   * AccountResource service.
+   * @module com.kodfarki.subscreasy.client/AccountResourceApi
+   * @version 1.0
+   */
+
+  /**
+   * Constructs a new AccountResourceApi. 
+   * @alias module:com.kodfarki.subscreasy.client/AccountResourceApi
+   * @class
+   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+   * default to {@link module:ApiClient#instance} if unspecified.
+   */
+  var exports = function(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+
+
+    /**
+     * Callback function to receive the result of the isAuthenticatedUsingGET operation.
+     * @callback module:com.kodfarki.subscreasy.client/AccountResourceApi~isAuthenticatedUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {'String'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * isAuthenticated
+     * @param {module:com.kodfarki.subscreasy.client/AccountResourceApi~isAuthenticatedUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'String'}
+     */
+    this.isAuthenticatedUsingGET = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = 'String';
+
+      return this.apiClient.callApi(
+        '/api/authenticate', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the registerAccountUsingPOST operation.
+     * @callback module:com.kodfarki.subscreasy.client/AccountResourceApi~registerAccountUsingPOSTCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/ResponseEntity} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * registerAccount
+     * @param {module:com.kodfarki.subscreasy.client.model/UserDTO} managedUserVM managedUserVM
+     * @param {module:com.kodfarki.subscreasy.client/AccountResourceApi~registerAccountUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/ResponseEntity}
+     */
+    this.registerAccountUsingPOST = function(managedUserVM, callback) {
+      var postBody = managedUserVM;
+
+      // verify the required parameter 'managedUserVM' is set
+      if (managedUserVM === undefined || managedUserVM === null) {
+        throw new Error("Missing the required parameter 'managedUserVM' when calling registerAccountUsingPOST");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json', 'text/plain'];
+      var returnType = ResponseEntity;
+
+      return this.apiClient.callApi(
+        '/api/register', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+  };
+
+  return exports;
+}));
+
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ResponseEntity":31,"../com.kodfarki.subscreasy.client.model/UserDTO":44}],46:[function(require,module,exports){
+/**
+ * Api Documentation
+ * Api Documentation
+ *
+ * OpenAPI spec version: 1.0
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
     define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
@@ -7867,286 +8301,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9}],45:[function(require,module,exports){
-/**
- * Api Documentation
- * Api Documentation
- *
- * OpenAPI spec version: 1.0
- *
- * NOTE: This class is auto generated by the swagger code generator program.
- * https://github.com/swagger-api/swagger-codegen.git
- *
- * Swagger Codegen version: 2.3.1
- *
- * Do not edit the class manually.
- *
- */
-
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/SavedCard'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/SavedCard'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
-    }
-    root.ApiDocumentation.CardResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.SavedCard);
-  }
-}(this, function(ApiClient, SavedCard) {
-  'use strict';
-
-  /**
-   * CardResource service.
-   * @module com.kodfarki.subscreasy.client/CardResourceApi
-   * @version 1.0
-   */
-
-  /**
-   * Constructs a new CardResourceApi. 
-   * @alias module:com.kodfarki.subscreasy.client/CardResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-
-
-    /**
-     * Callback function to receive the result of the createCardUsingPOST operation.
-     * @callback module:com.kodfarki.subscreasy.client/CardResourceApi~createCardUsingPOSTCallback
-     * @param {String} error Error message, if any.
-     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * createCard
-     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} card card
-     * @param {module:com.kodfarki.subscreasy.client/CardResourceApi~createCardUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
-     */
-    this.createCardUsingPOST = function(card, callback) {
-      var postBody = card;
-
-      // verify the required parameter 'card' is set
-      if (card === undefined || card === null) {
-        throw new Error("Missing the required parameter 'card' when calling createCardUsingPOST");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['apiKey'];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = SavedCard;
-
-      return this.apiClient.callApi(
-        '/api/cards', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the deleteCardUsingDELETE operation.
-     * @callback module:com.kodfarki.subscreasy.client/CardResourceApi~deleteCardUsingDELETECallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * deleteCard
-     * @param {Number} id id
-     * @param {module:com.kodfarki.subscreasy.client/CardResourceApi~deleteCardUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    this.deleteCardUsingDELETE = function(id, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteCardUsingDELETE");
-      }
-
-
-      var pathParams = {
-        'id': id
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['apiKey'];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
-
-      return this.apiClient.callApi(
-        '/api/cards/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getAllCardsUsingGET operation.
-     * @callback module:com.kodfarki.subscreasy.client/CardResourceApi~getAllCardsUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:com.kodfarki.subscreasy.client.model/SavedCard>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getAllCards
-     * @param {module:com.kodfarki.subscreasy.client/CardResourceApi~getAllCardsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:com.kodfarki.subscreasy.client.model/SavedCard>}
-     */
-    this.getAllCardsUsingGET = function(callback) {
-      var postBody = null;
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['apiKey'];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SavedCard];
-
-      return this.apiClient.callApi(
-        '/api/cards', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getCardUsingGET operation.
-     * @callback module:com.kodfarki.subscreasy.client/CardResourceApi~getCardUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getCard
-     * @param {Number} id id
-     * @param {module:com.kodfarki.subscreasy.client/CardResourceApi~getCardUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
-     */
-    this.getCardUsingGET = function(id, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getCardUsingGET");
-      }
-
-
-      var pathParams = {
-        'id': id
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['apiKey'];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = SavedCard;
-
-      return this.apiClient.callApi(
-        '/api/cards/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the updateCardUsingPUT operation.
-     * @callback module:com.kodfarki.subscreasy.client/CardResourceApi~updateCardUsingPUTCallback
-     * @param {String} error Error message, if any.
-     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * updateCard
-     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} card card
-     * @param {module:com.kodfarki.subscreasy.client/CardResourceApi~updateCardUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
-     */
-    this.updateCardUsingPUT = function(card, callback) {
-      var postBody = card;
-
-      // verify the required parameter 'card' is set
-      if (card === undefined || card === null) {
-        throw new Error("Missing the required parameter 'card' when calling updateCardUsingPUT");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['apiKey'];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = SavedCard;
-
-      return this.apiClient.callApi(
-        '/api/cards', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-  };
-
-  return exports;
-}));
-
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/SavedCard":31}],46:[function(require,module,exports){
+},{"../ApiClient":9}],47:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -8483,7 +8638,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ChargingLog":15}],47:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ChargingLog":15}],48:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -8762,7 +8917,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/CompanyProps":17}],48:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/CompanyProps":17}],49:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -9041,7 +9196,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Company":16}],49:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Company":16}],50:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -9320,7 +9475,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Coupon":18}],50:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Coupon":18}],51:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -9841,7 +9996,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Authorization":12,"../com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse":13,"../com.kodfarki.subscreasy.client.model/ChargingLog":15,"../com.kodfarki.subscreasy.client.model/Deduction":19,"../com.kodfarki.subscreasy.client.model/DeductionResult":20,"../com.kodfarki.subscreasy.client.model/InvoiceRequest":23,"../com.kodfarki.subscreasy.client.model/MessageTemplate":25,"../com.kodfarki.subscreasy.client.model/ServiceInstanceResult":34,"../com.kodfarki.subscreasy.client.model/ServiceOfferingResult":36}],51:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Authorization":12,"../com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse":13,"../com.kodfarki.subscreasy.client.model/ChargingLog":15,"../com.kodfarki.subscreasy.client.model/Deduction":19,"../com.kodfarki.subscreasy.client.model/DeductionResult":20,"../com.kodfarki.subscreasy.client.model/InvoiceRequest":23,"../com.kodfarki.subscreasy.client.model/MessageTemplate":26,"../com.kodfarki.subscreasy.client.model/ServiceInstanceResult":35,"../com.kodfarki.subscreasy.client.model/ServiceOfferingResult":37}],52:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -10120,7 +10275,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/History":21}],52:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/History":21}],53:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -10446,7 +10601,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Invoice":22}],53:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Invoice":22}],54:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -10725,7 +10880,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/MessageTemplate":25}],54:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/MessageTemplate":26}],55:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -11004,7 +11159,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Offer":26}],55:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Offer":27}],56:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -11098,7 +11253,286 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ProfileInfoVM":28}],56:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ProfileInfoVM":29}],57:[function(require,module,exports){
+/**
+ * Api Documentation
+ * Api Documentation
+ *
+ * OpenAPI spec version: 1.0
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/SavedCard'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/SavedCard'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.ApiDocumentation) {
+      root.ApiDocumentation = {};
+    }
+    root.ApiDocumentation.SavedCardResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.SavedCard);
+  }
+}(this, function(ApiClient, SavedCard) {
+  'use strict';
+
+  /**
+   * SavedCardResource service.
+   * @module com.kodfarki.subscreasy.client/SavedCardResourceApi
+   * @version 1.0
+   */
+
+  /**
+   * Constructs a new SavedCardResourceApi. 
+   * @alias module:com.kodfarki.subscreasy.client/SavedCardResourceApi
+   * @class
+   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+   * default to {@link module:ApiClient#instance} if unspecified.
+   */
+  var exports = function(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+
+
+    /**
+     * Callback function to receive the result of the createCardUsingPOST operation.
+     * @callback module:com.kodfarki.subscreasy.client/SavedCardResourceApi~createCardUsingPOSTCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * createCard
+     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} card card
+     * @param {module:com.kodfarki.subscreasy.client/SavedCardResourceApi~createCardUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
+     */
+    this.createCardUsingPOST = function(card, callback) {
+      var postBody = card;
+
+      // verify the required parameter 'card' is set
+      if (card === undefined || card === null) {
+        throw new Error("Missing the required parameter 'card' when calling createCardUsingPOST");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = ['application/json'];
+      var accepts = ['*/*'];
+      var returnType = SavedCard;
+
+      return this.apiClient.callApi(
+        '/api/saved-cards', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteCardUsingDELETE operation.
+     * @callback module:com.kodfarki.subscreasy.client/SavedCardResourceApi~deleteCardUsingDELETECallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * deleteCard
+     * @param {Number} id id
+     * @param {module:com.kodfarki.subscreasy.client/SavedCardResourceApi~deleteCardUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.deleteCardUsingDELETE = function(id, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteCardUsingDELETE");
+      }
+
+
+      var pathParams = {
+        'id': id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/saved-cards/{id}', 'DELETE',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAllCardsUsingGET operation.
+     * @callback module:com.kodfarki.subscreasy.client/SavedCardResourceApi~getAllCardsUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:com.kodfarki.subscreasy.client.model/SavedCard>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getAllCards
+     * @param {module:com.kodfarki.subscreasy.client/SavedCardResourceApi~getAllCardsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:com.kodfarki.subscreasy.client.model/SavedCard>}
+     */
+    this.getAllCardsUsingGET = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = [SavedCard];
+
+      return this.apiClient.callApi(
+        '/api/saved-cards', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCardUsingGET operation.
+     * @callback module:com.kodfarki.subscreasy.client/SavedCardResourceApi~getCardUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getCard
+     * @param {Number} id id
+     * @param {module:com.kodfarki.subscreasy.client/SavedCardResourceApi~getCardUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
+     */
+    this.getCardUsingGET = function(id, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getCardUsingGET");
+      }
+
+
+      var pathParams = {
+        'id': id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = SavedCard;
+
+      return this.apiClient.callApi(
+        '/api/saved-cards/{id}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateCardUsingPUT operation.
+     * @callback module:com.kodfarki.subscreasy.client/SavedCardResourceApi~updateCardUsingPUTCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * updateCard
+     * @param {module:com.kodfarki.subscreasy.client.model/SavedCard} card card
+     * @param {module:com.kodfarki.subscreasy.client/SavedCardResourceApi~updateCardUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SavedCard}
+     */
+    this.updateCardUsingPUT = function(card, callback) {
+      var postBody = card;
+
+      // verify the required parameter 'card' is set
+      if (card === undefined || card === null) {
+        throw new Error("Missing the required parameter 'card' when calling updateCardUsingPUT");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = ['application/json'];
+      var accepts = ['*/*'];
+      var returnType = SavedCard;
+
+      return this.apiClient.callApi(
+        '/api/saved-cards', 'PUT',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+  };
+
+  return exports;
+}));
+
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/SavedCard":32}],58:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -11377,7 +11811,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ServiceInstance":33}],57:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ServiceInstance":34}],59:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -11656,7 +12090,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ServiceOffering":35}],58:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ServiceOffering":36}],60:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -11935,7 +12369,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Service":32}],59:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Service":33}],61:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -12212,6 +12646,53 @@ exports.cleanHeader = function(header, shouldStripCookie){
     }
 
     /**
+     * Callback function to receive the result of the getSubscriberBySecureIdUsingGET operation.
+     * @callback module:com.kodfarki.subscreasy.client/SubscriberResourceApi~getSubscriberBySecureIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/Subscriber} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSubscriberBySecureId
+     * @param {String} secureId secureId
+     * @param {module:com.kodfarki.subscreasy.client/SubscriberResourceApi~getSubscriberBySecureIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/Subscriber}
+     */
+    this.getSubscriberBySecureIdUsingGET = function(secureId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'secureId' is set
+      if (secureId === undefined || secureId === null) {
+        throw new Error("Missing the required parameter 'secureId' when calling getSubscriberBySecureIdUsingGET");
+      }
+
+
+      var pathParams = {
+        'secureId': secureId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = Subscriber;
+
+      return this.apiClient.callApi(
+        '/api/subscribers/secureId/{secureId}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getSubscriberUsingGET operation.
      * @callback module:com.kodfarki.subscreasy.client/SubscriberResourceApi~getSubscriberUsingGETCallback
      * @param {String} error Error message, if any.
@@ -12308,7 +12789,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Subscriber":38}],60:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Subscriber":40}],62:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -12327,18 +12808,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Cancellation', 'com.kodfarki.subscreasy.client.model/StartSubscriptionRequest', 'com.kodfarki.subscreasy.client.model/SubscriptionCreateResult', 'com.kodfarki.subscreasy.client.model/Subsription'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Cancellation', 'com.kodfarki.subscreasy.client.model/StartSubscriptionRequest', 'com.kodfarki.subscreasy.client.model/StartSubscriptionResult', 'com.kodfarki.subscreasy.client.model/Subsription'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Cancellation'), require('../com.kodfarki.subscreasy.client.model/StartSubscriptionRequest'), require('../com.kodfarki.subscreasy.client.model/SubscriptionCreateResult'), require('../com.kodfarki.subscreasy.client.model/Subsription'));
+    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Cancellation'), require('../com.kodfarki.subscreasy.client.model/StartSubscriptionRequest'), require('../com.kodfarki.subscreasy.client.model/StartSubscriptionResult'), require('../com.kodfarki.subscreasy.client.model/Subsription'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.SubsriptionResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Cancellation, root.ApiDocumentation.StartSubscriptionRequest, root.ApiDocumentation.SubscriptionCreateResult, root.ApiDocumentation.Subsription);
+    root.ApiDocumentation.SubsriptionResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Cancellation, root.ApiDocumentation.StartSubscriptionRequest, root.ApiDocumentation.StartSubscriptionResult, root.ApiDocumentation.Subsription);
   }
-}(this, function(ApiClient, Cancellation, StartSubscriptionRequest, SubscriptionCreateResult, Subsription) {
+}(this, function(ApiClient, Cancellation, StartSubscriptionRequest, StartSubscriptionResult, Subsription) {
   'use strict';
 
   /**
@@ -12549,7 +13030,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * Callback function to receive the result of the startSubscriptionUsingPOST operation.
      * @callback module:com.kodfarki.subscreasy.client/SubsriptionResourceApi~startSubscriptionUsingPOSTCallback
      * @param {String} error Error message, if any.
-     * @param {module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult} data The data returned by the service call.
+     * @param {module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -12557,7 +13038,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * startSubscription
      * @param {module:com.kodfarki.subscreasy.client.model/StartSubscriptionRequest} request request
      * @param {module:com.kodfarki.subscreasy.client/SubsriptionResourceApi~startSubscriptionUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult}
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult}
      */
     this.startSubscriptionUsingPOST = function(request, callback) {
       var postBody = request;
@@ -12582,7 +13063,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
       var authNames = ['apiKey'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = SubscriptionCreateResult;
+      var returnType = StartSubscriptionResult;
 
       return this.apiClient.callApi(
         '/api/subscriptions/start', 'POST',
@@ -12595,7 +13076,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Cancellation":14,"../com.kodfarki.subscreasy.client.model/StartSubscriptionRequest":37,"../com.kodfarki.subscreasy.client.model/SubscriptionCreateResult":39,"../com.kodfarki.subscreasy.client.model/Subsription":41}],61:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/Cancellation":14,"../com.kodfarki.subscreasy.client.model/StartSubscriptionRequest":38,"../com.kodfarki.subscreasy.client.model/StartSubscriptionResult":39,"../com.kodfarki.subscreasy.client.model/Subsription":41}],63:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -12874,7 +13355,107 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/UsageNotification":42}],62:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/UsageNotification":42}],64:[function(require,module,exports){
+/**
+ * Api Documentation
+ * Api Documentation
+ *
+ * OpenAPI spec version: 1.0
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ *
+ * Swagger Codegen version: 2.3.1
+ *
+ * Do not edit the class manually.
+ *
+ */
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/LoginVM', 'com.kodfarki.subscreasy.client.model/ResponseEntity'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/LoginVM'), require('../com.kodfarki.subscreasy.client.model/ResponseEntity'));
+  } else {
+    // Browser globals (root is window)
+    if (!root.ApiDocumentation) {
+      root.ApiDocumentation = {};
+    }
+    root.ApiDocumentation.UserJwtControllerApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.LoginVM, root.ApiDocumentation.ResponseEntity);
+  }
+}(this, function(ApiClient, LoginVM, ResponseEntity) {
+  'use strict';
+
+  /**
+   * UserJwtController service.
+   * @module com.kodfarki.subscreasy.client/UserJwtControllerApi
+   * @version 1.0
+   */
+
+  /**
+   * Constructs a new UserJwtControllerApi. 
+   * @alias module:com.kodfarki.subscreasy.client/UserJwtControllerApi
+   * @class
+   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+   * default to {@link module:ApiClient#instance} if unspecified.
+   */
+  var exports = function(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+
+
+    /**
+     * Callback function to receive the result of the authorizeUsingPOST operation.
+     * @callback module:com.kodfarki.subscreasy.client/UserJwtControllerApi~authorizeUsingPOSTCallback
+     * @param {String} error Error message, if any.
+     * @param {module:com.kodfarki.subscreasy.client.model/ResponseEntity} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * authorize
+     * @param {module:com.kodfarki.subscreasy.client.model/LoginVM} loginVM loginVM
+     * @param {module:com.kodfarki.subscreasy.client/UserJwtControllerApi~authorizeUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:com.kodfarki.subscreasy.client.model/ResponseEntity}
+     */
+    this.authorizeUsingPOST = function(loginVM, callback) {
+      var postBody = loginVM;
+
+      // verify the required parameter 'loginVM' is set
+      if (loginVM === undefined || loginVM === null) {
+        throw new Error("Missing the required parameter 'loginVM' when calling authorizeUsingPOST");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = ['application/json'];
+      var accepts = ['*/*'];
+      var returnType = ResponseEntity;
+
+      return this.apiClient.callApi(
+        '/api/authenticate', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+  };
+
+  return exports;
+}));
+
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/LoginVM":24,"../com.kodfarki.subscreasy.client.model/ResponseEntity":31}],65:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -13204,7 +13785,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ManagedUserVM":24,"../com.kodfarki.subscreasy.client.model/ResponseEntity":30,"../com.kodfarki.subscreasy.client.model/User":43}],63:[function(require,module,exports){
+},{"../ApiClient":9,"../com.kodfarki.subscreasy.client.model/ManagedUserVM":25,"../com.kodfarki.subscreasy.client.model/ResponseEntity":31,"../com.kodfarki.subscreasy.client.model/User":43}],66:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -13223,12 +13804,12 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Address', 'com.kodfarki.subscreasy.client.model/Authority', 'com.kodfarki.subscreasy.client.model/Authorization', 'com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse', 'com.kodfarki.subscreasy.client.model/Cancellation', 'com.kodfarki.subscreasy.client.model/ChargingLog', 'com.kodfarki.subscreasy.client.model/Company', 'com.kodfarki.subscreasy.client.model/CompanyProps', 'com.kodfarki.subscreasy.client.model/Coupon', 'com.kodfarki.subscreasy.client.model/Deduction', 'com.kodfarki.subscreasy.client.model/DeductionResult', 'com.kodfarki.subscreasy.client.model/History', 'com.kodfarki.subscreasy.client.model/Invoice', 'com.kodfarki.subscreasy.client.model/InvoiceRequest', 'com.kodfarki.subscreasy.client.model/ManagedUserVM', 'com.kodfarki.subscreasy.client.model/MessageTemplate', 'com.kodfarki.subscreasy.client.model/Offer', 'com.kodfarki.subscreasy.client.model/PaymentCard', 'com.kodfarki.subscreasy.client.model/ProfileInfoVM', 'com.kodfarki.subscreasy.client.model/RecurrencePeriod', 'com.kodfarki.subscreasy.client.model/ResponseEntity', 'com.kodfarki.subscreasy.client.model/SavedCard', 'com.kodfarki.subscreasy.client.model/Service', 'com.kodfarki.subscreasy.client.model/ServiceInstance', 'com.kodfarki.subscreasy.client.model/ServiceInstanceResult', 'com.kodfarki.subscreasy.client.model/ServiceOffering', 'com.kodfarki.subscreasy.client.model/ServiceOfferingResult', 'com.kodfarki.subscreasy.client.model/StartSubscriptionRequest', 'com.kodfarki.subscreasy.client.model/Subscriber', 'com.kodfarki.subscreasy.client.model/SubscriptionCreateResult', 'com.kodfarki.subscreasy.client.model/SubscriptionPlan', 'com.kodfarki.subscreasy.client.model/Subsription', 'com.kodfarki.subscreasy.client.model/UsageNotification', 'com.kodfarki.subscreasy.client.model/User', 'com.kodfarki.subscreasy.client/AnalyticsResourceApi', 'com.kodfarki.subscreasy.client/CardResourceApi', 'com.kodfarki.subscreasy.client/ChargingLogResourceApi', 'com.kodfarki.subscreasy.client/CompanyPropsResourceApi', 'com.kodfarki.subscreasy.client/CompanyResourceApi', 'com.kodfarki.subscreasy.client/CouponResourceApi', 'com.kodfarki.subscreasy.client/EndpointsApi', 'com.kodfarki.subscreasy.client/HistoryResourceApi', 'com.kodfarki.subscreasy.client/InvoiceResourceApi', 'com.kodfarki.subscreasy.client/MessageTemplateResourceApi', 'com.kodfarki.subscreasy.client/OfferResourceApi', 'com.kodfarki.subscreasy.client/ProfileInfoResourceApi', 'com.kodfarki.subscreasy.client/ServiceInstanceResourceApi', 'com.kodfarki.subscreasy.client/ServiceOfferingResourceApi', 'com.kodfarki.subscreasy.client/ServiceResourceApi', 'com.kodfarki.subscreasy.client/SubscriberResourceApi', 'com.kodfarki.subscreasy.client/SubsriptionResourceApi', 'com.kodfarki.subscreasy.client/UsageNotificationResourceApi', 'com.kodfarki.subscreasy.client/UserResourceApi'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Address', 'com.kodfarki.subscreasy.client.model/Authority', 'com.kodfarki.subscreasy.client.model/Authorization', 'com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse', 'com.kodfarki.subscreasy.client.model/Cancellation', 'com.kodfarki.subscreasy.client.model/ChargingLog', 'com.kodfarki.subscreasy.client.model/Company', 'com.kodfarki.subscreasy.client.model/CompanyProps', 'com.kodfarki.subscreasy.client.model/Coupon', 'com.kodfarki.subscreasy.client.model/Deduction', 'com.kodfarki.subscreasy.client.model/DeductionResult', 'com.kodfarki.subscreasy.client.model/History', 'com.kodfarki.subscreasy.client.model/Invoice', 'com.kodfarki.subscreasy.client.model/InvoiceRequest', 'com.kodfarki.subscreasy.client.model/LoginVM', 'com.kodfarki.subscreasy.client.model/ManagedUserVM', 'com.kodfarki.subscreasy.client.model/MessageTemplate', 'com.kodfarki.subscreasy.client.model/Offer', 'com.kodfarki.subscreasy.client.model/PaymentCard', 'com.kodfarki.subscreasy.client.model/ProfileInfoVM', 'com.kodfarki.subscreasy.client.model/RecurrencePeriod', 'com.kodfarki.subscreasy.client.model/ResponseEntity', 'com.kodfarki.subscreasy.client.model/SavedCard', 'com.kodfarki.subscreasy.client.model/Service', 'com.kodfarki.subscreasy.client.model/ServiceInstance', 'com.kodfarki.subscreasy.client.model/ServiceInstanceResult', 'com.kodfarki.subscreasy.client.model/ServiceOffering', 'com.kodfarki.subscreasy.client.model/ServiceOfferingResult', 'com.kodfarki.subscreasy.client.model/StartSubscriptionRequest', 'com.kodfarki.subscreasy.client.model/StartSubscriptionResult', 'com.kodfarki.subscreasy.client.model/Subscriber', 'com.kodfarki.subscreasy.client.model/Subsription', 'com.kodfarki.subscreasy.client.model/UsageNotification', 'com.kodfarki.subscreasy.client.model/User', 'com.kodfarki.subscreasy.client.model/UserDTO', 'com.kodfarki.subscreasy.client/AccountResourceApi', 'com.kodfarki.subscreasy.client/AnalyticsResourceApi', 'com.kodfarki.subscreasy.client/ChargingLogResourceApi', 'com.kodfarki.subscreasy.client/CompanyPropsResourceApi', 'com.kodfarki.subscreasy.client/CompanyResourceApi', 'com.kodfarki.subscreasy.client/CouponResourceApi', 'com.kodfarki.subscreasy.client/EndpointsApi', 'com.kodfarki.subscreasy.client/HistoryResourceApi', 'com.kodfarki.subscreasy.client/InvoiceResourceApi', 'com.kodfarki.subscreasy.client/MessageTemplateResourceApi', 'com.kodfarki.subscreasy.client/OfferResourceApi', 'com.kodfarki.subscreasy.client/ProfileInfoResourceApi', 'com.kodfarki.subscreasy.client/SavedCardResourceApi', 'com.kodfarki.subscreasy.client/ServiceInstanceResourceApi', 'com.kodfarki.subscreasy.client/ServiceOfferingResourceApi', 'com.kodfarki.subscreasy.client/ServiceResourceApi', 'com.kodfarki.subscreasy.client/SubscriberResourceApi', 'com.kodfarki.subscreasy.client/SubsriptionResourceApi', 'com.kodfarki.subscreasy.client/UsageNotificationResourceApi', 'com.kodfarki.subscreasy.client/UserJwtControllerApi', 'com.kodfarki.subscreasy.client/UserResourceApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./com.kodfarki.subscreasy.client.model/Address'), require('./com.kodfarki.subscreasy.client.model/Authority'), require('./com.kodfarki.subscreasy.client.model/Authorization'), require('./com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse'), require('./com.kodfarki.subscreasy.client.model/Cancellation'), require('./com.kodfarki.subscreasy.client.model/ChargingLog'), require('./com.kodfarki.subscreasy.client.model/Company'), require('./com.kodfarki.subscreasy.client.model/CompanyProps'), require('./com.kodfarki.subscreasy.client.model/Coupon'), require('./com.kodfarki.subscreasy.client.model/Deduction'), require('./com.kodfarki.subscreasy.client.model/DeductionResult'), require('./com.kodfarki.subscreasy.client.model/History'), require('./com.kodfarki.subscreasy.client.model/Invoice'), require('./com.kodfarki.subscreasy.client.model/InvoiceRequest'), require('./com.kodfarki.subscreasy.client.model/ManagedUserVM'), require('./com.kodfarki.subscreasy.client.model/MessageTemplate'), require('./com.kodfarki.subscreasy.client.model/Offer'), require('./com.kodfarki.subscreasy.client.model/PaymentCard'), require('./com.kodfarki.subscreasy.client.model/ProfileInfoVM'), require('./com.kodfarki.subscreasy.client.model/RecurrencePeriod'), require('./com.kodfarki.subscreasy.client.model/ResponseEntity'), require('./com.kodfarki.subscreasy.client.model/SavedCard'), require('./com.kodfarki.subscreasy.client.model/Service'), require('./com.kodfarki.subscreasy.client.model/ServiceInstance'), require('./com.kodfarki.subscreasy.client.model/ServiceInstanceResult'), require('./com.kodfarki.subscreasy.client.model/ServiceOffering'), require('./com.kodfarki.subscreasy.client.model/ServiceOfferingResult'), require('./com.kodfarki.subscreasy.client.model/StartSubscriptionRequest'), require('./com.kodfarki.subscreasy.client.model/Subscriber'), require('./com.kodfarki.subscreasy.client.model/SubscriptionCreateResult'), require('./com.kodfarki.subscreasy.client.model/SubscriptionPlan'), require('./com.kodfarki.subscreasy.client.model/Subsription'), require('./com.kodfarki.subscreasy.client.model/UsageNotification'), require('./com.kodfarki.subscreasy.client.model/User'), require('./com.kodfarki.subscreasy.client/AnalyticsResourceApi'), require('./com.kodfarki.subscreasy.client/CardResourceApi'), require('./com.kodfarki.subscreasy.client/ChargingLogResourceApi'), require('./com.kodfarki.subscreasy.client/CompanyPropsResourceApi'), require('./com.kodfarki.subscreasy.client/CompanyResourceApi'), require('./com.kodfarki.subscreasy.client/CouponResourceApi'), require('./com.kodfarki.subscreasy.client/EndpointsApi'), require('./com.kodfarki.subscreasy.client/HistoryResourceApi'), require('./com.kodfarki.subscreasy.client/InvoiceResourceApi'), require('./com.kodfarki.subscreasy.client/MessageTemplateResourceApi'), require('./com.kodfarki.subscreasy.client/OfferResourceApi'), require('./com.kodfarki.subscreasy.client/ProfileInfoResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceInstanceResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceOfferingResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceResourceApi'), require('./com.kodfarki.subscreasy.client/SubscriberResourceApi'), require('./com.kodfarki.subscreasy.client/SubsriptionResourceApi'), require('./com.kodfarki.subscreasy.client/UsageNotificationResourceApi'), require('./com.kodfarki.subscreasy.client/UserResourceApi'));
+    module.exports = factory(require('./ApiClient'), require('./com.kodfarki.subscreasy.client.model/Address'), require('./com.kodfarki.subscreasy.client.model/Authority'), require('./com.kodfarki.subscreasy.client.model/Authorization'), require('./com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse'), require('./com.kodfarki.subscreasy.client.model/Cancellation'), require('./com.kodfarki.subscreasy.client.model/ChargingLog'), require('./com.kodfarki.subscreasy.client.model/Company'), require('./com.kodfarki.subscreasy.client.model/CompanyProps'), require('./com.kodfarki.subscreasy.client.model/Coupon'), require('./com.kodfarki.subscreasy.client.model/Deduction'), require('./com.kodfarki.subscreasy.client.model/DeductionResult'), require('./com.kodfarki.subscreasy.client.model/History'), require('./com.kodfarki.subscreasy.client.model/Invoice'), require('./com.kodfarki.subscreasy.client.model/InvoiceRequest'), require('./com.kodfarki.subscreasy.client.model/LoginVM'), require('./com.kodfarki.subscreasy.client.model/ManagedUserVM'), require('./com.kodfarki.subscreasy.client.model/MessageTemplate'), require('./com.kodfarki.subscreasy.client.model/Offer'), require('./com.kodfarki.subscreasy.client.model/PaymentCard'), require('./com.kodfarki.subscreasy.client.model/ProfileInfoVM'), require('./com.kodfarki.subscreasy.client.model/RecurrencePeriod'), require('./com.kodfarki.subscreasy.client.model/ResponseEntity'), require('./com.kodfarki.subscreasy.client.model/SavedCard'), require('./com.kodfarki.subscreasy.client.model/Service'), require('./com.kodfarki.subscreasy.client.model/ServiceInstance'), require('./com.kodfarki.subscreasy.client.model/ServiceInstanceResult'), require('./com.kodfarki.subscreasy.client.model/ServiceOffering'), require('./com.kodfarki.subscreasy.client.model/ServiceOfferingResult'), require('./com.kodfarki.subscreasy.client.model/StartSubscriptionRequest'), require('./com.kodfarki.subscreasy.client.model/StartSubscriptionResult'), require('./com.kodfarki.subscreasy.client.model/Subscriber'), require('./com.kodfarki.subscreasy.client.model/Subsription'), require('./com.kodfarki.subscreasy.client.model/UsageNotification'), require('./com.kodfarki.subscreasy.client.model/User'), require('./com.kodfarki.subscreasy.client.model/UserDTO'), require('./com.kodfarki.subscreasy.client/AccountResourceApi'), require('./com.kodfarki.subscreasy.client/AnalyticsResourceApi'), require('./com.kodfarki.subscreasy.client/ChargingLogResourceApi'), require('./com.kodfarki.subscreasy.client/CompanyPropsResourceApi'), require('./com.kodfarki.subscreasy.client/CompanyResourceApi'), require('./com.kodfarki.subscreasy.client/CouponResourceApi'), require('./com.kodfarki.subscreasy.client/EndpointsApi'), require('./com.kodfarki.subscreasy.client/HistoryResourceApi'), require('./com.kodfarki.subscreasy.client/InvoiceResourceApi'), require('./com.kodfarki.subscreasy.client/MessageTemplateResourceApi'), require('./com.kodfarki.subscreasy.client/OfferResourceApi'), require('./com.kodfarki.subscreasy.client/ProfileInfoResourceApi'), require('./com.kodfarki.subscreasy.client/SavedCardResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceInstanceResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceOfferingResourceApi'), require('./com.kodfarki.subscreasy.client/ServiceResourceApi'), require('./com.kodfarki.subscreasy.client/SubscriberResourceApi'), require('./com.kodfarki.subscreasy.client/SubsriptionResourceApi'), require('./com.kodfarki.subscreasy.client/UsageNotificationResourceApi'), require('./com.kodfarki.subscreasy.client/UserJwtControllerApi'), require('./com.kodfarki.subscreasy.client/UserResourceApi'));
   }
-}(function(ApiClient, Address, Authority, Authorization, AuthorizedServicesResponse, Cancellation, ChargingLog, Company, CompanyProps, Coupon, Deduction, DeductionResult, History, Invoice, InvoiceRequest, ManagedUserVM, MessageTemplate, Offer, PaymentCard, ProfileInfoVM, RecurrencePeriod, ResponseEntity, SavedCard, Service, ServiceInstance, ServiceInstanceResult, ServiceOffering, ServiceOfferingResult, StartSubscriptionRequest, Subscriber, SubscriptionCreateResult, SubscriptionPlan, Subsription, UsageNotification, User, AnalyticsResourceApi, CardResourceApi, ChargingLogResourceApi, CompanyPropsResourceApi, CompanyResourceApi, CouponResourceApi, EndpointsApi, HistoryResourceApi, InvoiceResourceApi, MessageTemplateResourceApi, OfferResourceApi, ProfileInfoResourceApi, ServiceInstanceResourceApi, ServiceOfferingResourceApi, ServiceResourceApi, SubscriberResourceApi, SubsriptionResourceApi, UsageNotificationResourceApi, UserResourceApi) {
+}(function(ApiClient, Address, Authority, Authorization, AuthorizedServicesResponse, Cancellation, ChargingLog, Company, CompanyProps, Coupon, Deduction, DeductionResult, History, Invoice, InvoiceRequest, LoginVM, ManagedUserVM, MessageTemplate, Offer, PaymentCard, ProfileInfoVM, RecurrencePeriod, ResponseEntity, SavedCard, Service, ServiceInstance, ServiceInstanceResult, ServiceOffering, ServiceOfferingResult, StartSubscriptionRequest, StartSubscriptionResult, Subscriber, Subsription, UsageNotification, User, UserDTO, AccountResourceApi, AnalyticsResourceApi, ChargingLogResourceApi, CompanyPropsResourceApi, CompanyResourceApi, CouponResourceApi, EndpointsApi, HistoryResourceApi, InvoiceResourceApi, MessageTemplateResourceApi, OfferResourceApi, ProfileInfoResourceApi, SavedCardResourceApi, ServiceInstanceResourceApi, ServiceOfferingResourceApi, ServiceResourceApi, SubscriberResourceApi, SubsriptionResourceApi, UsageNotificationResourceApi, UserJwtControllerApi, UserResourceApi) {
   'use strict';
 
   /**
@@ -13339,6 +13920,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     InvoiceRequest: InvoiceRequest,
     /**
+     * The LoginVM model constructor.
+     * @property {module:com.kodfarki.subscreasy.client.model/LoginVM}
+     */
+    LoginVM: LoginVM,
+    /**
      * The ManagedUserVM model constructor.
      * @property {module:com.kodfarki.subscreasy.client.model/ManagedUserVM}
      */
@@ -13409,20 +13995,15 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     StartSubscriptionRequest: StartSubscriptionRequest,
     /**
+     * The StartSubscriptionResult model constructor.
+     * @property {module:com.kodfarki.subscreasy.client.model/StartSubscriptionResult}
+     */
+    StartSubscriptionResult: StartSubscriptionResult,
+    /**
      * The Subscriber model constructor.
      * @property {module:com.kodfarki.subscreasy.client.model/Subscriber}
      */
     Subscriber: Subscriber,
-    /**
-     * The SubscriptionCreateResult model constructor.
-     * @property {module:com.kodfarki.subscreasy.client.model/SubscriptionCreateResult}
-     */
-    SubscriptionCreateResult: SubscriptionCreateResult,
-    /**
-     * The SubscriptionPlan model constructor.
-     * @property {module:com.kodfarki.subscreasy.client.model/SubscriptionPlan}
-     */
-    SubscriptionPlan: SubscriptionPlan,
     /**
      * The Subsription model constructor.
      * @property {module:com.kodfarki.subscreasy.client.model/Subsription}
@@ -13439,15 +14020,20 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     User: User,
     /**
+     * The UserDTO model constructor.
+     * @property {module:com.kodfarki.subscreasy.client.model/UserDTO}
+     */
+    UserDTO: UserDTO,
+    /**
+     * The AccountResourceApi service constructor.
+     * @property {module:com.kodfarki.subscreasy.client/AccountResourceApi}
+     */
+    AccountResourceApi: AccountResourceApi,
+    /**
      * The AnalyticsResourceApi service constructor.
      * @property {module:com.kodfarki.subscreasy.client/AnalyticsResourceApi}
      */
     AnalyticsResourceApi: AnalyticsResourceApi,
-    /**
-     * The CardResourceApi service constructor.
-     * @property {module:com.kodfarki.subscreasy.client/CardResourceApi}
-     */
-    CardResourceApi: CardResourceApi,
     /**
      * The ChargingLogResourceApi service constructor.
      * @property {module:com.kodfarki.subscreasy.client/ChargingLogResourceApi}
@@ -13499,6 +14085,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     ProfileInfoResourceApi: ProfileInfoResourceApi,
     /**
+     * The SavedCardResourceApi service constructor.
+     * @property {module:com.kodfarki.subscreasy.client/SavedCardResourceApi}
+     */
+    SavedCardResourceApi: SavedCardResourceApi,
+    /**
      * The ServiceInstanceResourceApi service constructor.
      * @property {module:com.kodfarki.subscreasy.client/ServiceInstanceResourceApi}
      */
@@ -13529,6 +14120,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      */
     UsageNotificationResourceApi: UsageNotificationResourceApi,
     /**
+     * The UserJwtControllerApi service constructor.
+     * @property {module:com.kodfarki.subscreasy.client/UserJwtControllerApi}
+     */
+    UserJwtControllerApi: UserJwtControllerApi,
+    /**
      * The UserResourceApi service constructor.
      * @property {module:com.kodfarki.subscreasy.client/UserResourceApi}
      */
@@ -13538,7 +14134,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
   return exports;
 }));
 
-},{"./ApiClient":9,"./com.kodfarki.subscreasy.client.model/Address":10,"./com.kodfarki.subscreasy.client.model/Authority":11,"./com.kodfarki.subscreasy.client.model/Authorization":12,"./com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse":13,"./com.kodfarki.subscreasy.client.model/Cancellation":14,"./com.kodfarki.subscreasy.client.model/ChargingLog":15,"./com.kodfarki.subscreasy.client.model/Company":16,"./com.kodfarki.subscreasy.client.model/CompanyProps":17,"./com.kodfarki.subscreasy.client.model/Coupon":18,"./com.kodfarki.subscreasy.client.model/Deduction":19,"./com.kodfarki.subscreasy.client.model/DeductionResult":20,"./com.kodfarki.subscreasy.client.model/History":21,"./com.kodfarki.subscreasy.client.model/Invoice":22,"./com.kodfarki.subscreasy.client.model/InvoiceRequest":23,"./com.kodfarki.subscreasy.client.model/ManagedUserVM":24,"./com.kodfarki.subscreasy.client.model/MessageTemplate":25,"./com.kodfarki.subscreasy.client.model/Offer":26,"./com.kodfarki.subscreasy.client.model/PaymentCard":27,"./com.kodfarki.subscreasy.client.model/ProfileInfoVM":28,"./com.kodfarki.subscreasy.client.model/RecurrencePeriod":29,"./com.kodfarki.subscreasy.client.model/ResponseEntity":30,"./com.kodfarki.subscreasy.client.model/SavedCard":31,"./com.kodfarki.subscreasy.client.model/Service":32,"./com.kodfarki.subscreasy.client.model/ServiceInstance":33,"./com.kodfarki.subscreasy.client.model/ServiceInstanceResult":34,"./com.kodfarki.subscreasy.client.model/ServiceOffering":35,"./com.kodfarki.subscreasy.client.model/ServiceOfferingResult":36,"./com.kodfarki.subscreasy.client.model/StartSubscriptionRequest":37,"./com.kodfarki.subscreasy.client.model/Subscriber":38,"./com.kodfarki.subscreasy.client.model/SubscriptionCreateResult":39,"./com.kodfarki.subscreasy.client.model/SubscriptionPlan":40,"./com.kodfarki.subscreasy.client.model/Subsription":41,"./com.kodfarki.subscreasy.client.model/UsageNotification":42,"./com.kodfarki.subscreasy.client.model/User":43,"./com.kodfarki.subscreasy.client/AnalyticsResourceApi":44,"./com.kodfarki.subscreasy.client/CardResourceApi":45,"./com.kodfarki.subscreasy.client/ChargingLogResourceApi":46,"./com.kodfarki.subscreasy.client/CompanyPropsResourceApi":47,"./com.kodfarki.subscreasy.client/CompanyResourceApi":48,"./com.kodfarki.subscreasy.client/CouponResourceApi":49,"./com.kodfarki.subscreasy.client/EndpointsApi":50,"./com.kodfarki.subscreasy.client/HistoryResourceApi":51,"./com.kodfarki.subscreasy.client/InvoiceResourceApi":52,"./com.kodfarki.subscreasy.client/MessageTemplateResourceApi":53,"./com.kodfarki.subscreasy.client/OfferResourceApi":54,"./com.kodfarki.subscreasy.client/ProfileInfoResourceApi":55,"./com.kodfarki.subscreasy.client/ServiceInstanceResourceApi":56,"./com.kodfarki.subscreasy.client/ServiceOfferingResourceApi":57,"./com.kodfarki.subscreasy.client/ServiceResourceApi":58,"./com.kodfarki.subscreasy.client/SubscriberResourceApi":59,"./com.kodfarki.subscreasy.client/SubsriptionResourceApi":60,"./com.kodfarki.subscreasy.client/UsageNotificationResourceApi":61,"./com.kodfarki.subscreasy.client/UserResourceApi":62}],64:[function(require,module,exports){
+},{"./ApiClient":9,"./com.kodfarki.subscreasy.client.model/Address":10,"./com.kodfarki.subscreasy.client.model/Authority":11,"./com.kodfarki.subscreasy.client.model/Authorization":12,"./com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse":13,"./com.kodfarki.subscreasy.client.model/Cancellation":14,"./com.kodfarki.subscreasy.client.model/ChargingLog":15,"./com.kodfarki.subscreasy.client.model/Company":16,"./com.kodfarki.subscreasy.client.model/CompanyProps":17,"./com.kodfarki.subscreasy.client.model/Coupon":18,"./com.kodfarki.subscreasy.client.model/Deduction":19,"./com.kodfarki.subscreasy.client.model/DeductionResult":20,"./com.kodfarki.subscreasy.client.model/History":21,"./com.kodfarki.subscreasy.client.model/Invoice":22,"./com.kodfarki.subscreasy.client.model/InvoiceRequest":23,"./com.kodfarki.subscreasy.client.model/LoginVM":24,"./com.kodfarki.subscreasy.client.model/ManagedUserVM":25,"./com.kodfarki.subscreasy.client.model/MessageTemplate":26,"./com.kodfarki.subscreasy.client.model/Offer":27,"./com.kodfarki.subscreasy.client.model/PaymentCard":28,"./com.kodfarki.subscreasy.client.model/ProfileInfoVM":29,"./com.kodfarki.subscreasy.client.model/RecurrencePeriod":30,"./com.kodfarki.subscreasy.client.model/ResponseEntity":31,"./com.kodfarki.subscreasy.client.model/SavedCard":32,"./com.kodfarki.subscreasy.client.model/Service":33,"./com.kodfarki.subscreasy.client.model/ServiceInstance":34,"./com.kodfarki.subscreasy.client.model/ServiceInstanceResult":35,"./com.kodfarki.subscreasy.client.model/ServiceOffering":36,"./com.kodfarki.subscreasy.client.model/ServiceOfferingResult":37,"./com.kodfarki.subscreasy.client.model/StartSubscriptionRequest":38,"./com.kodfarki.subscreasy.client.model/StartSubscriptionResult":39,"./com.kodfarki.subscreasy.client.model/Subscriber":40,"./com.kodfarki.subscreasy.client.model/Subsription":41,"./com.kodfarki.subscreasy.client.model/UsageNotification":42,"./com.kodfarki.subscreasy.client.model/User":43,"./com.kodfarki.subscreasy.client.model/UserDTO":44,"./com.kodfarki.subscreasy.client/AccountResourceApi":45,"./com.kodfarki.subscreasy.client/AnalyticsResourceApi":46,"./com.kodfarki.subscreasy.client/ChargingLogResourceApi":47,"./com.kodfarki.subscreasy.client/CompanyPropsResourceApi":48,"./com.kodfarki.subscreasy.client/CompanyResourceApi":49,"./com.kodfarki.subscreasy.client/CouponResourceApi":50,"./com.kodfarki.subscreasy.client/EndpointsApi":51,"./com.kodfarki.subscreasy.client/HistoryResourceApi":52,"./com.kodfarki.subscreasy.client/InvoiceResourceApi":53,"./com.kodfarki.subscreasy.client/MessageTemplateResourceApi":54,"./com.kodfarki.subscreasy.client/OfferResourceApi":55,"./com.kodfarki.subscreasy.client/ProfileInfoResourceApi":56,"./com.kodfarki.subscreasy.client/SavedCardResourceApi":57,"./com.kodfarki.subscreasy.client/ServiceInstanceResourceApi":58,"./com.kodfarki.subscreasy.client/ServiceOfferingResourceApi":59,"./com.kodfarki.subscreasy.client/ServiceResourceApi":60,"./com.kodfarki.subscreasy.client/SubscriberResourceApi":61,"./com.kodfarki.subscreasy.client/SubsriptionResourceApi":62,"./com.kodfarki.subscreasy.client/UsageNotificationResourceApi":63,"./com.kodfarki.subscreasy.client/UserJwtControllerApi":64,"./com.kodfarki.subscreasy.client/UserResourceApi":65}],67:[function(require,module,exports){
+(function (global){
 /**
  * Created with IntelliJ IDEA.
  * User: halil
@@ -13547,8 +14144,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
 var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
+defaultClient.basePath = "http://localhost:8080";
 
-defaultClient.basePath = "https://sandbox.subscreasy.com";
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -13557,17 +14154,23 @@ apiKey.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new ApiDocumentation.AnalyticsResourceApi()
 
-var callback = function(error, data, response) {
-    if (error) {
-        console.error(error);
-    } else {
-        console.log('API called successfully. Returned data: ' + data);
-    }
+var managedUser = function(login, password, companyName) {
+    var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
+    managedUserVM.login = login;
+    managedUserVM.email = login;
+    managedUserVM.password = password;
+    managedUserVM.company = {"name": companyName};
+    managedUserVM.authorities = ["ROLE_SUBSCRIBER"];
+
+    return managedUserVM;
 };
-api.getDashboardAnalyticsUsingGET(callback);
-},{"api_documentation":63}],65:[function(require,module,exports){
+
+global.managedUserFunc = managedUser;
+global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"api_documentation":66}],68:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -13720,9 +14323,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 
-},{}],67:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -15460,7 +16063,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":65,"ieee754":68}],68:[function(require,module,exports){
+},{"base64-js":68,"ieee754":71}],71:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -15546,7 +16149,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],69:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -15632,7 +16235,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],70:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -15719,10 +16322,10 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],71:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":69,"./encode":70}]},{},[64]);
+},{"./decode":72,"./encode":73}]},{},[67]);

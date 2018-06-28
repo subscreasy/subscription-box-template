@@ -32,7 +32,7 @@
                 document.getElementById("errorPlaceholder").innerText = response.text;
             } else {
                 document.getElementById("errorPlaceholder").innerText = "User created";
-                // TODO redirect to homepage/login page
+                document.location.href = 'login.html';
             }
         };
 
