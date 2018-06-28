@@ -21,11 +21,10 @@
 
 <body>
 <script type="text/javascript">
-    var company = "browsymous";
     function register(){
         console.log("register method entered");
 
-        var managedUserVM = managedUserFunc($("[name='email']").val(), $("[name='password']").val(), company);
+        var managedUserVM = managedUserFunc($("[name='email']").val(), $("[name='password']").val());
 
         var callback = function (error, data, response) {
             if (error) {

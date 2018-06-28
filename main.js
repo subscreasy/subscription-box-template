@@ -16,8 +16,9 @@ apiKey.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.apiKeyPrefix['Authorization'] = "Token"
 
+var companyName = "browsymous";
 
-var managedUser = function(login, password, companyName) {
+var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
