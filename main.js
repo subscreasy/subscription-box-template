@@ -6,8 +6,8 @@
 var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
+defaultClient.basePath = "http://localhost:8080";
 
-defaultClient.basePath = "https://sandbox.subscreasy.com";
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -16,13 +16,17 @@ apiKey.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new ApiDocumentation.AnalyticsResourceApi()
 
-var callback = function(error, data, response) {
-    if (error) {
-        console.error(error);
-    } else {
-        console.log('API called successfully. Returned data: ' + data);
-    }
+var managedUser = function(login, password, companyName) {
+    var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
+    managedUserVM.login = login;
+    managedUserVM.email = login;
+    managedUserVM.password = password;
+    managedUserVM.company = {"name": companyName};
+    managedUserVM.authorities = ["ROLE_SUBSCRIBER"];
+
+    return managedUserVM;
 };
-api.getDashboardAnalyticsUsingGET(callback);
+
+global.managedUserFunc = managedUser;
+global.accountResourceApi = new ApiDocumentation.AccountResourceApi();

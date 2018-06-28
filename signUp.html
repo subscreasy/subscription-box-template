@@ -15,9 +15,31 @@
     <link rel="stylesheet" href="assets/css/Product-Details.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script type="text/javascript" src="bundle.js"></script>
 </head>
 
 <body>
+<script type="text/javascript">
+    var company = "browsymous";
+    function register(){
+        console.log("register method entered");
+
+        var managedUserVM = managedUserFunc($("[name='email']").val(), $("[name='password']").val(), company);
+
+        var callback = function (error, data, response) {
+            if (error) {
+                document.getElementById("errorPlaceholder").innerText = response.text;
+            } else {
+                document.getElementById("errorPlaceholder").innerText = "User created";
+                // TODO redirect to homepage/login page
+            }
+        };
+
+        accountResourceApi.registerAccountUsingPOST(managedUserVM, callback);
+    }
+</script>
+
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -36,7 +58,7 @@
     <div class="register-photo">
         <div class="form-container">
             <div class="image-holder"></div>
-            <form method="post">
+            <form method="post" action="javascript:register()">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
@@ -44,6 +66,7 @@
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
+                <div class="form-group" id="errorPlaceholder"></div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign Up</button></div><a href="#" class="already">You already have an account? Login here.</a></form>
         </div>
     </div>
