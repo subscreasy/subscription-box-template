@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Product-List.css">
+    <link rel="stylesheet" href="assets/css/Product-Details.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="bundle.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Subscription Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col"><label class="col-form-label">Label</label></div>
+                    </div>
+                    <hr>
+                    <div class="row"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Subscriber Details</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group"><label>Name</label><input class="form-control" type="text" name="subscriber.name"></div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group"><label>Surname</label><input class="form-control" type="text" name="subscriber.surname"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Shipping Information</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group"><label>City *</label><input class="form-control" type="text"></div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group"><label>Country *</label><select class="form-control"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row .payment-dialog-row">
+        <div class="col-6 offset-3">
+            <div class="card credit-card-box">
+                <div class="card-header">
+                    <h6 class="mb-0"><span class="panel-title-text">Payment Details </span><img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png"></h6>
+                </div>
+                <div class="card-body">
+                    <form id="payment-form">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="form-group"><label for="cardNumber">Card number </label>
+                                    <div class="input-group"><input class="form-control" type="tel" required="" placeholder="Valid Card Number" id="cardNumber">
+                                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-7">
+                                <div class="form-group"><label for="cardExpiry"><span>expiration </span> date</label><input class="form-control" type="tel" placeholder="MM / YY" id="cardExpiry"></div>
+                            </div>
+                            <div class="col-5 pull-right">
+                                <div class="form-group"><label for="cardCVC">cv code</label><input class="form-control" type="tel" required="" placeholder="CVC" id="cardCVC"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="form-group"><label for="couponCode">coupon code</label><input class="form-control" type="text" id="couponCode"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12"><button class="btn btn-success btn-block btn-lg" type="submit" onclick="startSubscription();">Start Subscription</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
