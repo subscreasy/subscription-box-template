@@ -42,3 +42,14 @@ var login = function(login, password) {
 global.loginFunc = login;
 global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
 
+var isLoggedIn = function () {
+    var token = localStorage.getItem("authenticationToken");
+    return token != undefined && token !== null && token !== "";
+};
+global.isLoggedInFunc = isLoggedIn;
+
+var logout = function () {
+    localStorage.removeItem("authenticationToken");
+};
+global.logoutFunc = logout;
+

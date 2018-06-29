@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="assets/css/Product-Details.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script type="text/javascript" src="bundle.js"></script>
 </head>
 
 <body>
@@ -176,6 +178,13 @@
             </div>
         </footer>
     </div>
+
+    <script type="text/javascript">
+        if (!isLoggedInFunc()) {
+            document.location.href = "login.html";
+        }
+    </script>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
