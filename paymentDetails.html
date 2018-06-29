@@ -4,133 +4,177 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>subscriptionBoxTemplate</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/Pretty-Product-List.css">
     <link rel="stylesheet" href="assets/css/Product-Details.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="bundle.js"></script>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-6 offset-3">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Subscription Details</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col"><label class="col-form-label">Label</label></div>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">First Item</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Second Item</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                        </li>
+                    </ul><span class="navbar-text actions"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span></div>
+            </div>
+        </nav>
+    </div>
+    <div style="background-color:rgb(241,247,252);">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Subscription Details</h5>
                     </div>
-                    <hr>
-                    <div class="row"></div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col"><label class="col-form-label">Browsymous Tester Edition 3 Minutes</label></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col"><label class="col-form-label">Price</label></div>
+                            <div class="col"><label class="col-form-label">0,99 TL</label></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6 offset-3">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Subscriber Details</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group"><label>Name</label><input class="form-control" type="text" name="subscriber.name"></div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Subscriber Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group"><label>Name</label></div><input class="form-control" type="text" name="subscriber.name"></div>
+                                <div class="col">
+                                    <div class="form-group"><label>Surname</label></div><input class="form-control" type="text" name="subscriber.surname"></div>
                             </div>
-                            <div class="col">
-                                <div class="form-group"><label>Surname</label><input class="form-control" type="text" name="subscriber.surname"></div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email"></div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6 offset-3">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Shipping Information</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text"></div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Shipping Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text" name="subscriber.shippingName"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text"></div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text" name="subscriber.shippingAddress"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-group"><label>City *</label><input class="form-control" type="text"></div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-group"><label>City *</label><input class="form-control" type="text" name="subscriber.shippingCity"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group"><label>Country *</label><select class="form-control" name="subscriber.shippingCountry"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text" name="subscriber.shippingZipCode"></div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="form-group"><label>Country *</label><select class="form-control"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text"></div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row .payment-dialog-row">
-        <div class="col-6 offset-3">
-            <div class="card credit-card-box">
-                <div class="card-header">
-                    <h6 class="mb-0"><span class="panel-title-text">Payment Details </span><img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png"></h6>
-                </div>
-                <div class="card-body">
-                    <form id="payment-form">
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group"><label for="cardNumber">Card number </label>
-                                    <div class="input-group"><input class="form-control" type="tel" required="" placeholder="Valid Card Number" id="cardNumber">
-                                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
+        <div class="row .payment-dialog-row">
+            <div class="col-12 col-md-4 offset-md-4">
+                <div class="card credit-card-box">
+                    <div class="card-header">
+                        <h6 class="mb-0"><span class="panel-title-text">Payment Details </span><img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png"></h6>
+                    </div>
+                    <div class="card-body">
+                        <form id="payment-form">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group"><label for="cardNumber">Card number </label>
+                                        <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber">
+                                            <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-7">
-                                <div class="form-group"><label for="cardExpiry"><span>expiration </span> date</label><input class="form-control" type="tel" placeholder="MM / YY" id="cardExpiry"></div>
+                            <div class="form-row">
+                                <div class="col-7">
+                                    <div class="form-group"><label for="cardExpiry"><span>Expiration </span>Date</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry"></div>
+                                </div>
+                                <div class="col-5 pull-right">
+                                    <div class="form-group"><label for="cardCVC">CV Code</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC"></div>
+                                </div>
                             </div>
-                            <div class="col-5 pull-right">
-                                <div class="form-group"><label for="cardCVC">cv code</label><input class="form-control" type="tel" required="" placeholder="CVC" id="cardCVC"></div>
+                            <div class="form-row">
+                                <div class="col-12"><button class="btn btn-success btn-block btn-lg" type="submit">Start Subscription</button></div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group"><label for="couponCode">coupon code</label><input class="form-control" type="text" id="couponCode"></div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12"><button class="btn btn-success btn-block btn-lg" type="submit" onclick="startSubscription();">Start Subscription</button></div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Company Name</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Company Name © 2017</p>
+            </div>
+        </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
