@@ -18,7 +18,7 @@ apiKey.apiKey = "YOUR API KEY"
 
 var companyName = "browsymous";
 
-var managedUser = function(login, password) {
+var managedUser = function(login, password, companyName) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
@@ -30,6 +30,19 @@ var managedUser = function(login, password) {
 };
 global.managedUserFunc = managedUser;
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
+
+
+var startSubscription = function (subscriber, paymentCard, offer) {
+    var startSubscriptionVM = new ApiDocumentation.StartSubscriptionRequest();
+    startSubscriptionVM.subscriber = subscriber;
+    startSubscriptionVM.paymentCard = paymentCard;
+    startSubscriptionVM.offer = offer;
+
+    return startSubscriptionVM;
+}
+
+global.startSubscriptionFunc = startSubscription();
+global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
 
 var login = function(login, password) {
     var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
