@@ -14154,8 +14154,9 @@ apiKey.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKey.apiKeyPrefix['Authorization'] = "Token"
 
+var companyName = "browsymous";
 
-var managedUser = function(login, password, companyName) {
+var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
@@ -14165,9 +14166,20 @@ var managedUser = function(login, password, companyName) {
 
     return managedUserVM;
 };
-
 global.managedUserFunc = managedUser;
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
+
+var login = function(login, password) {
+    var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
+    loginVM.username = login;
+    loginVM.password = password;
+    loginVM.company = companyName;
+
+    return loginVM;
+};
+global.loginFunc = login;
+global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
+
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"api_documentation":66}],68:[function(require,module,exports){

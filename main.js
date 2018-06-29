@@ -28,6 +28,17 @@ var managedUser = function(login, password) {
 
     return managedUserVM;
 };
-
 global.managedUserFunc = managedUser;
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
+
+var login = function(login, password) {
+    var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
+    loginVM.username = login;
+    loginVM.password = password;
+    loginVM.company = companyName;
+
+    return loginVM;
+};
+global.loginFunc = login;
+global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
+

@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="assets/css/Product-Details.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script type="text/javascript" src="bundle.js"></script>
 </head>
 
 <body>
@@ -35,7 +37,7 @@
         </nav>
     </div>
     <div class="login-clean">
-        <form method="post">
+        <form method="post" action="javascript:login()">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
@@ -74,6 +76,23 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var callback = function(error, data, response) {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log('API called successfully. Returned data: ' + data);
+                localStorage.setItem("authenticationToken", response.body.id_token);
+                document.location.href = "productList.html";
+            }
+        };
+
+        function login() {
+            var loginVM = loginFunc($("[name='email']").val(), $("[name='password']").val());
+            userJwtControllerApi.authorizeUsingPOST(loginVM, callback);
+        }
+
+    </script>
 </body>
 
 </html>
