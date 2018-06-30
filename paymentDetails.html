@@ -178,15 +178,15 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Name</label><input class="form-control" type="text" name="subscriber.name"></div>
+                                    <div class="form-group"><label>Name</label><input class="form-control" type="text" name="subscriber.name" autocomplete="additional-name"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Surname</label><input class="form-control" type="text" name="subscriber.surname"></div>
+                                    <div class="form-group"><label>Surname</label><input class="form-control" type="text" name="subscriber.surname" autocomplete="family-name"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email"></div>
+                                    <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email" autocomplete="email"></div>
                                 </div>
                             </div>
                         </div>
@@ -202,23 +202,23 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text" name="subscriber.shippingName"></div>
+                                    <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text" name="subscriber.shippingName" autocomplete="name"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text" name="subscriber.shippingAddress"></div>
+                                    <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text" name="subscriber.shippingAddress" autocomplete="address-line1"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>City *</label><input class="form-control" type="text" name="subscriber.shippingCity"></div>
+                                    <div class="form-group"><label>City *</label><input class="form-control" type="text" name="subscriber.shippingCity" autocomplete="address-level2"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Country *</label><select class="form-control" name="subscriber.shippingCountry"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    <div class="form-group"><label>Country *</label><select class="form-control" name="subscriber.shippingCountry" autocomplete="country-name"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text" name="subscriber.shippingZipCode"></div>
+                                    <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text" name="subscriber.shippingZipCode" autocomplete="postal-code"></div>
                                 </div>
                             </div>
                         </div>
@@ -235,7 +235,7 @@
                             <div class="form-row">
                                 <div class="col-12">
                                     <div class="form-group"><label for="cardNumber">Card number </label>
-                                        <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber">
+                                        <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber" autocomplete="cc-number">
                                             <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
                                         </div>
                                     </div>
@@ -243,10 +243,10 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-7">
-                                    <div class="form-group"><label for="cardExpiry"><span>Expiration </span>Date</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry"></div>
+                                    <div class="form-group"><label for="cardExpiry"><span>Expiration </span>Date</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry" autocomplete="cc-exp"></div>
                                 </div>
                                 <div class="col-5 pull-right">
-                                    <div class="form-group"><label for="cardCVC">CV Code</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC"></div>
+                                    <div class="form-group"><label for="cardCVC">CV Code</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC" autocomplete="cc-csc"></div>
                                 </div>
                             </div>
                             <div class="form-row">
