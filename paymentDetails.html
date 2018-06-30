@@ -112,9 +112,27 @@
         };
         subsriptionResourceApi.startSubscriptionUsingPOST(startSubscriptionVM,callback);
     }
+
+    function bodyOnLoad() {
+        var loginSpan = document.getElementById("loginSpan");
+        var logoutSpan = document.getElementById("logoutSpan");
+
+        if (isLoggedInFunc()) {
+            loginSpan.style.display = "none";
+            logoutSpan.style.display = "block";
+        } else {
+            loginSpan.style.display = "block";
+            logoutSpan.style.display = "none";
+        }
+    }
+
+    function logout() {
+        logoutFunc();
+        location.reload();
+    }
 </script>
 
-<body>
+<body onload="bodyOnLoad();">
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -126,7 +144,7 @@
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                         </li>
-                    </ul><span class="navbar-text actions"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span></div>
+                    </ul><span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span></div>
             </div>
         </nav>
     </div>
