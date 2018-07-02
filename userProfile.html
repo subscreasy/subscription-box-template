@@ -114,6 +114,12 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
+
+    <script type="text/javascript">
+        if (!isLoggedInFunc()) {
+            document.location.href = "login.html";
+        }
+    </script>
 </body>
 
 </html>
