@@ -21,104 +21,13 @@
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <script type="text/javascript" src="bundle.js"></script>
+    <!-- external javascript-->
+    <script src="bundle.js"></script>
+    <script src="assets/js/custom.js"></script>
+
 </head>
 
-<script type="text/javascript">
-
-    function offer(){
-        this.name;
-        this.openEnded;
-        this.price;
-        this.company;
-        this.recurrence;
-    }
-
-    function company(){
-        this.name;
-    }
-
-    function recurrence() {
-        this.length;
-        this.recurrenceType;
-    }
-
-    function paymentCard() {
-        this.cardNumber;
-        this.cvc;
-        this.expireMonth;
-        this.expireYear;
-    }
-
-    function subscriber() {
-        this.company;
-        this.name;
-        this.surname;
-        this.email;
-        this.shippingName;
-        this.shippingCity;
-        this.shippingCountry;
-        this.shippingZipCode;
-    }
-
-    function checkout() {
-        console.log("checkout method entered");
-
-        //**********offer*******************
-        var companyInstance = new company();
-        companyInstance.name = "Browsymous";
-
-        var recurrenceInstance = new recurrence();
-        recurrenceInstance.length = 5;
-        recurrenceInstance.recurrenceType = "DAILY";
-
-        var offerInstance = new offer();
-        offerInstance.name = "denemename";
-        offerInstance.openEnded = false;
-        offerInstance.price = 100;
-        offerInstance.company = companyInstance;
-        offerInstance.recurrence = recurrenceInstance;
-        //**********offer*******************
-
-        //**********paymentCard********************
-        var paymentCardInstance = new paymentCard();
-        paymentCardInstance.cardNumber = $("[name='paymentCard.cardNumber']").val();
-        paymentCardInstance.cvc = $("[name='paymentCard.cvc']").val();
-        // TODO expiredate inputtan split işlemi yapılcak.
-        paymentCardInstance.expireMonth = "11";
-        paymentCardInstance.expireYear = "22";
-        //**********paymentCard********************
-
-        //**********subscriber********************
-        var subscriberInstance = new subscriber();
-        subscriberInstance.company = companyInstance;
-        subscriberInstance.name = $("[name='subscriber.name']").val();
-        subscriberInstance.surname = $("[name='subscriber.surname']").val();
-        subscriberInstance.email = $("[name='subscriber.email']").val();
-        subscriberInstance.shippingName = $("[name='subscriber.shippingName']").val();
-        //TODO shippingname ve shippingcountry verileri alınacak.
-        subscriberInstance.shippingCity = $("[name='subscriber.shippingCity']").val();
-        subscriberInstance.shippingZipCode = $("[name='subscriber.shippingZipCode']").val();
-        //**********subscriber********************
-
-        console.log(offerInstance);
-        console.log(paymentCardInstance);
-        console.log(subscriberInstance);
-
-        var startSubscriptionVM = startSubscriptionFunc(subscriberInstance, paymentCardInstance, offerInstance);
-
-        var callback = function (error, data, response) {
-            if (error) {
-                document.getElementById("errorPlaceholder").innerText = response.text;
-            } else {
-                document.getElementById("errorPlaceholder").innerText = "Subscription started";
-            }
-        };
-        subsriptionResourceApi.startSubscriptionUsingPOST(startSubscriptionVM,callback);
-    }
-</script>
-
-<body onload="bodyOnLoad();">
+<body>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -138,28 +47,29 @@
         </nav>
     </div>
     <div style="background-color:rgb(241,247,252);">
-        <form method="post" action="javascript:checkout()">
-            <div class="form-row">
-                <div class="col-6 offset-3" style="padding:10px;padding-top:20px;">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Subscription Details</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-row">
-                                <div class="col"><label class="col-form-label">Browsymous Tester Edition 3 Minutes</label></div>
-                            </div>
-                            <hr>
-                            <div class="form-row">
-                                <div class="col"><label class="col-form-label">Price</label></div>
-                                <div class="col"><label class="col-form-label">0,99 TL</label></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-6 offset-3" style="padding:10px;">
+        <div class="container">
+        <form class="">
+            <!--<div class="form-row">-->
+                <!--<div class="col-6 offset-3" style="padding:10px;padding-top:20px;">-->
+                    <!--<div class="card">-->
+                        <!--<div class="card-header">-->
+                            <!--<h5 class="mb-0">Subscription Details</h5>-->
+                        <!--</div>-->
+                        <!--<div class="card-body">-->
+                            <!--<div class="form-row">-->
+                                <!--<div class="col"><label class="col-form-label">Browsymous Tester Edition 3 Minutes</label></div>-->
+                            <!--</div>-->
+                            <!--<hr>-->
+                            <!--<div class="form-row">-->
+                                <!--<div class="col"><label class="col-form-label">Price</label></div>-->
+                                <!--<div class="col"><label class="col-form-label">0,99 TL</label></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="col-md-8" style="padding:10px;">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="mb-0">Subscriber Details</h5>
@@ -180,10 +90,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-6 offset-3" style="padding:10px;">
+                    <br/>
                     <div class="card">
                         <div class="card-header">
                             <h5 class="mb-0">Shipping Information</h5>
@@ -213,12 +120,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row .payment-dialog-row">
-                <div class="col-12 col-md-4 offset-md-4" style="padding:10px;padding-bottom:20px;">
+
+                <div class="col-md-4" style="padding:10px;padding-bottom:20px;">
                     <div class="card credit-card-box">
                         <div class="card-header">
-                            <h6 class="mb-0"><span class="panel-title-text">Payment Details </span><img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png"></h6>
+                            <h6 class="mb-0"><span class="panel-title-text">Payment Details </span></h6>
+                            <!--<img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png">-->
                         </div>
                         <div class="card-body">
                             <div class="form-row">
@@ -247,6 +154,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
     <div class="footer-dark">
         <footer>
@@ -278,16 +186,11 @@
             </div>
         </footer>
     </div>
-
-    <script type="text/javascript">
-        if (!isLoggedInFunc()) {
-            document.location.href = "login.html";
-        }
+    <script>
+        bodyOnLoad();
     </script>
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/custom.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
 </body>
 
