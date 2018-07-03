@@ -20,10 +20,14 @@
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- external javascript-->
     <script src="bundle.js"></script>
+    <script src="assets/js/custom.js"></script>
+
 </head>
 
-<body onload="bodyOnLoad();">
+<body>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -59,14 +63,24 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <h1>Lorem Ipsum</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus
-                    nunc eget massa euismod bibendum. Phasellus justo felis, porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo
-                    arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis
-                    libero at arcu laoreet aliquam. Cras at libero sapien. Sed luctus erat sit amet est hendrerit faucibus. </p>
-                <h2 class="text-center text-success">&nbsp;318.00 TL</h2><a class="btn btn-danger btn-lg center-block" role="button" href="paymentDetails.html"><i class="fa fa-cart-plus"></i> Add to Cart</a></div>
+                <h1 id="product-name">Lorem Ipsum</h1>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Ca nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus nunc eget massa euismod bibendum. Phasellus justo felis,
+                    porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras
+                    vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis libero at arcu laoreet aliquam. Cras at libero sapien.
+                    Sed luctus erat sit amet est hendrerit faucibus. </p>
+
+                <div class="text-center"><h2 class="text-center text-success" id="offer-price">&nbsp;318.00 TL</h2></div>
+                <div class="row">
+                    <div class="col-6">
+                        <select class="form-control" id="purchase-type" onchange="updatePrice()"></select>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn btn-danger btn-md btn-block" role="button" href="paymentDetails.html"><i class="fa fa-cart-plus"></i> Sepete Ekle</a></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -96,11 +110,62 @@
                 <p class="copyright">Company Name © 2017</p>
             </div>
         </footer>
+    </div><div>
+    <script>
+        bodyOnLoad();
+    </script>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/custom.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
+
+
+    <script>
+        var id = window.location.hash.substring(1);
+        console.log("productId: " + id);
+
+        var callback = function(error, product, response) {
+            if (error) {
+                console.error(error);
+            } else {
+                $("#product-name").html(product.name);
+                $("#product-description").html(product.description);
+
+                var offers = product.offers;
+
+                // render drop-down
+                for (i=0; i<offers.length; i++) {
+                    var offer = offers[i];
+                    console.log('Offer: ' + JSON.stringify(offer));
+
+                    console.log("offer.purchaseType: " + offer.purchaseType);
+                    var optionText;
+                    if (offer.purchaseType === "ONCE") {
+                        optionText = "Tek Seferlik";
+                    } else {
+                        var recurrence = offer.recurrence;
+                        if (recurrence.recurrenceType === "WEEKLY") {
+                            optionText = "Haftalık";
+                        } else if (recurrence.recurrenceType === "MONTHLY") {
+                            optionText = "Aylık";
+                        }
+
+                    }
+
+                    $("#purchase-type").append("<option value='" + offer.id + "' data-offer-price='" + offer.price + "'>" + optionText + "</option>");
+                    $("#offer-price").html(offer.price + " TL");
+                }
+            }
+        };
+
+        function updatePrice() {
+            console.log($("#purchase-type").val());
+            var price = $("#purchase-type").find(":selected").data("offer-price");
+            $("#offer-price").html(price + " TL");
+        }
+
+        productResourceApi.getCompanyProductUsingGET(companyName, id, callback);
+    </script>
 </body>
 
 </html>

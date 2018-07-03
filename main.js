@@ -11,12 +11,15 @@ defaultClient.basePath = "http://localhost:8080";
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
-var apiKey = defaultClient.authentications['apiKey'];
-apiKey.apiKey = "YOUR API KEY"
+// var apiKey = defaultClient.authentications['apiKey'];
+// apiKey.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//apiKey.apiKeyPrefix['Authorization'] = "Token"
+// apiKey.apiKeyPrefix['Authorization'] = "Token"
 
 var companyName = "browsymous";
+
+global.companyName = companyName;
+global.authorization = defaultClient.authentications['apiKey'];
 
 var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
@@ -32,16 +35,16 @@ global.managedUserFunc = managedUser;
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
 
 
-var startSubscription = function (subscriber, paymentCard, offer) {
-    var startSubscriptionVM = new ApiDocumentation.StartSubscriptionRequest();
-    startSubscriptionVM.subscriber = subscriber;
-    startSubscriptionVM.paymentCard = paymentCard;
-    startSubscriptionVM.offer = offer;
+var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
+    var startSubscriptionRequest = new ApiDocumentation.StartSubscriptionRequest();
+    startSubscriptionRequest.subscriber = subscriber;
+    startSubscriptionRequest.paymentCard = paymentCard;
+    startSubscriptionRequest.offer = offer;
 
-    return startSubscriptionVM;
+    return startSubscriptionRequest;
 }
 
-global.startSubscriptionFunc = startSubscription();
+global.startSubscriptionRequestFunc = startSubscriptionRequest;
 global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
 
 var login = function(login, password) {
@@ -57,12 +60,19 @@ global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
 
 var isLoggedIn = function () {
     var token = localStorage.getItem("authenticationToken");
-    return token != undefined && token !== null && token !== "";
+    return token !== undefined && token !== null && token !== "";
 };
 global.isLoggedInFunc = isLoggedIn;
+
+var authorizationToken = function () {
+    return localStorage.getItem("authenticationToken");
+};
+global.authorizationTokenFunc = authorizationToken;
 
 var logout = function () {
     localStorage.removeItem("authenticationToken");
 };
 global.logoutFunc = logout;
 
+
+global.productResourceApi = new ApiDocumentation.ProductResourceApi();
