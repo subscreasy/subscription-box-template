@@ -138,9 +138,8 @@
                 var offers = product.offers;
 
                 // render drop-down
-                for (i=0; i<offers.length; i++) {
+                for (i = 0; i < offers.length; i++) {
                     var offer = offers[i];
-                    console.log('Offer: ' + JSON.stringify(offer));
 
                     console.log("offer.purchaseType: " + offer.purchaseType);
                     var optionText;
@@ -156,7 +155,7 @@
 
                     }
 
-                    $("#purchase-type").append("<option value='" + offer.id + "' data-offer-price='" + offer.price + "'>" + optionText + "</option>");
+                    $("#purchase-type").append("<option value='" + offer.id + "' data-offer-price='" + offer.price + "' data-offer='" + JSON.stringify(offer) + "'>" + optionText + "</option>");
                 }
 
                 updatePrice();
@@ -172,11 +171,23 @@
         }
 
         function addToCart() {
-            var offerId = purchaseTypeSelect.val();
-            console.log(offerId);
+            var items = fetchOrderItems();
+
+            var offerText = purchaseTypeSelect.find(":selected").data("offer");
+            items.push(offerText);
+            localStorage.setItem("order-items", JSON.stringify(items));
+            console.log(offerText);
             document.location.href = "paymentDetails.html";
         }
-        
+
+        var fetchOrderItems = function () {
+            var items = localStorage.getItem("order-items");
+            if (items === null)
+                items = [];
+            else
+                items = JSON.parse(items);
+            return items;
+        };
     </script>
 </body>
 
