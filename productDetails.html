@@ -180,14 +180,6 @@
             document.location.href = "paymentDetails.html";
         }
 
-        var fetchOrderItems = function () {
-            var items = localStorage.getItem("order-items");
-            if (items === null)
-                items = [];
-            else
-                items = JSON.parse(items);
-            return items;
-        };
     </script>
 </body>
 

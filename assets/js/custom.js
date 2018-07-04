@@ -18,3 +18,12 @@ function logout() {
     logoutFunc();
     location.reload();
 }
+
+var fetchOrderItems = function () {
+    var items = localStorage.getItem("order-items");
+    if (items === null)
+        items = [];
+    else
+        items = JSON.parse(items);
+    return items;
+};
