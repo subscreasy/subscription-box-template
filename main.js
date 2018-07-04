@@ -21,6 +21,12 @@ var companyName = "browsymous";
 global.companyName = companyName;
 global.authorization = defaultClient.authentications['apiKey'];
 
+global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
+global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
+global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
+global.productResourceApi = new ApiDocumentation.ProductResourceApi();
+global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
+
 var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
@@ -32,8 +38,6 @@ var managedUser = function(login, password) {
     return managedUserVM;
 };
 global.managedUserFunc = managedUser;
-global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
-
 
 var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
     var startSubscriptionRequest = new ApiDocumentation.StartSubscriptionRequest();
@@ -45,7 +49,6 @@ var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
 }
 
 global.startSubscriptionRequestFunc = startSubscriptionRequest;
-global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
 
 var login = function(login, password) {
     var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
@@ -56,7 +59,6 @@ var login = function(login, password) {
     return loginVM;
 };
 global.loginFunc = login;
-global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
 
 var isLoggedIn = function () {
     var token = localStorage.getItem("authenticationToken");
@@ -65,7 +67,7 @@ var isLoggedIn = function () {
 global.isLoggedInFunc = isLoggedIn;
 
 var authorizationToken = function () {
-    return localStorage.getItem("authenticationToken");
+    return "Bearer " + localStorage.getItem("authenticationToken");
 };
 global.authorizationTokenFunc = authorizationToken;
 
@@ -73,6 +75,3 @@ var logout = function () {
     localStorage.removeItem("authenticationToken");
 };
 global.logoutFunc = logout;
-
-
-global.productResourceApi = new ApiDocumentation.ProductResourceApi();

@@ -48,7 +48,7 @@
     </div>
     <div style="background-color:rgb(241,247,252);">
         <div class="container">
-        <form class="">
+        <form class="" action="submit">
             <!--<div class="form-row">-->
                 <!--<div class="col-6 offset-3" style="padding:10px;padding-top:20px;">-->
                     <!--<div class="card">-->
@@ -246,6 +246,16 @@
 
             menu.css("left", x + "px");
         });
+
+        var callback = function(error, data, response) {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log('API called successfully. Returned data: ' + data);
+            }
+        };
+        authorization.apiKey = authorizationTokenFunc();
+        orderResourceApi.createOrderUsingPOST("orderRequest", callback);
     </script>
 </body>
 
