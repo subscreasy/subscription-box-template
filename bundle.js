@@ -5478,18 +5478,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Offer'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Company', 'com.kodfarki.subscreasy.client.model/Offer'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Offer'));
+    module.exports = factory(require('../ApiClient'), require('./Company'), require('./Offer'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.Product = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer);
+    root.ApiDocumentation.Product = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Offer);
   }
-}(this, function(ApiClient, Offer) {
+}(this, function(ApiClient, Company, Offer) {
   'use strict';
 
 
@@ -5505,12 +5505,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * Constructs a new <code>Product</code>.
    * @alias module:com.kodfarki.subscreasy.client.model/Product
    * @class
+   * @param company {module:com.kodfarki.subscreasy.client.model/Company} 
    * @param description {String} 
    * @param name {String} 
    */
-  var exports = function(description, name) {
+  var exports = function(company, description, name) {
     var _this = this;
 
+    _this['company'] = company;
     _this['description'] = description;
 
     _this['name'] = name;
@@ -5529,6 +5531,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('company')) {
+        obj['company'] = Company.constructFromObject(data['company']);
+      }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
@@ -5548,6 +5553,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     return obj;
   }
 
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Company} company
+   */
+  exports.prototype['company'] = undefined;
   /**
    * @member {String} description
    */
@@ -5593,7 +5602,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Offer":27}],32:[function(require,module,exports){
+},{"../ApiClient":9,"./Company":16,"./Offer":27}],32:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -8099,18 +8108,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Authority', 'com.kodfarki.subscreasy.client.model/Company'], factory);
+    define(['ApiClient', 'com.kodfarki.subscreasy.client.model/Address', 'com.kodfarki.subscreasy.client.model/Authority', 'com.kodfarki.subscreasy.client.model/Company'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Authority'), require('./Company'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./Authority'), require('./Company'));
   } else {
     // Browser globals (root is window)
     if (!root.ApiDocumentation) {
       root.ApiDocumentation = {};
     }
-    root.ApiDocumentation.User = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Authority, root.ApiDocumentation.Company);
+    root.ApiDocumentation.User = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address, root.ApiDocumentation.Authority, root.ApiDocumentation.Company);
   }
-}(this, function(ApiClient, Authority, Company) {
+}(this, function(ApiClient, Address, Authority, Company) {
   'use strict';
 
 
@@ -8143,6 +8152,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
+
     _this['login'] = login;
 
   };
@@ -8160,6 +8170,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
       if (data.hasOwnProperty('activated')) {
         obj['activated'] = ApiClient.convertToType(data['activated'], 'Boolean');
+      }
+      if (data.hasOwnProperty('address')) {
+        obj['address'] = Address.constructFromObject(data['address']);
       }
       if (data.hasOwnProperty('authorities')) {
         obj['authorities'] = ApiClient.convertToType(data['authorities'], [Authority]);
@@ -8205,6 +8218,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Boolean} activated
    */
   exports.prototype['activated'] = undefined;
+  /**
+   * @member {module:com.kodfarki.subscreasy.client.model/Address} address
+   */
+  exports.prototype['address'] = undefined;
   /**
    * @member {Array.<module:com.kodfarki.subscreasy.client.model/Authority>} authorities
    */
@@ -8261,7 +8278,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
 
 
-},{"../ApiClient":9,"./Authority":11,"./Company":16}],47:[function(require,module,exports){
+},{"../ApiClient":9,"./Address":10,"./Authority":11,"./Company":16}],47:[function(require,module,exports){
 /**
  * Api Documentation
  * Api Documentation
@@ -12206,6 +12223,53 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
       return this.apiClient.callApi(
         '/api/products', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getAllCompanyProductUsingGET operation.
+     * @callback module:com.kodfarki.subscreasy.client/ProductResourceApi~getAllCompanyProductUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:com.kodfarki.subscreasy.client.model/Product>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getAllCompanyProduct
+     * @param {String} companyName companyName
+     * @param {module:com.kodfarki.subscreasy.client/ProductResourceApi~getAllCompanyProductUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:com.kodfarki.subscreasy.client.model/Product>}
+     */
+    this.getAllCompanyProductUsingGET = function(companyName, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'companyName' is set
+      if (companyName === undefined || companyName === null) {
+        throw new Error("Missing the required parameter 'companyName' when calling getAllCompanyProductUsingGET");
+      }
+
+
+      var pathParams = {
+        'companyName': companyName
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = [];
+      var accepts = ['*/*'];
+      var returnType = [Product];
+
+      return this.apiClient.callApi(
+        '/api/na/products2/{companyName}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
