@@ -69,23 +69,34 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="row">
-                <div class="col-md-8" style="padding:10px;">
+                <div class="col-md-8" style="padding:10px;" id="order-details-box">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0">Subscriber Details</h5>
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Alışveriş Sepeti
+                        </div>
+                        <ul class="list-group list-group-flush" id="shopping-cart-items">
+
+                        </ul>
+                        <div class="card-footer text-muted" id="shopping-cart-total">
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Alıcı Bilgileri</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Name</label><input class="form-control" type="text" name="subscriber.name" autocomplete="additional-name"></div>
+                                    <div class="form-group"><label>Ad</label><input class="form-control" type="text" name="subscriber.name" autocomplete="additional-name"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Surname</label><input class="form-control" type="text" name="subscriber.surname" autocomplete="family-name"></div>
+                                    <div class="form-group"><label>Soyad</label><input class="form-control" type="text" name="subscriber.surname" autocomplete="family-name"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Email</label><input class="form-control" type="email" name="subscriber.email" autocomplete="email"></div>
+                                    <div class="form-group"><label>E-posta</label><input class="form-control" type="email" name="subscriber.email" autocomplete="email"></div>
                                 </div>
                             </div>
                         </div>
@@ -93,44 +104,44 @@
                     <br/>
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0">Shipping Information</h5>
+                            <h5 class="mb-0">Kargo Adresi</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Name, Surname *</label><input class="form-control" type="text" name="subscriber.shippingName" autocomplete="name"></div>
+                                    <div class="form-group"><label>Ad, Soyad *</label><input class="form-control" type="text" name="subscriber.shippingName" autocomplete="name"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Shipping Address *</label><input class="form-control" type="text" name="subscriber.shippingAddress" autocomplete="address-line1"></div>
+                                    <div class="form-group"><label>Adres *</label><input class="form-control" type="text" name="subscriber.shippingAddress" autocomplete="address-line1"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>City *</label><input class="form-control" type="text" name="subscriber.shippingCity" autocomplete="address-level2"></div>
+                                    <div class="form-group"><label>Şehir *</label><input class="form-control" type="text" name="subscriber.shippingCity" autocomplete="address-level2"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Country *</label><select class="form-control" name="subscriber.shippingCountry" autocomplete="country-name"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    <div class="form-group"><label>Ülke *</label><select class="form-control" name="subscriber.shippingCountry" autocomplete="country-name"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>ZIP Code *</label><input class="form-control" type="text" name="subscriber.shippingZipCode" autocomplete="postal-code"></div>
+                                    <div class="form-group"><label>Posta Kodu *</label><input class="form-control" type="text" name="subscriber.shippingZipCode" autocomplete="postal-code"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4" style="padding:10px;padding-bottom:20px;">
+                <div class="col-md-4" style="padding:10px;padding-bottom:20px;" id="payment-details-box">
                     <div class="card credit-card-box">
                         <div class="card-header">
-                            <h6 class="mb-0"><span class="panel-title-text">Payment Details </span></h6>
+                            <h6 class="mb-0"><span class="panel-title-text">Ödeme Bilgileri </span></h6>
                             <!--<img class="img-fluid panel-title-image" src="assets/img/accepted_cards.png">-->
                         </div>
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col-12">
-                                    <div class="form-group"><label for="cardNumber">Card number </label>
+                                    <div class="form-group"><label for="cardNumber">Kart numarası </label>
                                         <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber" autocomplete="cc-number">
                                             <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
                                         </div>
@@ -139,14 +150,14 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-7">
-                                    <div class="form-group"><label for="cardExpiry"><span>Expiration </span>Date</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry" autocomplete="cc-exp"></div>
+                                    <div class="form-group"><label for="cardExpiry">Son Kullanma Tarihi</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry" autocomplete="cc-exp"></div>
                                 </div>
                                 <div class="col-5 pull-right">
-                                    <div class="form-group"><label for="cardCVC">CV Code</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC" autocomplete="cc-csc"></div>
+                                    <div class="form-group"><label for="cardCVC">Güvenlik Kodu</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC" autocomplete="cc-csc"></div>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="col-12"><button class="btn btn-success btn-block btn-lg" type="submit">Start Subscription</button></div>
+                                <div class="col-12"><button class="btn btn-success btn-block btn-lg" type="submit"><span id="price"></span> TL Öde</button></div>
                                 <label id = "errorPlaceholder"></label>
                             </div>
                         </div>
@@ -192,6 +203,50 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script>
+        var orderItems = fetchOrderItems();
+
+        var total = 0;
+        for (i=0; i<orderItems.length; i++){
+            var item = orderItems[i];
+            if (item === null) continue;
+            
+            console.log(i + ": " + JSON.stringify(item));
+            $("#shopping-cart-items").append(
+                "<li class='list-group-item'>" +
+                "<img src='https://lorempixel.com/80/80/' class='mr-2' width='80' height='80'>" +
+                "<span class='align-top'>" + item.name + "</span>" +
+                "<span class='float-right'>" + item.price + " TL " +
+                "   <a class='btn rounded-circle' href='#navigation-main' aria-label='Skip to main navigation'><i class='fa fa-times-circle fa-3' aria-hidden='true' /></a>" +
+                "</span></li>");
+            total += item.price;
+        }
+
+        $("#shopping-cart-total").append("<i>TOTAL</i> <span class='float-right'>" + total + " TL</span>");
+        $("#price").html(total);
+
+        window.addEventListener('scroll', function(e) {
+            var minPosition = $("#order-details-box").offset().top;
+
+            var menu = $("#payment-details-box");
+            var y = menu.offset().top;
+            var x = menu.offset().left;
+            if (window.pageYOffset >= y) {
+                menu.css("position", "fixed");
+                menu.css("top", "0px");
+            } else {
+                menu.css("position", "static");
+                menu.css("top", "");
+            }
+
+            if (y < minPosition) {
+                menu.css("position", "static");
+                menu.css("top", minPosition + "px");
+            }
+
+            menu.css("left", x + "px");
+        });
+    </script>
 </body>
 
 </html>
