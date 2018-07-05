@@ -142,7 +142,7 @@
                             <div class="form-row">
                                 <div class="col-12">
                                     <div class="form-group"><label for="cardNumber">Kart numarası </label>
-                                        <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber" autocomplete="cc-number">
+                                        <div class="input-group"><input class="form-control" type="tel" name="paymentCard.cardNumber" required="" placeholder="Valid Card Number" id="cardNumber" autocomplete="cc-number" value="5528790000000008">
                                             <div class="input-group-append"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div>
                                         </div>
                                     </div>
@@ -150,10 +150,10 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-7">
-                                    <div class="form-group"><label for="cardExpiry">Son Kullanma Tarihi</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="MM / YY" id="cardExpiry" autocomplete="cc-exp"></div>
+                                    <div class="form-group"><label for="cardExpiry">Son Kullanma Tarihi</label><input class="form-control" type="tel" name="expirationDate" required="" placeholder="AA / YY" id="cardExpiry" autocomplete="cc-exp" value="12/30"></div>
                                 </div>
                                 <div class="col-5 pull-right">
-                                    <div class="form-group"><label for="cardCVC">Güvenlik Kodu</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC" autocomplete="cc-csc"></div>
+                                    <div class="form-group"><label for="cardCVC">Güvenlik Kodu</label><input class="form-control" type="tel" name="paymentCard.cvc" required="" placeholder="CVC" id="cardCVC" autocomplete="cc-csc" value="123"></div>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -222,7 +222,7 @@
             total += item.price;
         }
 
-        $("#shopping-cart-total").append("<i>TOTAL</i> <span class='float-right'>" + total + " TL</span>");
+        $("#shopping-cart-total").append("<i>TOPLAM</i> <span class='float-right'>" + total + " TL</span>");
         $("#price").html(total);
 
         window.addEventListener('scroll', function(e) {
