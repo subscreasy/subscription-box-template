@@ -3,10 +3,13 @@
  * User: halil
  * Date: 28.06.2018 10:54
  */
+var companyName = "browsymous";
+var host = "http://localhost:8080";
+
 var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
-defaultClient.basePath = "http://localhost:8080";
+defaultClient.basePath = host;
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -14,8 +17,6 @@ console.log("defaultClient.basePath: " + defaultClient.basePath);
 // apiKey.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 // apiKey.apiKeyPrefix['Authorization'] = "Token"
-
-var companyName = "browsymous";
 
 global.companyName = companyName;
 global.authorization = defaultClient.authentications['apiKey'];
@@ -89,5 +90,3 @@ var formPost = function (data, callback) {
     });
 };
 global.formPost = formPost;
-
-
