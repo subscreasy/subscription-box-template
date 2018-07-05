@@ -7,7 +7,6 @@ var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
 defaultClient.basePath = "http://localhost:8080";
-
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -47,7 +46,6 @@ var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
 
     return startSubscriptionRequest;
 }
-
 global.startSubscriptionRequestFunc = startSubscriptionRequest;
 
 var login = function(login, password) {
@@ -75,3 +73,21 @@ var logout = function () {
     localStorage.removeItem("authenticationToken");
 };
 global.logoutFunc = logout;
+
+var formPost = function (data, callback) {
+    $.ajax({
+        url: defaultClient.basePath + "/api/orders",
+        type: 'POST',
+        headers: {
+            'Authorization': authorizationTokenFunc()
+        },
+        data: data,
+        contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+        mimeType: 'application/json',
+        success: callback,
+        error: callback
+    });
+};
+global.formPost = formPost;
+
+
