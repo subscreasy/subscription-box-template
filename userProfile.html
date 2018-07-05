@@ -20,12 +20,16 @@
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- external javascript-->
     <script src="bundle.js"></script>
+    <script src="assets/js/custom.js"></script>
+
 </head>
 
 <body onload="bodyOnLoad();">
     <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
@@ -35,14 +39,14 @@
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                         </li>
-                    </ul><span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text actions" id="logoutSpan"> <button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
+                    </ul><span class="navbar-text" id="basketSpan"><a href="#"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span><span class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
                     <span
-                        class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
+                        class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="container profile profile-view" id="profile">
+    <div class="container profile profile-view" id="profile" style="padding-top:120px;">
         <div class="row">
             <div class="col-md-12 alert-col relative">
                 <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
@@ -114,7 +118,6 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/custom.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
 
     <script type="text/javascript">

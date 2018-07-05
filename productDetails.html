@@ -29,7 +29,7 @@
 
 <body>
     <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
@@ -39,14 +39,14 @@
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                         </li>
-                    </ul><span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
+                    </ul><span class="navbar-text" id="basketSpan"><a href="#"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span><span class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
                     <span
-                        class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
+                        class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="container">
+    <div class="container" style="padding-top: 120px;">
         <div class="row">
             <div class="col-md-12">
                 <h1 id="product-name">Lorem Ipsum</h1></div>
@@ -127,7 +127,7 @@
         if ( id === "") {
             console.log("Product id does not exist");
         }
-        
+
         var callback = function(error, product, response) {
             if (error) {
                 console.error(error);
