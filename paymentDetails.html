@@ -90,23 +90,23 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Ad, Soyad *</label><input class="form-control" type="text" name="subscriber.shippingName" autocomplete="name"></div>
+                                    <div class="form-group"><label>Ad, Soyad *</label><input class="form-control" type="text" name="order.address.name" autocomplete="name" value="Anıl Aynacı"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Adres *</label><input class="form-control" type="text" name="subscriber.shippingAddress" autocomplete="address-line1"></div>
+                                    <div class="form-group"><label>Adres *</label><input class="form-control" type="text" name="order.address.streetAddress" autocomplete="address-line1" value="Şar Sk. Yenidoğan Mh. Bayrampaşa"></div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group"><label>Şehir *</label><input class="form-control" type="text" name="subscriber.shippingCity" autocomplete="address-level2"></div>
+                                    <div class="form-group"><label>Şehir *</label><input class="form-control" type="text" name="order.address.city" autocomplete="address-level2" value="İstanbul"></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Ülke *</label><select class="form-control" name="subscriber.shippingCountry" autocomplete="country-name"><optgroup label="This is a group"><option value="12" selected="">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    <div class="form-group"><label>Ülke *</label><select class="form-control" name="order.address.country" autocomplete="country-name"><optgroup label="This is a group"><option value="12" selected="selected">Turkey</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group"><label>Posta Kodu *</label><input class="form-control" type="text" name="subscriber.shippingZipCode" autocomplete="postal-code"></div>
+                                    <div class="form-group"><label>Posta Kodu *</label><input class="form-control" type="text" name="order.address.postalCode" autocomplete="postal-code" value="34000"></div>
                                 </div>
                             </div>
                         </div>
@@ -200,6 +200,8 @@
                 "   <a class='btn rounded-circle' href='#navigation-main' aria-label='Skip to main navigation'><i class='fa fa-times-circle fa-3' aria-hidden='true' /></a>" +
                 "</span></li>");
             total += item.price;
+
+            $('<input>').attr('type','hidden').attr('name','order.orderItems[' + i + '].offer.id').attr('value', orderItems[i].id).appendTo('form');
         }
 
         $("#shopping-cart-total").append("<i>TOPLAM</i> <span class='float-right'>" + total + " TL</span>");
@@ -238,21 +240,14 @@
         }
 
         var createOrderCallback = function(data, status, error) {
-            if (status) {
+            if (status !== "success") {
                 console.error("Error: " + data.responseText);
             } else {
                 console.log('API called successfully. Returned data: ' + JSON.stringify(data));
             }
         };
 
-        var createOrderCallback3 = function(error, data, response) {
-            if (error) {
-                console.error(error);
-            } else {
-                console.log('API called successfully. Returned data: ' + data);
-            }
-        };
-
+        $('<input>').attr('type','hidden').attr('name','companyName').attr('value', companyName).appendTo('form');
     </script>
 </body>
 
