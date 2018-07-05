@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- external javascript-->
     <script src="bundle.js"></script>
+    <script src="assets/js/custom.js"></script>
 </head>
 
-<body onload="bodyOnLoad();">
-    <div>
+<body>
+    <div class="fixed-top">
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"
@@ -35,90 +38,44 @@
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                         </li>
-                    </ul><span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
-                    <span
-                        class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
+                    </ul>
+                    <span class="navbar-text" id="basketSpan" style="padding-right: 10px;"><a href="#"><i class="fa fa-shopping-cart" style="font-size:36px"></i></a></span>
+                    <span class="navbar-text" id="profileSpan" style="padding-right: 10px;"><a href="userProfile.html"><i class="fa fa-user-circle" style="font-size:36px"></i></a></span>
+                    <span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="row product-list">
-        <div class="col-sm-6 col-md-4 product-item">
-            <div class="product-container">
-                <div class="row">
-                    <div class="col-md-12"><a href="#" class="product-image"><img src="assets/img/iphone6.jpg"></a></div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <h2><a href="#">iPhone 6s</a></h2>
+    <div class="container-fluid" style="padding-top: 100px;">
+        <div id="productListDiv" class="row product-list">
+            <!--<div class="col-sm-6 col-md-4 product-item">
+                <div class="product-container">
+                    <div class="row">
+                        <div class="col-md-12"><a href="#" class="product-image"><img src="assets/img/iphone6.jpg"></a></div>
                     </div>
-                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
-                </div>
-                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
-                        <div class="row">
-                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
-                            <div class="col-6">
-                                <p class="product-price">599.00 TL</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <h2><a href="#">iPhone 6s</a></h2>
+                        </div>
+                        <div class="col-4"><a href="#" class="small-text">compare </a></div>
+                    </div>
+                    <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
+                            <div class="row">
+                                <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
+                                <div class="col-6">
+                                    <p class="product-price">599.00 TL</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 product-item">
-            <div class="product-container">
-                <div class="row">
-                    <div class="col-md-12"><a href="#" class="product-image"><img src="assets/img/iphone6.jpg"></a></div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <h2><a href="#">iPhone 6s</a></h2>
-                    </div>
-                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
-                </div>
-                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
-                        <div class="row">
-                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
-                            <div class="col-6">
-                                <p class="product-price">599.00 TL</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 product-item">
-            <div class="product-container">
-                <div class="row">
-                    <div class="col-md-12"><a href="#" class="product-image"><img src="assets/img/iphone6.jpg"></a></div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <h2><a href="#">iPhone 6s</a></h2>
-                    </div>
-                    <div class="col-4"><a href="#" class="small-text">compare </a></div>
-                </div>
-                <div class="product-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><a href="#" class="small-text">82 reviews</a></div>
-                <div class="row">
-                    <div class="col-12">
-                        <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
-                        <div class="row">
-                            <div class="col-6"><a class="btn btn-info" role="button" href="productDetails.html">Buy Now!</a></div>
-                            <div class="col-6">
-                                <p class="product-price">599.00 TL</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>-->
         </div>
     </div>
+
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -149,10 +106,71 @@
             </div>
         </footer>
     </div>
+    <div>
+        <script>
+            bodyOnLoad();
+        </script>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/custom.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
 </body>
+
+<script>
+    var callback = function(error, product, response) {
+        if (error) {
+            console.error(error);
+        } else {
+            var index, len;
+            var productListDiv = document.getElementById("productListDiv");
+            for (index = 0, len = product.length; index < len; ++index) {
+                var tmpText = '<div class="col-sm-6 col-md-4 product-item">' +
+                                    '<div class="product-container">' +
+                                        '<div class="row">' +
+                                            '<div class="col-md-12">' +
+                                                '<a class="product-image" href="productDetails.html#' + product[index].id + '">' +
+                                                    '<img src="assets/img/iphone6.jpg">' +
+                                                '</a>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="row">' +
+                                            '<div class="col-8">' +
+                                                '<h2>' +
+                                                    '<a href="productDetails.html#' + product[index].id + '">' +
+                                                        product[index].name +
+                                                    '</a>' +
+                                                '</h2>' +
+                                            '</div>' +
+                                            '<div class="col-4">' +
+                                                '<a href="#" class="small-text">' +
+
+                                                '</a>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="row">' +
+                                            '<div class="col-12">' +
+                                                '<p class="product-description">' +
+                                                    product[index].description +
+                                                '</p>' +
+                                            '</div>' +
+                                            '<div class="row">' +
+                                                '<div class="col-6">' +
+                                                    '<a class="btn btn-info" role="button" href="productDetails.html#' + product[index].id + '">' +
+                                                        'Buy Now!' +
+                                                    '</a>' +
+                                                '</div>' +
+                                                '<div class="col-6">' +
+
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                              '</div>';
+                productListDiv.innerHTML += tmpText;
+            }
+        }
+    };
+    productResourceApi.getAllCompanyProductUsingGET(companyName, callback);
+</script>
 
 </html>
