@@ -5127,14 +5127,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:com.kodfarki.subscreasy.client.model/Order
    * @class
    * @param address {module:com.kodfarki.subscreasy.client.model/Address} 
-   * @param createDate {Date} 
    * @param user {module:com.kodfarki.subscreasy.client.model/User} 
    */
-  var exports = function(address, createDate, user) {
+  var exports = function(address, user) {
     var _this = this;
 
     _this['address'] = address;
-    _this['createDate'] = createDate;
+
+
 
 
     _this['user'] = user;
@@ -5154,11 +5154,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('address')) {
         obj['address'] = Address.constructFromObject(data['address']);
       }
-      if (data.hasOwnProperty('createDate')) {
-        obj['createDate'] = ApiClient.convertToType(data['createDate'], 'Date');
+      if (data.hasOwnProperty('createdDate')) {
+        obj['createdDate'] = ApiClient.convertToType(data['createdDate'], 'Date');
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('lastModifiedDate')) {
+        obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
       }
       if (data.hasOwnProperty('orderItems')) {
         obj['orderItems'] = ApiClient.convertToType(data['orderItems'], [OrderItem]);
@@ -5175,13 +5178,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['address'] = undefined;
   /**
-   * @member {Date} createDate
+   * @member {Date} createdDate
    */
-  exports.prototype['createDate'] = undefined;
+  exports.prototype['createdDate'] = undefined;
   /**
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {Date} lastModifiedDate
+   */
+  exports.prototype['lastModifiedDate'] = undefined;
   /**
    * @member {Array.<module:com.kodfarki.subscreasy.client.model/OrderItem>} orderItems
    */
@@ -12063,8 +12070,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.orderOrderItems0OfferTrialPeriod 
      * @param {Number} opts.orderOrderItems0Id 
      * @param {Number} opts.orderOrderItems0ProductCount 
+     * @param {String} opts.orderCreatedBy 
+     * @param {Date} opts.orderCreatedDate 
+     * @param {String} opts.orderLastModifiedBy 
+     * @param {Date} opts.orderLastModifiedDate 
      * @param {Number} opts.orderId 
-     * @param {Date} opts.orderCreateDate 
      * @param {String} opts.paymentCardCardHolderName 
      * @param {String} opts.paymentCardCardNumber 
      * @param {String} opts.paymentCardExpireYear 
@@ -12075,6 +12085,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.paymentCardCardAlias 
      * @param {String} opts.paymentCardCardToken 
      * @param {String} opts.paymentCardCardUserKey 
+     * @param {Number} opts.price 
+     * @param {String} opts.companyName 
      * @param {module:com.kodfarki.subscreasy.client/OrderResourceApi~createOrderUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:com.kodfarki.subscreasy.client.model/Order}
      */
@@ -12218,8 +12230,11 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'order.orderItems[0].offer.trialPeriod': opts['orderOrderItems0OfferTrialPeriod'],
         'order.orderItems[0].id': opts['orderOrderItems0Id'],
         'order.orderItems[0].productCount': opts['orderOrderItems0ProductCount'],
+        'order.createdBy': opts['orderCreatedBy'],
+        'order.createdDate': opts['orderCreatedDate'],
+        'order.lastModifiedBy': opts['orderLastModifiedBy'],
+        'order.lastModifiedDate': opts['orderLastModifiedDate'],
         'order.id': opts['orderId'],
-        'order.createDate': opts['orderCreateDate'],
         'paymentCard.cardHolderName': opts['paymentCardCardHolderName'],
         'paymentCard.cardNumber': opts['paymentCardCardNumber'],
         'paymentCard.expireYear': opts['paymentCardExpireYear'],
@@ -12230,6 +12245,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'paymentCard.cardAlias': opts['paymentCardCardAlias'],
         'paymentCard.cardToken': opts['paymentCardCardToken'],
         'paymentCard.cardUserKey': opts['paymentCardCardUserKey'],
+        'price': opts['price'],
+        'companyName': opts['companyName'],
       };
       var collectionQueryParams = {
       };
@@ -15733,10 +15750,14 @@ exports.cleanHeader = function(header, shouldStripCookie){
  * User: halil
  * Date: 28.06.2018 10:54
  */
+var companyName = "browsymous";
+var remoteHost = "http://localhost:8080";
+var threedsCallbackUrl = "http://localhost:8081/success.html";
+
 var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
-defaultClient.basePath = "http://localhost:8080";
+defaultClient.basePath = remoteHost;
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -15745,9 +15766,9 @@ console.log("defaultClient.basePath: " + defaultClient.basePath);
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 // apiKey.apiKeyPrefix['Authorization'] = "Token"
 
-var companyName = "browsymous";
-
+global.remoteHost = remoteHost;
 global.companyName = companyName;
+global.callbackUrl = threedsCallbackUrl;
 global.authorization = defaultClient.authentications['apiKey'];
 
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
@@ -15755,6 +15776,7 @@ global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
 global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
 global.productResourceApi = new ApiDocumentation.ProductResourceApi();
 global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
+global.userResourceApi = new ApiDocumentation.UserResourceApi();
 
 var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
@@ -15806,21 +15828,16 @@ global.logoutFunc = logout;
 
 var formPost = function (data, callback) {
     $.ajax({
-        url: defaultClient.basePath + "/api/orders",
+        url: defaultClient.basePath + "/na/order/create/4ds",
         type: 'POST',
-        headers: {
-            'Authorization': authorizationTokenFunc()
-        },
         data: data,
         contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-        mimeType: 'application/json',
+        mimeType: 'text/html',
         success: callback,
         error: callback
     });
 };
 global.formPost = formPost;
-
-
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"api_documentation":72}],74:[function(require,module,exports){
