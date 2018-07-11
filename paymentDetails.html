@@ -29,7 +29,7 @@
 
 <body>
     <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="#">Company Name</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
@@ -39,14 +39,14 @@
                         <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
                             <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
                         </li>
-                    </ul><span class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
+                    </ul><span class="navbar-text" id="basketSpan" style="padding-left:0px;padding-right:10px;"><a href="#"><i class="fa fa-shopping-cart" style="font-size:30px;"></i></a></span><span class="navbar-text" id="profileSpan" style="padding-left:0px;padding-right:10px;"><a href="userProfile.html"><i class="fa fa-user" style="font-size:30px;"></i></a></span>
                     <span
-                        class="navbar-text" id="profileSpan"><a href="userProfile.html"><img src="assets/img/userIcon.png" width="35px" style="margin:10px;"></a></span>
+                        class="navbar-text actions" id="loginSpan"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signUp.html">Sign Up</a></span><span class="navbar-text" id="logoutSpan"><button class="btn btn-light" type="button" onclick="logout();">Logout</button></span>
                 </div>
             </div>
         </nav>
     </div>
-    <div style="background-color:rgb(241,247,252);">
+    <div style="background-color:rgb(241,247,252); padding-top: 120px;">
         <div class="container">
         <form action="javascript:createOrder()">
             <div class="row">
@@ -184,6 +184,13 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
+
+    <script type="text/javascript">
+        if (!isLoggedInFunc()) {
+            document.location.href = "login.html";
+        }
+    </script>
+
     <script>
         var orderItems = fetchOrderItems();
 
@@ -191,7 +198,7 @@
         for (i=0; i<orderItems.length; i++){
             var item = orderItems[i];
             if (item === null) continue;
-            
+
             $("#shopping-cart-items").append(
                 "<li class='list-group-item'>" +
                 "<img src='https://lorempixel.com/80/80/' class='mr-2' width='80' height='80'>" +
@@ -232,7 +239,7 @@
         function createOrder() {
             var serializedData = $('form').serialize();
             console.log("serialized:" + serializedData);
-            
+
             authorization.apiKey = authorizationTokenFunc();
 //            orderResourceApi.createOrderUsingPOST(serialized, createOrderCallback);
 
