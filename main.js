@@ -4,12 +4,13 @@
  * Date: 28.06.2018 10:54
  */
 var companyName = "browsymous";
-var host = "http://localhost:8080";
+var remoteHost = "http://localhost:8080";
+var threedsCallbackUrl = "http://localhost:8081/success.html";
 
 var ApiDocumentation = require('api_documentation');
 
 var defaultClient = ApiDocumentation.ApiClient.instance;
-defaultClient.basePath = host;
+defaultClient.basePath = remoteHost;
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
 // Configure API key authorization: apiKey
@@ -18,7 +19,9 @@ console.log("defaultClient.basePath: " + defaultClient.basePath);
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 // apiKey.apiKeyPrefix['Authorization'] = "Token"
 
+global.remoteHost = remoteHost;
 global.companyName = companyName;
+global.callbackUrl = threedsCallbackUrl;
 global.authorization = defaultClient.authentications['apiKey'];
 
 global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
@@ -77,14 +80,11 @@ global.logoutFunc = logout;
 
 var formPost = function (data, callback) {
     $.ajax({
-        url: defaultClient.basePath + "/api/orders",
+        url: defaultClient.basePath + "/na/order/create/4ds",
         type: 'POST',
-        headers: {
-            'Authorization': authorizationTokenFunc()
-        },
         data: data,
         contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-        mimeType: 'application/json',
+        mimeType: 'text/html',
         success: callback,
         error: callback
     });
