@@ -29,6 +29,7 @@ global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
 global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
 global.productResourceApi = new ApiDocumentation.ProductResourceApi();
 global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
+global.userResourceApi = new ApiDocumentation.UserResourceApi();
 
 var managedUser = function(login, password) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
