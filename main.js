@@ -7,9 +7,9 @@ var companyName = "browsymous";
 var remoteHost = "http://localhost:8080";
 var threedsCallbackUrl = "http://localhost:8081/success.html";
 
-var ApiDocumentation = require('api_documentation');
+var SubscreasyJsClient = require('subscreasy-js-client');
 
-var defaultClient = ApiDocumentation.ApiClient.instance;
+var defaultClient = SubscreasyJsClient.ApiClient.instance;
 defaultClient.basePath = remoteHost;
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
@@ -24,15 +24,15 @@ global.companyName = companyName;
 global.callbackUrl = threedsCallbackUrl;
 global.authorization = defaultClient.authentications['apiKey'];
 
-global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
-global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
-global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
-global.productResourceApi = new ApiDocumentation.ProductResourceApi();
-global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
-global.userResourceApi = new ApiDocumentation.UserResourceApi();
+global.accountResourceApi = new SubscreasyJsClient.AccountResourceApi();
+global.subsriptionResourceApi = new SubscreasyJsClient.SubsriptionResourceApi();
+global.userJwtControllerApi = new SubscreasyJsClient.UserJwtControllerApi();
+global.productResourceApi = new SubscreasyJsClient.ProductResourceApi();
+global.orderResourceApi = new SubscreasyJsClient.OrderResourceApi();
+global.userResourceApi = new SubscreasyJsClient.UserResourceApi();
 
 var managedUser = function(login, password, firstName, lastName, id, langkey) {
-    var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
+    var managedUserVM = new SubscreasyJsClient.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
     managedUserVM.firstName = firstName;
@@ -48,7 +48,7 @@ var managedUser = function(login, password, firstName, lastName, id, langkey) {
 global.managedUserFunc = managedUser;
 
 var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
-    var startSubscriptionRequest = new ApiDocumentation.StartSubscriptionRequest();
+    var startSubscriptionRequest = new SubscreasyJsClient.StartSubscriptionRequest();
     startSubscriptionRequest.subscriber = subscriber;
     startSubscriptionRequest.paymentCard = paymentCard;
     startSubscriptionRequest.offer = offer;
@@ -58,7 +58,7 @@ var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
 global.startSubscriptionRequestFunc = startSubscriptionRequest;
 
 var login = function(login, password) {
-    var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
+    var loginVM = new SubscreasyJsClient.LoginVM(); // UserDTO | managedUserVM
     loginVM.username = login;
     loginVM.password = password;
     loginVM.company = companyName;

@@ -1978,17 +1978,17 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ApiClient = factory(root.superagent, root.querystring);
+    root.SubscreasyJsClient.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';
 
   /**
    * @module ApiClient
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -2578,10 +2578,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Address = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Address = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -2592,7 +2592,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Address model module.
    * @module com.kodfarki.subscreasy.client.model/Address
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -2709,10 +2709,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Authority = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Authority = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -2723,7 +2723,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Authority model module.
    * @module com.kodfarki.subscreasy.client.model/Authority
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -2793,10 +2793,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Authorization = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Authorization = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -2807,7 +2807,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Authorization model module.
    * @module com.kodfarki.subscreasy.client.model/Authorization
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -2884,10 +2884,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./ServiceInstance'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.AuthorizedServicesResponse = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ServiceInstance);
+    root.SubscreasyJsClient.AuthorizedServicesResponse = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ServiceInstance);
   }
 }(this, function(ApiClient, ServiceInstance) {
   'use strict';
@@ -2898,7 +2898,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The AuthorizedServicesResponse model module.
    * @module com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -2967,10 +2967,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Cancellation = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Cancellation = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -2981,7 +2981,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Cancellation model module.
    * @module com.kodfarki.subscreasy.client.model/Cancellation
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3075,10 +3075,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./ChargingLog'), require('./Subsription'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ChargingLog = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Subsription);
+    root.SubscreasyJsClient.ChargingLog = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ChargingLog, root.SubscreasyJsClient.Subsription);
   }
 }(this, function(ApiClient, ChargingLog, Subsription) {
   'use strict';
@@ -3089,7 +3089,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ChargingLog model module.
    * @module com.kodfarki.subscreasy.client.model/ChargingLog
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3164,6 +3164,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('jobId')) {
         obj['jobId'] = ApiClient.convertToType(data['jobId'], 'Number');
       }
+      if (data.hasOwnProperty('orderId')) {
+        obj['orderId'] = ApiClient.convertToType(data['orderId'], 'Number');
+      }
       if (data.hasOwnProperty('parent')) {
         obj['parent'] = ChargingLog.constructFromObject(data['parent']);
       }
@@ -3190,9 +3193,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
       }
       if (data.hasOwnProperty('subscription')) {
         obj['subscription'] = Subsription.constructFromObject(data['subscription']);
-      }
-      if (data.hasOwnProperty('subscriptionId2')) {
-        obj['subscriptionId2'] = ApiClient.convertToType(data['subscriptionId2'], 'Number');
       }
       if (data.hasOwnProperty('transactionId')) {
         obj['transactionId'] = ApiClient.convertToType(data['transactionId'], 'String');
@@ -3242,6 +3242,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['jobId'] = undefined;
   /**
+   * @member {Number} orderId
+   */
+  exports.prototype['orderId'] = undefined;
+  /**
    * @member {module:com.kodfarki.subscreasy.client.model/ChargingLog} parent
    */
   exports.prototype['parent'] = undefined;
@@ -3277,10 +3281,6 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {module:com.kodfarki.subscreasy.client.model/Subsription} subscription
    */
   exports.prototype['subscription'] = undefined;
-  /**
-   * @member {Number} subscriptionId2
-   */
-  exports.prototype['subscriptionId2'] = undefined;
   /**
    * @member {String} transactionId
    */
@@ -3394,10 +3394,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Address'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Company = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address);
+    root.SubscreasyJsClient.Company = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Address);
   }
 }(this, function(ApiClient, Address) {
   'use strict';
@@ -3408,7 +3408,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Company model module.
    * @module com.kodfarki.subscreasy.client.model/Company
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3494,10 +3494,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.CompanyProps = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.CompanyProps = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -3508,7 +3508,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The CompanyProps model module.
    * @module com.kodfarki.subscreasy.client.model/CompanyProps
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3655,10 +3655,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Coupon = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.Coupon = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -3669,7 +3669,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Coupon model module.
    * @module com.kodfarki.subscreasy.client.model/Coupon
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3814,10 +3814,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Deduction = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Deduction = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -3828,7 +3828,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Deduction model module.
    * @module com.kodfarki.subscreasy.client.model/Deduction
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -3937,10 +3937,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.DeductionResult = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.DeductionResult = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -3951,7 +3951,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The DeductionResult model module.
    * @module com.kodfarki.subscreasy.client.model/DeductionResult
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4060,10 +4060,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Subsription'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.History = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Subsription);
+    root.SubscreasyJsClient.History = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Subsription);
   }
 }(this, function(ApiClient, Subsription) {
   'use strict';
@@ -4074,7 +4074,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The History model module.
    * @module com.kodfarki.subscreasy.client.model/History
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4186,10 +4186,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Invoice = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.Invoice = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -4200,7 +4200,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Invoice model module.
    * @module com.kodfarki.subscreasy.client.model/Invoice
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4325,10 +4325,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.InvoiceRequest = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.InvoiceRequest = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -4339,7 +4339,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The InvoiceRequest model module.
    * @module com.kodfarki.subscreasy.client.model/InvoiceRequest
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4424,10 +4424,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.LoginVM = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.LoginVM = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -4438,7 +4438,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The LoginVM model module.
    * @module com.kodfarki.subscreasy.client.model/LoginVM
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4533,10 +4533,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ManagedUserVM = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.ManagedUserVM = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -4547,7 +4547,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ManagedUserVM model module.
    * @module com.kodfarki.subscreasy.client.model/ManagedUserVM
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4737,10 +4737,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.MessageTemplate = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.MessageTemplate = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -4751,7 +4751,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The MessageTemplate model module.
    * @module com.kodfarki.subscreasy.client.model/MessageTemplate
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -4921,10 +4921,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'), require('./Product'), require('./RecurrencePeriod'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Offer = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Product, root.ApiDocumentation.RecurrencePeriod);
+    root.SubscreasyJsClient.Offer = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company, root.SubscreasyJsClient.Product, root.SubscreasyJsClient.RecurrencePeriod);
   }
 }(this, function(ApiClient, Company, Product, RecurrencePeriod) {
   'use strict';
@@ -4935,7 +4935,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Offer model module.
    * @module com.kodfarki.subscreasy.client.model/Offer
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5105,10 +5105,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Address'), require('./OrderItem'), require('./User'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Order = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address, root.ApiDocumentation.OrderItem, root.ApiDocumentation.User);
+    root.SubscreasyJsClient.Order = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Address, root.SubscreasyJsClient.OrderItem, root.SubscreasyJsClient.User);
   }
 }(this, function(ApiClient, Address, OrderItem, User) {
   'use strict';
@@ -5119,7 +5119,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Order model module.
    * @module com.kodfarki.subscreasy.client.model/Order
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5127,17 +5127,18 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @alias module:com.kodfarki.subscreasy.client.model/Order
    * @class
    * @param address {module:com.kodfarki.subscreasy.client.model/Address} 
-   * @param user {module:com.kodfarki.subscreasy.client.model/User} 
+   * @param buyer {module:com.kodfarki.subscreasy.client.model/User} 
+   * @param createDate {Date} 
    */
-  var exports = function(address, user) {
+  var exports = function(address, buyer, createDate) {
     var _this = this;
 
     _this['address'] = address;
+    _this['buyer'] = buyer;
+    _this['createDate'] = createDate;
 
 
 
-
-    _this['user'] = user;
   };
 
   /**
@@ -5154,20 +5155,20 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('address')) {
         obj['address'] = Address.constructFromObject(data['address']);
       }
-      if (data.hasOwnProperty('createdDate')) {
-        obj['createdDate'] = ApiClient.convertToType(data['createdDate'], 'Date');
+      if (data.hasOwnProperty('buyer')) {
+        obj['buyer'] = User.constructFromObject(data['buyer']);
+      }
+      if (data.hasOwnProperty('createDate')) {
+        obj['createDate'] = ApiClient.convertToType(data['createDate'], 'Date');
       }
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
-      if (data.hasOwnProperty('lastModifiedDate')) {
-        obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
-      }
       if (data.hasOwnProperty('orderItems')) {
         obj['orderItems'] = ApiClient.convertToType(data['orderItems'], [OrderItem]);
       }
-      if (data.hasOwnProperty('user')) {
-        obj['user'] = User.constructFromObject(data['user']);
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
     }
     return obj;
@@ -5178,25 +5179,25 @@ exports.cleanHeader = function(header, shouldStripCookie){
    */
   exports.prototype['address'] = undefined;
   /**
-   * @member {Date} createdDate
+   * @member {module:com.kodfarki.subscreasy.client.model/User} buyer
    */
-  exports.prototype['createdDate'] = undefined;
+  exports.prototype['buyer'] = undefined;
+  /**
+   * @member {Date} createDate
+   */
+  exports.prototype['createDate'] = undefined;
   /**
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {Date} lastModifiedDate
-   */
-  exports.prototype['lastModifiedDate'] = undefined;
-  /**
    * @member {Array.<module:com.kodfarki.subscreasy.client.model/OrderItem>} orderItems
    */
   exports.prototype['orderItems'] = undefined;
   /**
-   * @member {module:com.kodfarki.subscreasy.client.model/User} user
+   * @member {String} status
    */
-  exports.prototype['user'] = undefined;
+  exports.prototype['status'] = undefined;
 
 
 
@@ -5230,10 +5231,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Offer'), require('./Order'), require('./Product'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.OrderItem = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer, root.ApiDocumentation.Order, root.ApiDocumentation.Product);
+    root.SubscreasyJsClient.OrderItem = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Offer, root.SubscreasyJsClient.Order, root.SubscreasyJsClient.Product);
   }
 }(this, function(ApiClient, Offer, Order, Product) {
   'use strict';
@@ -5244,7 +5245,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The OrderItem model module.
    * @module com.kodfarki.subscreasy.client.model/OrderItem
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5345,10 +5346,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.PaymentCard = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.PaymentCard = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -5359,7 +5360,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The PaymentCard model module.
    * @module com.kodfarki.subscreasy.client.model/PaymentCard
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5500,10 +5501,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'), require('./Offer'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Product = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Offer);
+    root.SubscreasyJsClient.Product = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company, root.SubscreasyJsClient.Offer);
   }
 }(this, function(ApiClient, Company, Offer) {
   'use strict';
@@ -5514,7 +5515,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Product model module.
    * @module com.kodfarki.subscreasy.client.model/Product
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5530,6 +5531,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
 
     _this['company'] = company;
     _this['description'] = description;
+
 
     _this['name'] = name;
 
@@ -5556,6 +5558,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'Number');
       }
+      if (data.hasOwnProperty('imagePath')) {
+        obj['imagePath'] = ApiClient.convertToType(data['imagePath'], 'String');
+      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
@@ -5581,6 +5586,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {String} imagePath
+   */
+  exports.prototype['imagePath'] = undefined;
   /**
    * @member {String} name
    */
@@ -5643,10 +5652,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ProfileInfoVM = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.ProfileInfoVM = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -5657,7 +5666,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ProfileInfoVM model module.
    * @module com.kodfarki.subscreasy.client.model/ProfileInfoVM
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5734,10 +5743,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.RecurrencePeriod = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.RecurrencePeriod = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -5748,7 +5757,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The RecurrencePeriod model module.
    * @module com.kodfarki.subscreasy.client.model/RecurrencePeriod
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -5877,10 +5886,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ResponseEntity = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.ResponseEntity = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -5891,7 +5900,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ResponseEntity model module.
    * @module com.kodfarki.subscreasy.client.model/ResponseEntity
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -6303,10 +6312,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.SavedCard = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.SavedCard = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -6317,7 +6326,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The SavedCard model module.
    * @module com.kodfarki.subscreasy.client.model/SavedCard
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -6458,10 +6467,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Service = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.Service = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -6472,7 +6481,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Service model module.
    * @module com.kodfarki.subscreasy.client.model/Service
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -6590,10 +6599,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Offer'), require('./ServiceOffering'), require('./Subsription'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceInstance = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer, root.ApiDocumentation.ServiceOffering, root.ApiDocumentation.Subsription);
+    root.SubscreasyJsClient.ServiceInstance = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Offer, root.SubscreasyJsClient.ServiceOffering, root.SubscreasyJsClient.Subsription);
   }
 }(this, function(ApiClient, Offer, ServiceOffering, Subsription) {
   'use strict';
@@ -6604,7 +6613,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ServiceInstance model module.
    * @module com.kodfarki.subscreasy.client.model/ServiceInstance
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -6902,10 +6911,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceInstanceResult = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.ServiceInstanceResult = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -6916,7 +6925,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ServiceInstanceResult model module.
    * @module com.kodfarki.subscreasy.client.model/ServiceInstanceResult
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7033,10 +7042,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'), require('./Offer'), require('./Service'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceOffering = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Offer, root.ApiDocumentation.Service);
+    root.SubscreasyJsClient.ServiceOffering = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company, root.SubscreasyJsClient.Offer, root.SubscreasyJsClient.Service);
   }
 }(this, function(ApiClient, Company, Offer, Service) {
   'use strict';
@@ -7047,7 +7056,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ServiceOffering model module.
    * @module com.kodfarki.subscreasy.client.model/ServiceOffering
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7190,10 +7199,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceOfferingResult = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.ServiceOfferingResult = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -7204,7 +7213,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The ServiceOfferingResult model module.
    * @module com.kodfarki.subscreasy.client.model/ServiceOfferingResult
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7321,10 +7330,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Offer'), require('./PaymentCard'), require('./Subscriber'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.StartSubscriptionRequest = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer, root.ApiDocumentation.PaymentCard, root.ApiDocumentation.Subscriber);
+    root.SubscreasyJsClient.StartSubscriptionRequest = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Offer, root.SubscreasyJsClient.PaymentCard, root.SubscreasyJsClient.Subscriber);
   }
 }(this, function(ApiClient, Offer, PaymentCard, Subscriber) {
   'use strict';
@@ -7335,7 +7344,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The StartSubscriptionRequest model module.
    * @module com.kodfarki.subscreasy.client.model/StartSubscriptionRequest
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7452,10 +7461,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./ChargingLog'), require('./Subsription'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.StartSubscriptionResult = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Subsription);
+    root.SubscreasyJsClient.StartSubscriptionResult = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ChargingLog, root.SubscreasyJsClient.Subsription);
   }
 }(this, function(ApiClient, ChargingLog, Subsription) {
   'use strict';
@@ -7466,7 +7475,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The StartSubscriptionResult model module.
    * @module com.kodfarki.subscreasy.client.model/StartSubscriptionResult
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7543,10 +7552,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Address'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Subscriber = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.Subscriber = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Address, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Address, Company) {
   'use strict';
@@ -7557,7 +7566,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Subscriber model module.
    * @module com.kodfarki.subscreasy.client.model/Subscriber
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -7826,10 +7835,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'), require('./Coupon'), require('./Offer'), require('./SavedCard'), require('./ServiceInstance'), require('./Subscriber'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.Subsription = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company, root.ApiDocumentation.Coupon, root.ApiDocumentation.Offer, root.ApiDocumentation.SavedCard, root.ApiDocumentation.ServiceInstance, root.ApiDocumentation.Subscriber);
+    root.SubscreasyJsClient.Subsription = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company, root.SubscreasyJsClient.Coupon, root.SubscreasyJsClient.Offer, root.SubscreasyJsClient.SavedCard, root.SubscreasyJsClient.ServiceInstance, root.SubscreasyJsClient.Subscriber);
   }
 }(this, function(ApiClient, Company, Coupon, Offer, SavedCard, ServiceInstance, Subscriber) {
   'use strict';
@@ -7840,7 +7849,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The Subsription model module.
    * @module com.kodfarki.subscreasy.client.model/Subsription
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8047,10 +8056,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.UsageNotification = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.UsageNotification = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -8061,7 +8070,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The UsageNotification model module.
    * @module com.kodfarki.subscreasy.client.model/UsageNotification
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8130,10 +8139,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Address'), require('./Authority'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.User = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Address, root.ApiDocumentation.Authority, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.User = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Address, root.SubscreasyJsClient.Authority, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Address, Authority, Company) {
   'use strict';
@@ -8144,7 +8153,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The User model module.
    * @module com.kodfarki.subscreasy.client.model/User
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8327,10 +8336,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('./Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.UserDTO = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.UserDTO = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -8341,7 +8350,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * The UserDTO model module.
    * @module com.kodfarki.subscreasy.client.model/UserDTO
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8531,10 +8540,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ResponseEntity'), require('../com.kodfarki.subscreasy.client.model/UserDTO'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.AccountResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ResponseEntity, root.ApiDocumentation.UserDTO);
+    root.SubscreasyJsClient.AccountResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ResponseEntity, root.SubscreasyJsClient.UserDTO);
   }
 }(this, function(ApiClient, ResponseEntity, UserDTO) {
   'use strict';
@@ -8542,7 +8551,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * AccountResource service.
    * @module com.kodfarki.subscreasy.client/AccountResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8671,10 +8680,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.AnalyticsResourceApi = factory(root.ApiDocumentation.ApiClient);
+    root.SubscreasyJsClient.AnalyticsResourceApi = factory(root.SubscreasyJsClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -8682,7 +8691,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * AnalyticsResource service.
    * @module com.kodfarki.subscreasy.client/AnalyticsResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -8765,10 +8774,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ChargingLog'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ChargingLogResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ChargingLog);
+    root.SubscreasyJsClient.ChargingLogResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ChargingLog);
   }
 }(this, function(ApiClient, ChargingLog) {
   'use strict';
@@ -8776,7 +8785,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ChargingLogResource service.
    * @module com.kodfarki.subscreasy.client/ChargingLogResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -9102,10 +9111,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/CompanyProps'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.CompanyPropsResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.CompanyProps);
+    root.SubscreasyJsClient.CompanyPropsResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.CompanyProps);
   }
 }(this, function(ApiClient, CompanyProps) {
   'use strict';
@@ -9113,7 +9122,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * CompanyPropsResource service.
    * @module com.kodfarki.subscreasy.client/CompanyPropsResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -9381,10 +9390,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Company'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.CompanyResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Company);
+    root.SubscreasyJsClient.CompanyResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Company);
   }
 }(this, function(ApiClient, Company) {
   'use strict';
@@ -9392,7 +9401,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * CompanyResource service.
    * @module com.kodfarki.subscreasy.client/CompanyResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -9660,10 +9669,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Coupon'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.CouponResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Coupon);
+    root.SubscreasyJsClient.CouponResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Coupon);
   }
 }(this, function(ApiClient, Coupon) {
   'use strict';
@@ -9671,7 +9680,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * CouponResource service.
    * @module com.kodfarki.subscreasy.client/CouponResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -9939,10 +9948,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Authorization'), require('../com.kodfarki.subscreasy.client.model/AuthorizedServicesResponse'), require('../com.kodfarki.subscreasy.client.model/ChargingLog'), require('../com.kodfarki.subscreasy.client.model/Deduction'), require('../com.kodfarki.subscreasy.client.model/DeductionResult'), require('../com.kodfarki.subscreasy.client.model/InvoiceRequest'), require('../com.kodfarki.subscreasy.client.model/MessageTemplate'), require('../com.kodfarki.subscreasy.client.model/ServiceInstanceResult'), require('../com.kodfarki.subscreasy.client.model/ServiceOfferingResult'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.EndpointsApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Authorization, root.ApiDocumentation.AuthorizedServicesResponse, root.ApiDocumentation.ChargingLog, root.ApiDocumentation.Deduction, root.ApiDocumentation.DeductionResult, root.ApiDocumentation.InvoiceRequest, root.ApiDocumentation.MessageTemplate, root.ApiDocumentation.ServiceInstanceResult, root.ApiDocumentation.ServiceOfferingResult);
+    root.SubscreasyJsClient.EndpointsApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Authorization, root.SubscreasyJsClient.AuthorizedServicesResponse, root.SubscreasyJsClient.ChargingLog, root.SubscreasyJsClient.Deduction, root.SubscreasyJsClient.DeductionResult, root.SubscreasyJsClient.InvoiceRequest, root.SubscreasyJsClient.MessageTemplate, root.SubscreasyJsClient.ServiceInstanceResult, root.SubscreasyJsClient.ServiceOfferingResult);
   }
 }(this, function(ApiClient, Authorization, AuthorizedServicesResponse, ChargingLog, Deduction, DeductionResult, InvoiceRequest, MessageTemplate, ServiceInstanceResult, ServiceOfferingResult) {
   'use strict';
@@ -9950,7 +9959,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * Endpoints service.
    * @module com.kodfarki.subscreasy.client/EndpointsApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -10460,10 +10469,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/History'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.HistoryResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.History);
+    root.SubscreasyJsClient.HistoryResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.History);
   }
 }(this, function(ApiClient, History) {
   'use strict';
@@ -10471,7 +10480,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * HistoryResource service.
    * @module com.kodfarki.subscreasy.client/HistoryResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -10739,10 +10748,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Invoice'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.InvoiceResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Invoice);
+    root.SubscreasyJsClient.InvoiceResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Invoice);
   }
 }(this, function(ApiClient, Invoice) {
   'use strict';
@@ -10750,7 +10759,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * InvoiceResource service.
    * @module com.kodfarki.subscreasy.client/InvoiceResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -11065,10 +11074,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/MessageTemplate'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.MessageTemplateResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.MessageTemplate);
+    root.SubscreasyJsClient.MessageTemplateResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.MessageTemplate);
   }
 }(this, function(ApiClient, MessageTemplate) {
   'use strict';
@@ -11076,7 +11085,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * MessageTemplateResource service.
    * @module com.kodfarki.subscreasy.client/MessageTemplateResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -11344,10 +11353,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Offer'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.OfferResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Offer);
+    root.SubscreasyJsClient.OfferResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Offer);
   }
 }(this, function(ApiClient, Offer) {
   'use strict';
@@ -11355,7 +11364,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * OfferResource service.
    * @module com.kodfarki.subscreasy.client/OfferResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -11623,10 +11632,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/OrderItem'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.OrderItemResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.OrderItem);
+    root.SubscreasyJsClient.OrderItemResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.OrderItem);
   }
 }(this, function(ApiClient, OrderItem) {
   'use strict';
@@ -11634,7 +11643,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * OrderItemResource service.
    * @module com.kodfarki.subscreasy.client/OrderItemResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -11902,10 +11911,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Order'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.OrderResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Order);
+    root.SubscreasyJsClient.OrderResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Order);
   }
 }(this, function(ApiClient, Order) {
   'use strict';
@@ -11913,7 +11922,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * OrderResource service.
    * @module com.kodfarki.subscreasy.client/OrderResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -11945,46 +11954,46 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.orderAddressCity 
      * @param {String} opts.orderAddressStateProvince 
      * @param {String} opts.orderAddressCountry 
-     * @param {Number} opts.orderUserBillingAddressId 
-     * @param {String} opts.orderUserBillingAddressName 
-     * @param {String} opts.orderUserBillingAddressStreetAddress 
-     * @param {String} opts.orderUserBillingAddressPostalCode 
-     * @param {String} opts.orderUserBillingAddressCity 
-     * @param {String} opts.orderUserBillingAddressStateProvince 
-     * @param {String} opts.orderUserBillingAddressCountry 
-     * @param {Number} opts.orderUserShippingAddressId 
-     * @param {String} opts.orderUserShippingAddressName 
-     * @param {String} opts.orderUserShippingAddressStreetAddress 
-     * @param {String} opts.orderUserShippingAddressPostalCode 
-     * @param {String} opts.orderUserShippingAddressCity 
-     * @param {String} opts.orderUserShippingAddressStateProvince 
-     * @param {String} opts.orderUserShippingAddressCountry 
-     * @param {Number} opts.orderUserCompanyAddressId 
-     * @param {String} opts.orderUserCompanyAddressName 
-     * @param {String} opts.orderUserCompanyAddressStreetAddress 
-     * @param {String} opts.orderUserCompanyAddressPostalCode 
-     * @param {String} opts.orderUserCompanyAddressCity 
-     * @param {String} opts.orderUserCompanyAddressStateProvince 
-     * @param {String} opts.orderUserCompanyAddressCountry 
-     * @param {Number} opts.orderUserCompanyId 
-     * @param {String} opts.orderUserCompanyName 
-     * @param {String} opts.orderUserAuthorities0Name 
-     * @param {String} opts.orderUserCreatedBy 
-     * @param {Date} opts.orderUserCreatedDate 
-     * @param {String} opts.orderUserLastModifiedBy 
-     * @param {Date} opts.orderUserLastModifiedDate 
-     * @param {Number} opts.orderUserId 
-     * @param {String} opts.orderUserLogin 
-     * @param {String} opts.orderUserPassword 
-     * @param {String} opts.orderUserFirstName 
-     * @param {String} opts.orderUserLastName 
-     * @param {String} opts.orderUserEmail 
-     * @param {Boolean} opts.orderUserActivated 
-     * @param {String} opts.orderUserLangKey 
-     * @param {String} opts.orderUserImageUrl 
-     * @param {String} opts.orderUserActivationKey 
-     * @param {String} opts.orderUserResetKey 
-     * @param {Date} opts.orderUserResetDate 
+     * @param {Number} opts.orderBuyerBillingAddressId 
+     * @param {String} opts.orderBuyerBillingAddressName 
+     * @param {String} opts.orderBuyerBillingAddressStreetAddress 
+     * @param {String} opts.orderBuyerBillingAddressPostalCode 
+     * @param {String} opts.orderBuyerBillingAddressCity 
+     * @param {String} opts.orderBuyerBillingAddressStateProvince 
+     * @param {String} opts.orderBuyerBillingAddressCountry 
+     * @param {Number} opts.orderBuyerShippingAddressId 
+     * @param {String} opts.orderBuyerShippingAddressName 
+     * @param {String} opts.orderBuyerShippingAddressStreetAddress 
+     * @param {String} opts.orderBuyerShippingAddressPostalCode 
+     * @param {String} opts.orderBuyerShippingAddressCity 
+     * @param {String} opts.orderBuyerShippingAddressStateProvince 
+     * @param {String} opts.orderBuyerShippingAddressCountry 
+     * @param {Number} opts.orderBuyerCompanyAddressId 
+     * @param {String} opts.orderBuyerCompanyAddressName 
+     * @param {String} opts.orderBuyerCompanyAddressStreetAddress 
+     * @param {String} opts.orderBuyerCompanyAddressPostalCode 
+     * @param {String} opts.orderBuyerCompanyAddressCity 
+     * @param {String} opts.orderBuyerCompanyAddressStateProvince 
+     * @param {String} opts.orderBuyerCompanyAddressCountry 
+     * @param {Number} opts.orderBuyerCompanyId 
+     * @param {String} opts.orderBuyerCompanyName 
+     * @param {String} opts.orderBuyerAuthorities0Name 
+     * @param {String} opts.orderBuyerCreatedBy 
+     * @param {Date} opts.orderBuyerCreatedDate 
+     * @param {String} opts.orderBuyerLastModifiedBy 
+     * @param {Date} opts.orderBuyerLastModifiedDate 
+     * @param {Number} opts.orderBuyerId 
+     * @param {String} opts.orderBuyerLogin 
+     * @param {String} opts.orderBuyerPassword 
+     * @param {String} opts.orderBuyerFirstName 
+     * @param {String} opts.orderBuyerLastName 
+     * @param {String} opts.orderBuyerEmail 
+     * @param {Boolean} opts.orderBuyerActivated 
+     * @param {String} opts.orderBuyerLangKey 
+     * @param {String} opts.orderBuyerImageUrl 
+     * @param {String} opts.orderBuyerActivationKey 
+     * @param {String} opts.orderBuyerResetKey 
+     * @param {Date} opts.orderBuyerResetDate 
      * @param {Number} opts.orderOrderItems0ProductCompanyAddressId 
      * @param {String} opts.orderOrderItems0ProductCompanyAddressName 
      * @param {String} opts.orderOrderItems0ProductCompanyAddressStreetAddress 
@@ -12016,6 +12025,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.orderOrderItems0ProductId 
      * @param {String} opts.orderOrderItems0ProductName 
      * @param {String} opts.orderOrderItems0ProductDescription 
+     * @param {String} opts.orderOrderItems0ProductImagePath 
      * @param {module:com.kodfarki.subscreasy.client.model/String} opts.orderOrderItems0ProductProductType 
      * @param {Number} opts.orderOrderItems0OfferRecurrenceId 
      * @param {module:com.kodfarki.subscreasy.client.model/String} opts.orderOrderItems0OfferRecurrenceRecurrenceType 
@@ -12051,6 +12061,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.orderOrderItems0OfferProductId 
      * @param {String} opts.orderOrderItems0OfferProductName 
      * @param {String} opts.orderOrderItems0OfferProductDescription 
+     * @param {String} opts.orderOrderItems0OfferProductImagePath 
      * @param {module:com.kodfarki.subscreasy.client.model/String} opts.orderOrderItems0OfferProductProductType 
      * @param {Number} opts.orderOrderItems0OfferCompanyAddressId 
      * @param {String} opts.orderOrderItems0OfferCompanyAddressName 
@@ -12070,11 +12081,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {Number} opts.orderOrderItems0OfferTrialPeriod 
      * @param {Number} opts.orderOrderItems0Id 
      * @param {Number} opts.orderOrderItems0ProductCount 
-     * @param {String} opts.orderCreatedBy 
-     * @param {Date} opts.orderCreatedDate 
-     * @param {String} opts.orderLastModifiedBy 
-     * @param {Date} opts.orderLastModifiedDate 
      * @param {Number} opts.orderId 
+     * @param {Date} opts.orderCreateDate 
+     * @param {String} opts.orderStatus 
      * @param {String} opts.paymentCardCardHolderName 
      * @param {String} opts.paymentCardCardNumber 
      * @param {String} opts.paymentCardExpireYear 
@@ -12087,6 +12096,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
      * @param {String} opts.paymentCardCardUserKey 
      * @param {Number} opts.price 
      * @param {String} opts.companyName 
+     * @param {String} opts.callbackUrl 
      * @param {module:com.kodfarki.subscreasy.client/OrderResourceApi~createOrderUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:com.kodfarki.subscreasy.client.model/Order}
      */
@@ -12105,46 +12115,46 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'order.address.city': opts['orderAddressCity'],
         'order.address.stateProvince': opts['orderAddressStateProvince'],
         'order.address.country': opts['orderAddressCountry'],
-        'order.user.billingAddress.id': opts['orderUserBillingAddressId'],
-        'order.user.billingAddress.name': opts['orderUserBillingAddressName'],
-        'order.user.billingAddress.streetAddress': opts['orderUserBillingAddressStreetAddress'],
-        'order.user.billingAddress.postalCode': opts['orderUserBillingAddressPostalCode'],
-        'order.user.billingAddress.city': opts['orderUserBillingAddressCity'],
-        'order.user.billingAddress.stateProvince': opts['orderUserBillingAddressStateProvince'],
-        'order.user.billingAddress.country': opts['orderUserBillingAddressCountry'],
-        'order.user.shippingAddress.id': opts['orderUserShippingAddressId'],
-        'order.user.shippingAddress.name': opts['orderUserShippingAddressName'],
-        'order.user.shippingAddress.streetAddress': opts['orderUserShippingAddressStreetAddress'],
-        'order.user.shippingAddress.postalCode': opts['orderUserShippingAddressPostalCode'],
-        'order.user.shippingAddress.city': opts['orderUserShippingAddressCity'],
-        'order.user.shippingAddress.stateProvince': opts['orderUserShippingAddressStateProvince'],
-        'order.user.shippingAddress.country': opts['orderUserShippingAddressCountry'],
-        'order.user.company.address.id': opts['orderUserCompanyAddressId'],
-        'order.user.company.address.name': opts['orderUserCompanyAddressName'],
-        'order.user.company.address.streetAddress': opts['orderUserCompanyAddressStreetAddress'],
-        'order.user.company.address.postalCode': opts['orderUserCompanyAddressPostalCode'],
-        'order.user.company.address.city': opts['orderUserCompanyAddressCity'],
-        'order.user.company.address.stateProvince': opts['orderUserCompanyAddressStateProvince'],
-        'order.user.company.address.country': opts['orderUserCompanyAddressCountry'],
-        'order.user.company.id': opts['orderUserCompanyId'],
-        'order.user.company.name': opts['orderUserCompanyName'],
-        'order.user.authorities[0].name': opts['orderUserAuthorities0Name'],
-        'order.user.createdBy': opts['orderUserCreatedBy'],
-        'order.user.createdDate': opts['orderUserCreatedDate'],
-        'order.user.lastModifiedBy': opts['orderUserLastModifiedBy'],
-        'order.user.lastModifiedDate': opts['orderUserLastModifiedDate'],
-        'order.user.id': opts['orderUserId'],
-        'order.user.login': opts['orderUserLogin'],
-        'order.user.password': opts['orderUserPassword'],
-        'order.user.firstName': opts['orderUserFirstName'],
-        'order.user.lastName': opts['orderUserLastName'],
-        'order.user.email': opts['orderUserEmail'],
-        'order.user.activated': opts['orderUserActivated'],
-        'order.user.langKey': opts['orderUserLangKey'],
-        'order.user.imageUrl': opts['orderUserImageUrl'],
-        'order.user.activationKey': opts['orderUserActivationKey'],
-        'order.user.resetKey': opts['orderUserResetKey'],
-        'order.user.resetDate': opts['orderUserResetDate'],
+        'order.buyer.billingAddress.id': opts['orderBuyerBillingAddressId'],
+        'order.buyer.billingAddress.name': opts['orderBuyerBillingAddressName'],
+        'order.buyer.billingAddress.streetAddress': opts['orderBuyerBillingAddressStreetAddress'],
+        'order.buyer.billingAddress.postalCode': opts['orderBuyerBillingAddressPostalCode'],
+        'order.buyer.billingAddress.city': opts['orderBuyerBillingAddressCity'],
+        'order.buyer.billingAddress.stateProvince': opts['orderBuyerBillingAddressStateProvince'],
+        'order.buyer.billingAddress.country': opts['orderBuyerBillingAddressCountry'],
+        'order.buyer.shippingAddress.id': opts['orderBuyerShippingAddressId'],
+        'order.buyer.shippingAddress.name': opts['orderBuyerShippingAddressName'],
+        'order.buyer.shippingAddress.streetAddress': opts['orderBuyerShippingAddressStreetAddress'],
+        'order.buyer.shippingAddress.postalCode': opts['orderBuyerShippingAddressPostalCode'],
+        'order.buyer.shippingAddress.city': opts['orderBuyerShippingAddressCity'],
+        'order.buyer.shippingAddress.stateProvince': opts['orderBuyerShippingAddressStateProvince'],
+        'order.buyer.shippingAddress.country': opts['orderBuyerShippingAddressCountry'],
+        'order.buyer.company.address.id': opts['orderBuyerCompanyAddressId'],
+        'order.buyer.company.address.name': opts['orderBuyerCompanyAddressName'],
+        'order.buyer.company.address.streetAddress': opts['orderBuyerCompanyAddressStreetAddress'],
+        'order.buyer.company.address.postalCode': opts['orderBuyerCompanyAddressPostalCode'],
+        'order.buyer.company.address.city': opts['orderBuyerCompanyAddressCity'],
+        'order.buyer.company.address.stateProvince': opts['orderBuyerCompanyAddressStateProvince'],
+        'order.buyer.company.address.country': opts['orderBuyerCompanyAddressCountry'],
+        'order.buyer.company.id': opts['orderBuyerCompanyId'],
+        'order.buyer.company.name': opts['orderBuyerCompanyName'],
+        'order.buyer.authorities[0].name': opts['orderBuyerAuthorities0Name'],
+        'order.buyer.createdBy': opts['orderBuyerCreatedBy'],
+        'order.buyer.createdDate': opts['orderBuyerCreatedDate'],
+        'order.buyer.lastModifiedBy': opts['orderBuyerLastModifiedBy'],
+        'order.buyer.lastModifiedDate': opts['orderBuyerLastModifiedDate'],
+        'order.buyer.id': opts['orderBuyerId'],
+        'order.buyer.login': opts['orderBuyerLogin'],
+        'order.buyer.password': opts['orderBuyerPassword'],
+        'order.buyer.firstName': opts['orderBuyerFirstName'],
+        'order.buyer.lastName': opts['orderBuyerLastName'],
+        'order.buyer.email': opts['orderBuyerEmail'],
+        'order.buyer.activated': opts['orderBuyerActivated'],
+        'order.buyer.langKey': opts['orderBuyerLangKey'],
+        'order.buyer.imageUrl': opts['orderBuyerImageUrl'],
+        'order.buyer.activationKey': opts['orderBuyerActivationKey'],
+        'order.buyer.resetKey': opts['orderBuyerResetKey'],
+        'order.buyer.resetDate': opts['orderBuyerResetDate'],
         'order.orderItems[0].product.company.address.id': opts['orderOrderItems0ProductCompanyAddressId'],
         'order.orderItems[0].product.company.address.name': opts['orderOrderItems0ProductCompanyAddressName'],
         'order.orderItems[0].product.company.address.streetAddress': opts['orderOrderItems0ProductCompanyAddressStreetAddress'],
@@ -12176,6 +12186,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'order.orderItems[0].product.id': opts['orderOrderItems0ProductId'],
         'order.orderItems[0].product.name': opts['orderOrderItems0ProductName'],
         'order.orderItems[0].product.description': opts['orderOrderItems0ProductDescription'],
+        'order.orderItems[0].product.imagePath': opts['orderOrderItems0ProductImagePath'],
         'order.orderItems[0].product.productType': opts['orderOrderItems0ProductProductType'],
         'order.orderItems[0].offer.recurrence.id': opts['orderOrderItems0OfferRecurrenceId'],
         'order.orderItems[0].offer.recurrence.recurrenceType': opts['orderOrderItems0OfferRecurrenceRecurrenceType'],
@@ -12211,6 +12222,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'order.orderItems[0].offer.product.id': opts['orderOrderItems0OfferProductId'],
         'order.orderItems[0].offer.product.name': opts['orderOrderItems0OfferProductName'],
         'order.orderItems[0].offer.product.description': opts['orderOrderItems0OfferProductDescription'],
+        'order.orderItems[0].offer.product.imagePath': opts['orderOrderItems0OfferProductImagePath'],
         'order.orderItems[0].offer.product.productType': opts['orderOrderItems0OfferProductProductType'],
         'order.orderItems[0].offer.company.address.id': opts['orderOrderItems0OfferCompanyAddressId'],
         'order.orderItems[0].offer.company.address.name': opts['orderOrderItems0OfferCompanyAddressName'],
@@ -12230,11 +12242,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'order.orderItems[0].offer.trialPeriod': opts['orderOrderItems0OfferTrialPeriod'],
         'order.orderItems[0].id': opts['orderOrderItems0Id'],
         'order.orderItems[0].productCount': opts['orderOrderItems0ProductCount'],
-        'order.createdBy': opts['orderCreatedBy'],
-        'order.createdDate': opts['orderCreatedDate'],
-        'order.lastModifiedBy': opts['orderLastModifiedBy'],
-        'order.lastModifiedDate': opts['orderLastModifiedDate'],
         'order.id': opts['orderId'],
+        'order.createDate': opts['orderCreateDate'],
+        'order.status': opts['orderStatus'],
         'paymentCard.cardHolderName': opts['paymentCardCardHolderName'],
         'paymentCard.cardNumber': opts['paymentCardCardNumber'],
         'paymentCard.expireYear': opts['paymentCardExpireYear'],
@@ -12247,6 +12257,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
         'paymentCard.cardUserKey': opts['paymentCardCardUserKey'],
         'price': opts['price'],
         'companyName': opts['companyName'],
+        'callbackUrl': opts['callbackUrl'],
       };
       var collectionQueryParams = {
       };
@@ -12429,10 +12440,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Product'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ProductResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Product);
+    root.SubscreasyJsClient.ProductResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Product);
   }
 }(this, function(ApiClient, Product) {
   'use strict';
@@ -12440,7 +12451,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ProductResource service.
    * @module com.kodfarki.subscreasy.client/ProductResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -12733,6 +12744,67 @@ exports.cleanHeader = function(header, shouldStripCookie){
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the uploadFileUsingPOST operation.
+     * @callback module:com.kodfarki.subscreasy.client/ProductResourceApi~uploadFileUsingPOSTCallback
+     * @param {String} error Error message, if any.
+     * @param {'String'} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * uploadFile
+     * @param {File} file file
+     * @param {String} companyId companyId
+     * @param {String} productId productId
+     * @param {module:com.kodfarki.subscreasy.client/ProductResourceApi~uploadFileUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link 'String'}
+     */
+    this.uploadFileUsingPOST = function(file, companyId, productId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'file' is set
+      if (file === undefined || file === null) {
+        throw new Error("Missing the required parameter 'file' when calling uploadFileUsingPOST");
+      }
+
+      // verify the required parameter 'companyId' is set
+      if (companyId === undefined || companyId === null) {
+        throw new Error("Missing the required parameter 'companyId' when calling uploadFileUsingPOST");
+      }
+
+      // verify the required parameter 'productId' is set
+      if (productId === undefined || productId === null) {
+        throw new Error("Missing the required parameter 'productId' when calling uploadFileUsingPOST");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'file': file,
+        'companyId': companyId,
+        'productId': productId
+      };
+
+      var authNames = ['apiKey'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['*/*'];
+      var returnType = 'String';
+
+      return this.apiClient.callApi(
+        '/api/products/uploadFile', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;
@@ -12763,10 +12835,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ProfileInfoVM'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ProfileInfoResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ProfileInfoVM);
+    root.SubscreasyJsClient.ProfileInfoResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ProfileInfoVM);
   }
 }(this, function(ApiClient, ProfileInfoVM) {
   'use strict';
@@ -12774,7 +12846,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ProfileInfoResource service.
    * @module com.kodfarki.subscreasy.client/ProfileInfoResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -12857,10 +12929,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/SavedCard'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.SavedCardResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.SavedCard);
+    root.SubscreasyJsClient.SavedCardResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.SavedCard);
   }
 }(this, function(ApiClient, SavedCard) {
   'use strict';
@@ -12868,7 +12940,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * SavedCardResource service.
    * @module com.kodfarki.subscreasy.client/SavedCardResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -13136,10 +13208,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ServiceInstance'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceInstanceResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ServiceInstance);
+    root.SubscreasyJsClient.ServiceInstanceResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ServiceInstance);
   }
 }(this, function(ApiClient, ServiceInstance) {
   'use strict';
@@ -13147,7 +13219,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ServiceInstanceResource service.
    * @module com.kodfarki.subscreasy.client/ServiceInstanceResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -13415,10 +13487,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ServiceOffering'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceOfferingResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ServiceOffering);
+    root.SubscreasyJsClient.ServiceOfferingResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ServiceOffering);
   }
 }(this, function(ApiClient, ServiceOffering) {
   'use strict';
@@ -13426,7 +13498,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ServiceOfferingResource service.
    * @module com.kodfarki.subscreasy.client/ServiceOfferingResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -13694,10 +13766,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Service'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.ServiceResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Service);
+    root.SubscreasyJsClient.ServiceResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Service);
   }
 }(this, function(ApiClient, Service) {
   'use strict';
@@ -13705,7 +13777,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * ServiceResource service.
    * @module com.kodfarki.subscreasy.client/ServiceResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -13973,10 +14045,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Subscriber'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.SubscriberResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Subscriber);
+    root.SubscreasyJsClient.SubscriberResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Subscriber);
   }
 }(this, function(ApiClient, Subscriber) {
   'use strict';
@@ -13984,7 +14056,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * SubscriberResource service.
    * @module com.kodfarki.subscreasy.client/SubscriberResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -14393,10 +14465,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/Cancellation'), require('../com.kodfarki.subscreasy.client.model/StartSubscriptionRequest'), require('../com.kodfarki.subscreasy.client.model/StartSubscriptionResult'), require('../com.kodfarki.subscreasy.client.model/Subsription'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.SubsriptionResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.Cancellation, root.ApiDocumentation.StartSubscriptionRequest, root.ApiDocumentation.StartSubscriptionResult, root.ApiDocumentation.Subsription);
+    root.SubscreasyJsClient.SubsriptionResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.Cancellation, root.SubscreasyJsClient.StartSubscriptionRequest, root.SubscreasyJsClient.StartSubscriptionResult, root.SubscreasyJsClient.Subsription);
   }
 }(this, function(ApiClient, Cancellation, StartSubscriptionRequest, StartSubscriptionResult, Subsription) {
   'use strict';
@@ -14404,7 +14476,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * SubsriptionResource service.
    * @module com.kodfarki.subscreasy.client/SubsriptionResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -14680,10 +14752,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/UsageNotification'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.UsageNotificationResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.UsageNotification);
+    root.SubscreasyJsClient.UsageNotificationResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.UsageNotification);
   }
 }(this, function(ApiClient, UsageNotification) {
   'use strict';
@@ -14691,7 +14763,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * UsageNotificationResource service.
    * @module com.kodfarki.subscreasy.client/UsageNotificationResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -14959,10 +15031,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/LoginVM'), require('../com.kodfarki.subscreasy.client.model/ResponseEntity'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.UserJwtControllerApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.LoginVM, root.ApiDocumentation.ResponseEntity);
+    root.SubscreasyJsClient.UserJwtControllerApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.LoginVM, root.SubscreasyJsClient.ResponseEntity);
   }
 }(this, function(ApiClient, LoginVM, ResponseEntity) {
   'use strict';
@@ -14970,7 +15042,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * UserJwtController service.
    * @module com.kodfarki.subscreasy.client/UserJwtControllerApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -15059,10 +15131,10 @@ exports.cleanHeader = function(header, shouldStripCookie){
     module.exports = factory(require('../ApiClient'), require('../com.kodfarki.subscreasy.client.model/ManagedUserVM'), require('../com.kodfarki.subscreasy.client.model/ResponseEntity'), require('../com.kodfarki.subscreasy.client.model/User'));
   } else {
     // Browser globals (root is window)
-    if (!root.ApiDocumentation) {
-      root.ApiDocumentation = {};
+    if (!root.SubscreasyJsClient) {
+      root.SubscreasyJsClient = {};
     }
-    root.ApiDocumentation.UserResourceApi = factory(root.ApiDocumentation.ApiClient, root.ApiDocumentation.ManagedUserVM, root.ApiDocumentation.ResponseEntity, root.ApiDocumentation.User);
+    root.SubscreasyJsClient.UserResourceApi = factory(root.SubscreasyJsClient.ApiClient, root.SubscreasyJsClient.ManagedUserVM, root.SubscreasyJsClient.ResponseEntity, root.SubscreasyJsClient.User);
   }
 }(this, function(ApiClient, ManagedUserVM, ResponseEntity, User) {
   'use strict';
@@ -15070,7 +15142,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
   /**
    * UserResource service.
    * @module com.kodfarki.subscreasy.client/UserResourceApi
-   * @version 1.0
+   * @version 1.0.0
    */
 
   /**
@@ -15397,9 +15469,9 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var ApiDocumentation = require('index'); // See note below*.
-   * var xxxSvc = new ApiDocumentation.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new ApiDocumentation.Yyy(); // Construct a model instance.
+   * var SubscreasyJsClient = require('index'); // See note below*.
+   * var xxxSvc = new SubscreasyJsClient.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new SubscreasyJsClient.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -15411,8 +15483,8 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new ApiDocumentation.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new ApiDocumentation.Yyy(); // Construct a model instance.
+   * var xxxSvc = new SubscreasyJsClient.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new SubscreasyJsClient.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -15420,7 +15492,7 @@ exports.cleanHeader = function(header, shouldStripCookie){
    * </pre>
    * </p>
    * @module index
-   * @version 1.0
+   * @version 1.0.0
    */
   var exports = {
     /**
@@ -15754,9 +15826,9 @@ var companyName = "browsymous";
 var remoteHost = "http://localhost:8080";
 var threedsCallbackUrl = "http://localhost:8081/success.html";
 
-var ApiDocumentation = require('api_documentation');
+var SubscreasyJsClient = require('subscreasy-js-client');
 
-var defaultClient = ApiDocumentation.ApiClient.instance;
+var defaultClient = SubscreasyJsClient.ApiClient.instance;
 defaultClient.basePath = remoteHost;
 console.log("defaultClient.basePath: " + defaultClient.basePath);
 
@@ -15771,18 +15843,22 @@ global.companyName = companyName;
 global.callbackUrl = threedsCallbackUrl;
 global.authorization = defaultClient.authentications['apiKey'];
 
-global.accountResourceApi = new ApiDocumentation.AccountResourceApi();
-global.subsriptionResourceApi = new ApiDocumentation.SubsriptionResourceApi();
-global.userJwtControllerApi = new ApiDocumentation.UserJwtControllerApi();
-global.productResourceApi = new ApiDocumentation.ProductResourceApi();
-global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
-global.userResourceApi = new ApiDocumentation.UserResourceApi();
+global.accountResourceApi = new SubscreasyJsClient.AccountResourceApi();
+global.subsriptionResourceApi = new SubscreasyJsClient.SubsriptionResourceApi();
+global.userJwtControllerApi = new SubscreasyJsClient.UserJwtControllerApi();
+global.productResourceApi = new SubscreasyJsClient.ProductResourceApi();
+global.orderResourceApi = new SubscreasyJsClient.OrderResourceApi();
+global.userResourceApi = new SubscreasyJsClient.UserResourceApi();
 
-var managedUser = function(login, password) {
-    var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
+var managedUser = function(login, password, firstName, lastName, id, langkey) {
+    var managedUserVM = new SubscreasyJsClient.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
+    managedUserVM.firstName = firstName;
+    managedUserVM.lastName = lastName;
+    managedUserVM.langKey = langkey;
     managedUserVM.password = password;
+    managedUserVM.id = id;
     managedUserVM.company = {"name": companyName};
     managedUserVM.authorities = ["ROLE_SUBSCRIBER"];
 
@@ -15791,7 +15867,7 @@ var managedUser = function(login, password) {
 global.managedUserFunc = managedUser;
 
 var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
-    var startSubscriptionRequest = new ApiDocumentation.StartSubscriptionRequest();
+    var startSubscriptionRequest = new SubscreasyJsClient.StartSubscriptionRequest();
     startSubscriptionRequest.subscriber = subscriber;
     startSubscriptionRequest.paymentCard = paymentCard;
     startSubscriptionRequest.offer = offer;
@@ -15801,7 +15877,7 @@ var startSubscriptionRequest = function (subscriber, paymentCard, offer) {
 global.startSubscriptionRequestFunc = startSubscriptionRequest;
 
 var login = function(login, password) {
-    var loginVM = new ApiDocumentation.LoginVM(); // UserDTO | managedUserVM
+    var loginVM = new SubscreasyJsClient.LoginVM(); // UserDTO | managedUserVM
     loginVM.username = login;
     loginVM.password = password;
     loginVM.company = companyName;
@@ -15823,6 +15899,7 @@ global.authorizationTokenFunc = authorizationToken;
 
 var logout = function () {
     localStorage.removeItem("authenticationToken");
+    localStorage.removeItem("userProfile");
 };
 global.logoutFunc = logout;
 
@@ -15840,7 +15917,7 @@ var formPost = function (data, callback) {
 global.formPost = formPost;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"api_documentation":72}],74:[function(require,module,exports){
+},{"subscreasy-js-client":72}],74:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
