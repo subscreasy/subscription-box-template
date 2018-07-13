@@ -55,12 +55,15 @@
         <form>
             <div class="form-row profile-row">
                 <div class="col-md-4 relative">
-                    <div class="avatar">
-                        <div class="avatar-bg center" style="background-image:url(&quot;assets/img/user.png&quot;);"></div>
-                    </div><input type="file" class="form-control" name="avatar-file"></div>
+                    <div class="p-3 text-center">
+                        <img class="card-img-top rounded-circle" id="user-profile" src="assets/img/user.png" style="width: 120px" />
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="user-image" onchange="selectFile()" name="avatar-file">
+                        <label class="custom-file-label" for="user-image">Choose file</label>
+                    </div>
+                </div>
                 <div class="col-md-8">
-                    <h1>Profile </h1>
-                    <hr>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group"><label>Firstname </label><input class="form-control" type="text" name="firstname" autocomplete="given-name"></div>
@@ -69,18 +72,18 @@
                             <div class="form-group"><label>Lastname </label><input class="form-control" type="text" name="lastname" autocomplete="family-name"></div>
                         </div>
                     </div>
-                    <div class="form-group"><label>Email </label><input class="form-control" type="email" autocomplete="email" required="" name="email"></div>
+                    <div class="form-group"><label>Email </label><input class="form-control" type="email" autocomplete="email" required="" name="email" disabled="disabled"></div>
                     <div class="form-row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>
+                            <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off"></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group"><label>Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required=""></div>
+                            <div class="form-group"><label>Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off"></div>
                         </div>
                     </div>
                     <hr>
                     <div class="form-row">
-                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
+                        <div class="col-md-12 content-left"><button class="btn btn-primary form-btn" onclick="userUpdate();" type="button">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
                     </div>
                 </div>
             </div>
@@ -119,10 +122,58 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
-
     <script type="text/javascript">
         if (!isLoggedInFunc()) {
             document.location.href = "login.html";
+        }
+
+        console.log(authorizationTokenFunc());
+
+        var jsonData = JSON.parse(localStorage.getItem("userProfile"));
+
+        debugger;
+        $("[name='firstname']").val(jsonData.firstName);
+        $("[name='lastname']").val(jsonData.lastName);
+        $("[name='email']").val(jsonData.email);
+        $("#user-profile").attr("src", jsonData.imageUrl);
+
+        function userUpdate() {
+            authorization.apiKey = authorizationTokenFunc();
+            debugger;
+            var managedUserVM = managedUserFunc(jsonData.login, jsonData.password, $("[name='firstname']").val(), $("[name='lastname']").val(), jsonData.id, jsonData.langKey);
+            var callback = function(error, data, response) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    localStorage.setItem('userProfile', JSON.stringify(data));
+                }
+            };
+            userResourceApi.updateCurrentUserUsingPUT(managedUserVM, callback);
+        }
+
+        function selectFile() {
+            debugger;
+            authorization.apiKey = authorizationTokenFunc();
+            var selectedFiles = document.getElementById('user-image').files;
+            if (selectedFiles === undefined) {
+                return;
+            }
+            var currentFileUpload = selectedFiles[0];
+            var imageSize = currentFileUpload.size / 1024 / 1024;
+            if (imageSize > 1) {
+                return;
+            }
+            var callback = function(error, data, response) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    localStorage.setItem('userProfile', JSON.stringify(data));
+                    var imageElement = $("#user-profile");
+                    var timestamp = Number(new Date());
+                    imageElement.attr("src", data + '?timestamp=' + timestamp);
+                }
+            };
+            userResourceApi.uploadFileUsingPOST1(currentFileUpload, jsonData.company.id, jsonData.id, callback);
         }
     </script>
 </body>

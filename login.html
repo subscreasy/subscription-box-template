@@ -88,13 +88,24 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
     <script type="text/javascript">
+        var callback2 = function (error, data, response) {
+            if(error) {
+                console.log(error);
+            } else {
+                console.log('API called successfully. Returned data: ' + data);
+                localStorage.setItem('userProfile', JSON.stringify(data));
+                document.location.href = "productList.html";
+            }
+        }
+
         var callback = function(error, data, response) {
             if (error) {
                 console.error(error);
             } else {
                 console.log('API called successfully. Returned data: ' + data);
                 localStorage.setItem("authenticationToken", response.body.id_token);
-                document.location.href = "productList.html";
+                authorization.apiKey = authorizationTokenFunc();
+                userResourceApi.getUserProfileUsingGET(callback2);
             }
         };
 

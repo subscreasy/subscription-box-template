@@ -31,11 +31,15 @@ global.productResourceApi = new ApiDocumentation.ProductResourceApi();
 global.orderResourceApi = new ApiDocumentation.OrderResourceApi();
 global.userResourceApi = new ApiDocumentation.UserResourceApi();
 
-var managedUser = function(login, password) {
+var managedUser = function(login, password, firstName, lastName, id, langkey) {
     var managedUserVM = new ApiDocumentation.UserDTO(); // UserDTO | managedUserVM
     managedUserVM.login = login;
     managedUserVM.email = login;
+    managedUserVM.firstName = firstName;
+    managedUserVM.lastName = lastName;
+    managedUserVM.langKey = langkey;
     managedUserVM.password = password;
+    managedUserVM.id = id;
     managedUserVM.company = {"name": companyName};
     managedUserVM.authorities = ["ROLE_SUBSCRIBER"];
 
@@ -76,6 +80,7 @@ global.authorizationTokenFunc = authorizationToken;
 
 var logout = function () {
     localStorage.removeItem("authenticationToken");
+    localStorage.removeItem("userProfile");
 };
 global.logoutFunc = logout;
 
