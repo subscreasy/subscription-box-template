@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.css">
 
     <!-- external javascript-->
     <script src="bundle.js"></script>
     <script src="assets/js/custom.js"></script>
-
 </head>
 
 <body onload="bodyOnLoad();">
@@ -46,21 +46,19 @@
             </div>
         </nav>
     </div>
-    <div class="container profile profile-view" id="profile" style="padding-top:120px;">
-        <div class="row">
-            <div class="col-md-12 alert-col relative">
-                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
-            </div>
-        </div>
+    <div class="container profile profile-view" id="profile" style="padding-top: 70px;">
         <form>
             <div class="form-row profile-row">
                 <div class="col-md-4 relative">
                     <div class="p-3 text-center">
-                        <img class="card-img-top rounded-circle" id="user-profile" src="assets/img/user.png" style="width: 120px" />
+                        <img class="card-img-top rounded-circle" id="user-profile" src="assets/img/user.png" style="width: 120px; height: 120px;" />
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="user-image" onchange="selectFile()" name="avatar-file">
                         <label class="custom-file-label" for="user-image">Choose file</label>
+                    </div>
+                    <div class="text-center" style="padding-top: 10px;">
+                        <label id="upload-info" style="display: none;"><span id="upload-info-text"></span><span id="spinner-span" style="visibility: hidden;"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i></span></label>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -89,6 +87,7 @@
             </div>
         </form>
     </div>
+
     <div class="footer-dark">
         <footer>
             <div class="container">
@@ -122,30 +121,39 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="node_modules/toastr/build/toastr.min.js"></script>
     <script type="text/javascript">
         if (!isLoggedInFunc()) {
             document.location.href = "login.html";
         }
 
-        console.log(authorizationTokenFunc());
-
         var jsonData = JSON.parse(localStorage.getItem("userProfile"));
 
         debugger;
-        $("[name='firstname']").val(jsonData.firstName);
-        $("[name='lastname']").val(jsonData.lastName);
-        $("[name='email']").val(jsonData.email);
-        $("#user-profile").attr("src", jsonData.imageUrl);
+        if (jsonData !== null) {
+            $("[name='firstname']").val(jsonData.firstName);
+            $("[name='lastname']").val(jsonData.lastName);
+            $("[name='email']").val(jsonData.email);
+            if (jsonData.imageUrl !== null) {
+                $("#user-profile").attr("src", jsonData.imageUrl);
+            }
+        }
 
         function userUpdate() {
             authorization.apiKey = authorizationTokenFunc();
-            debugger;
             var managedUserVM = managedUserFunc(jsonData.login, jsonData.password, $("[name='firstname']").val(), $("[name='lastname']").val(), jsonData.id, jsonData.langKey);
             var callback = function(error, data, response) {
                 if (error) {
                     console.error(error);
+                    toastr.warning("Profil bilgileriniz güncellenirken hata oluştu.");
                 } else {
+                    debugger;
                     localStorage.setItem('userProfile', JSON.stringify(data));
+                    var updateData = JSON.parse(localStorage.getItem("userProfile"));
+                    $("[name='firstname']").val(updateData.firstName);
+                    $("[name='lastname']").val(updateData.lastName);
+                    $("[name='email']").val(updateData.email);
+                    toastr.success("Profil bilgileriniz güncellendi");
                 }
             };
             userResourceApi.updateCurrentUserUsingPUT(managedUserVM, callback);
@@ -155,22 +163,33 @@
             debugger;
             authorization.apiKey = authorizationTokenFunc();
             var selectedFiles = document.getElementById('user-image').files;
-            if (selectedFiles === undefined) {
+            if (selectedFiles.length === 0) {
+                $("#upload-info").css("display", "block");
+                $("#upload-info-text").text("Resim seçilmedi.");
                 return;
             }
             var currentFileUpload = selectedFiles[0];
             var imageSize = currentFileUpload.size / 1024 / 1024;
             if (imageSize > 1) {
+                $("#upload-info").css("display", "block");
+                $("#upload-info-text").text("Resim boyutu 1 MB tan büyük olamaz.");
                 return;
             }
+            $("#upload-info").css("display", "block");
+            $("#upload-info-text").text("Resim yükleniyor...");
+            $("#spinner-span").css('visibility', 'visible');
             var callback = function(error, data, response) {
                 if (error) {
                     console.error(error);
+                    $("#upload-info-text").text("Resim yükleme işlemi başarısız oldu.");
                 } else {
-                    localStorage.setItem('userProfile', JSON.stringify(data));
                     var imageElement = $("#user-profile");
                     var timestamp = Number(new Date());
+                    jsonData.imageUrl = data;
+                    localStorage.setItem('userProfile', JSON.stringify(jsonData));
                     imageElement.attr("src", data + '?timestamp=' + timestamp);
+                    $("#upload-info-text").text("Resim yüklendi.");
+                    $("#spinner-span").css('visibility', 'hidden');
                 }
             };
             userResourceApi.uploadFileUsingPOST1(currentFileUpload, jsonData.company.id, jsonData.id, callback);
